@@ -5,7 +5,7 @@ Welcome to my portfolio website! This repository contains the source code and as
 
 ## Overview
 
-- **Name:** Your Name
+- **Name:** Elvis Musisi
 - **Profession:** Graphic Designer & Front-end Web Developer
 - **Portfolio URL:** [https://elvismusisi.github.io/](https://elvismusisi.github.io/)
 
