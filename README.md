@@ -30,11 +30,7 @@ To view my portfolio locally or make contributions, follow these steps:
    ```bash
    git clone https://github.com/elvismusisi/elvismusisi.github.io.git
 
-   
-Certainly! Below is a basic template for a README file tailored to a portfolio website showcasing your professional background as a graphic designer and front-end web developer:
 
-markdown
-Copy code
 # Portfolio Website
 
 Welcome to my portfolio website! This repository contains the source code and assets for my personal portfolio, where I showcase my professional background as a graphic designer and front-end web developer.
