@@ -1,0 +1,317 @@
+
+
+.entrance-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #270d00;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #270d00;
+    border-color: #7d2c00;
+}
+
+.btn-primary:hover {
+    background-color: #7d2c00;
+    border-color: #7d2c00;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding-top: 100px;
+    overflow: -moz-hidden-unscrollable;
+    line-height: 1.6;
+}
+
+.navbar {
+    background-color: #270d00;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    font-size: 18px;
+    color: #270d00;
+    margin-right: 20px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.bg-african-brown {
+    background-color: #270d00;
+}
+
+.text-light {
+    color: #fff;
+}
+
+
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #270d00;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.bg-african-brown {
+    background-color: #270d00;
+}
+
+.text-light {
+    color:white;
+}
+
+.about-me {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 0px;
+}
+
+.contact-info {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info li {
+    margin-bottom: 10px;
+}
+
+.career-summary,
+.key-accomplishments,
+.skills,
+.notable-clients,
+.current-status,
+.seeking-opportunities,
+.education {
+    margin-top: 30px;
+}
+
+
+
+.portfolio-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.portfolio-item {
+    position: relative;
+    margin: 10px;
+    overflow: hidden;
+    border: 2px solid white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background:#270d00;
+    color: #270d00;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.portfolio-item:hover .overlay {
+    opacity: 1; 
+}
+
+.overlay h4 {
+    margin: 0;
+}
+
+.overlay p {
+    margin: 10px 0;
+}
+
+
+#about, #portfolio, #contact {
+    background-color: #270d00;
+}
+
+section {
+    background: linear-gradient(to right, #270d00, #270d00);
+}
+
+h2, h3 {
+    color: white;
+    font-size: 2.5em;
+}
+
+p {
+    color: white; 
+}
+
+section {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+
+.portfolio-item {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05); 
+    transition: transform 0.3s ease-in-out;
+}
+
+.overlay {
+    background:#270d00;
+    text-align: center;
+    padding: 10px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.overlay h4 {
+    color: white;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    color: whitesmoke;
+    font-size: 1em;
+}
+
+
+.navbar {
+    background-color:#270d00;
+    padding: 15px 0;
+}
+
+
+.navbar-nav .nav-link {
+    color: #270d00;
+    font-size: 1.2em;
+    margin-right: 30px;
+}
+
+
+.navbar-nav .nav-item.active .nav-link {
+    color: #F39C12;
+}
+
+
+.navbar-nav .nav-item.active .nav-link {
+    color: #F39C12;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+#footer0{
+background-color: white;
+height: 100px;
+}
+footer {
+    background-color:#270d00;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+}
+
+.enter-button {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 8px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #270d00;
+    color: white;
+    border: 3px solid #7d2c00;
+    border-radius: 30px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.enter-button:hover {
+    background-color: #7d2c00;
+    color: whitesmoke;
+    transform: scale(1.05);
+}
+
+
+
+.full-width-image {
+    width: 100%;
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 24px;
+}
+
+
+#about-me {
+    padding: 2px;
+}
+
+
+/* Clock Styles */
+#clock-container {
+    text-align: center;
+    
+}
+
+#clock {
+    font-size: 24px; 
+    color: white;
+}
+
+
+#african-section {
+    position: relative;
+    height: 35vh; /* 25% of the viewport height */
+    overflow: hidden;
+}
+
+#african-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%) contrast(120%);
+    margin-top: 100px;
+}
+
+
+
+
