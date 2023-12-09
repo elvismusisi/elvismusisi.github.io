@@ -30,14 +30,6 @@ body {
     line-height: 1.6;
 }
 
-#foo {
-            font-family: 'YourUniqueFont', sans-serif; /* Replace with your actual unique font */
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-@import url('https://fonts.googleapis.com/css2?family=YourUniqueFont&display=swap');
-
 .navbar {
     background-color: #270d00;
     display: flex;
