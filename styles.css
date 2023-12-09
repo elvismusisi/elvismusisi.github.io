@@ -30,8 +30,21 @@ body {
     line-height: 1.6;
 }
 
+#foo {
+            font-family: 'YourUniqueFont', sans-serif; /* Replace with your actual unique font */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+@import url('https://fonts.googleapis.com/css2?family=YourUniqueFont&display=swap');
+
 .navbar {
     background-color: #270d00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    padding: 15px 0;
 }
 
 .navbar-brand {
@@ -205,10 +218,6 @@ section {
 }
 
 
-.navbar {
-    background-color:#270d00;
-    padding: 15px 0;
-}
 
 
 .navbar-nav .nav-link {
