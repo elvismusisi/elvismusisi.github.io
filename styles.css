@@ -35,8 +35,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 160px;
-    padding: 15px 0;
 }
 
 .navbar-brand {
