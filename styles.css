@@ -1,5 +1,6 @@
 #foo {
     color: #ca9632;
+    padding: 30px;
 }
 .entrance-container {
     display: flex;
