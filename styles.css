@@ -161,7 +161,7 @@ section {
     background: linear-gradient(to right, #270d00, #270d00);
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     color: #ca9632;
     font-size: 2.5em;
 }
@@ -193,7 +193,7 @@ section {
 }
 
 .overlay h4 {
-    color: white;
+    color: #ca9632;
     font-size: 1.5em;
     margin-bottom: 10px;
 }
