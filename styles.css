@@ -1,3 +1,6 @@
+.carousel-inner .carousel-item {
+  transition-duration: 0.4s;
+}
 a {
   color: #ca9632;
 }
