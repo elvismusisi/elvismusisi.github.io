@@ -1,3 +1,7 @@
+.image-section img {
+    width: 100%;
+    height: auto;
+}
 .contact-wrapper {
         display: flex;
         flex-direction: column;
