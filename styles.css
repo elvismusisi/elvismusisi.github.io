@@ -3,10 +3,10 @@ header {
     align-items: center;
 }
 
- #boo {
-    width: 100px;
-    margin-right: 10px;
-}
+link[rel="icon"] {
+            width: 32px;
+            height: 32px; 
+        }
 .image-section img {
     width: 100%;
     height: auto;
