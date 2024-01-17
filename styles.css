@@ -1,3 +1,24 @@
+.custom-heading {
+            font-family: 'Noto Sans Ethiopic', sans-serif;
+            display: inline-block;
+        }
+
+        .second-part {
+            font-family: 'Noto Sans Ethiopic', sans-serif;
+            animation: uniqueAnimation 2s ease-in-out infinite;
+        }
+
+        @keyframes uniqueAnimation {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
 header {
     display: flex;
     align-items: center;
@@ -14,7 +35,7 @@ link[rel="icon"] {
 .contact-wrapper {
         display: flex;
         flex-direction: column;
-        width: 50%; /* Adjust the width as needed */
+        width: 50%;
     }
 
     .contact-info {
@@ -24,7 +45,7 @@ link[rel="icon"] {
 
     .contact-image {
         text-align: right;
-        margin-top: 10px; /* Adjust the margin as needed */
+        margin-top: 10px;
     }
 .carousel-inner .carousel-item {
   transition-duration: 0.4s;
