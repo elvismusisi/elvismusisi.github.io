@@ -2,8 +2,7 @@
             font-family: 'Noto Sans Ethiopic', sans-serif;
             display: inline-block;
         }
-
-        .second-part {
+ .second-part {
             font-family: 'Noto Sans Ethiopic', sans-serif;
             animation: uniqueAnimation 2s ease-in-out infinite;
         }
