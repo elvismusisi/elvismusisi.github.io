@@ -1,4 +1,23 @@
+    document.addEventListener('DOMContentLoaded', function () {
+      animateCode();
+    });
 
+    function animateCode() {
+      var codeElements = document.querySelectorAll('code');
+
+      codeElements.forEach(function (codeElement, index) {
+        var duration = 3500 + index * 500; // Unique duration for each element
+        setTimeout(function () {
+          codeElement.style.animation = 'typing 3s steps(12, end) forwards, blink-caret 0.75s step-end forwards';
+
+          setTimeout(function () {
+            codeElement.style.animation = 'none'; // Reset animation
+            codeElement.style.width = '0'; // Reset width
+            codeElement.style.borderRight = '3px solid #fff'; // Reset border
+          }, duration);
+        }, index * (duration / 2)); // Delay each element
+      });
+    }
 
 document.getElementById("enterBtn").addEventListener("click", function() {
     window.location.href = "landing.html";
