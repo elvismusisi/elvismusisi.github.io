@@ -1,3 +1,25 @@
+.contact-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-header h2 {
+            margin-left: 10px;
+        }
+
+        .contact-wrapper {
+            margin-top: 20px;
+        }
+
+        .contact-info li {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .contact-info li i {
+            margin-right: 10px;
+        }
 .section {
       padding: 50px 0;
       margin-bottom: 20px;
