@@ -1,3 +1,7 @@
+.section {
+      padding: 50px 0;
+      margin-bottom: 20px;
+    }
 code {
       font-family: 'Courier New', monospace;
       font-size: 1.5em;
