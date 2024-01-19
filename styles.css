@@ -344,7 +344,7 @@ footer {
     text-decoration: none;
     background-color: #270d00;
     color: white;
-    border: 3px solid #7d2c00;
+    border: 3px solid #ca9632;
     border-radius: 30px;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
