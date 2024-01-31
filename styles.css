@@ -1,25 +1,26 @@
-.stylish-strip {
+stylish-strip {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 10px;
-    display: flex;
-    z-index: 999;
+    height: 10px; 
+    z-index: 999; 
 }
 
 .line {
-    flex-grow: 1;
+    position: absolute;
     height: 100%;
+    background-color: #ffffff; /* White color for both lines */
 }
 
 .line1 {
-    background-color: #ffffff; /* White color for the first line */
-    /* You can add more styling to line1 here */
+    width: 50%;
+    /* add more styling to .line1 here */
 }
 
 .line2 {
-    background-color: #ffffff; /* White color for the second line */
+    width: 30%; /* Adjust the width of the second line */
+    left: 50%; /* Position the second line after the first one */
 }
 
 .lead {
