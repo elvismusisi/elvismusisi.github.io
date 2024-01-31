@@ -354,7 +354,7 @@ footer {
 
 .enter-button:hover {
     background-color: white;
-    color: #270d00;
+    color: red;
     transform: scale(1.05);
 border: 32px solid white;
 }
