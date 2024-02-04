@@ -1,3 +1,8 @@
+$(document).ready(function () {
+        setInterval(function () {
+            $('#kenya-map img').toggleClass('hidden');
+        }, 3000); // Change the interval (in milliseconds) as needed
+    });
 document.addEventListener('DOMContentLoaded', function () {
       animateCode();
     });
