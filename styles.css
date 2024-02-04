@@ -382,6 +382,8 @@ border: 32px solid white;
 /* Clock Styles */
 #clock-container {
     text-align: center;
+padding: 20px;
+            margin-bottom: 20px;
     
 }
 
