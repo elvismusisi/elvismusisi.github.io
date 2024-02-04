@@ -393,7 +393,7 @@ border: 32px solid white;
 
 #african-section {
     position: relative;
-    height: 35vh; /* 25% of the viewport height */
+    height: 55vh; /* 25% of the viewport height */
     overflow: hidden;
 }
 
