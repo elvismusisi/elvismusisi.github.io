@@ -19,6 +19,22 @@
             color: white;
         }
 
+        .circle-container {
+            display: flex;
+            justify-content: space-between;
+            width: 300px; /* Adjust the width as needed */
+        }
+
+        .circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        .green { background-color: #3cb043; }
+        .black { background-color: #000; }
+        .red { background-color: #ff1e1e; }
+
         .confetti {
             position: fixed;
             top: 0;
@@ -40,21 +56,152 @@
     </style>
 </head>
 <body>
-<div id="confettiAnimation" class="confetti" style="display: none;"></div>
-<div class="container text-center mt-5">
-    <h1>Welcome to my portfolio!</h1>
-    <p>Click the button below to continue.</p>
-    <button id="enterBtn" onclick="startConfetti()">Enter</button>
+<div style="height: 1px; background-color: #ffffff;" data-aos="fade-up"></div>
+<img src="Files/Images/homepagestrip.jpg" alt="Image decoration" data-aos="fade-up">
+<code style="color: white; padding-left: 600px;">#Design</code>
+<code style="color: white; padding-left: 600px;">#Code</code>
+</div>
+<div class="circle-container" data-aos="fade-up">
+    <!-- First Row -->
+    <div class="circle green"></div>
+    <div class="circle black"></div>
+    <div class="circle red"></div>
+
+    <!-- Second Row -->
+    <div class="circle red"></div>
+    <div class="circle green"></div>
+    <div class="circle black"></div>
+
+    <!-- Third Row -->
+    <div class="circle black"></div>
+    <div class="circle red"></div>
+    <div class="circle green"></div>
+</div>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">
+        <div id="kenya-map">
+            <img src="Files/Images/kenya-flag.jpg" alt="Kenya Map 2" class="hidden" style="height: 100px;"
+                 data-aos="fade-up">
+        </div>
+    </h2>
+</div>
+<div style="height: 1px; background-color: #3cb043;"></div>
+<div style="height: 1px; background-color: black;"></div>
+<div style="height: 1px; background-color: #ff1e1e;"></div>
+<div id="african-section" data-aos="fade-up">
+    <img id="african-image" src="Files/Images/home-image.jpg" alt="Image of African Nature">
 </div>
 
-<script>
-    function startConfetti() {
-        document.getElementById('confettiAnimation').style.display = 'block';
-        setTimeout(function () {
-            window.location.href = 'landing.html';
-        }, 3000); // Redirect after 3 seconds
-    }
-</script>
+<!-- Welcome Section -->
+
+<div class="container">
+    <div class="entrance-container">
+        <p id="clock" data-aos="fade-up"></p>
+    </div>
+    <h2 class="text-center mb-4">
+        <img src="Files/Images/kenyan-map.jpg" alt="Image decoration" style="height: 400px;" data-aos="fade-up">
+    </h2>
+</div>
+<img src="Files/Images/elvismusisi-logo.png" style="height: 400px;" data-aos="fade-up">
+<div class="circle-container">
+    <!-- First Row -->
+    <div class="circle green"></div>
+    <div class="circle black"></div>
+    <div class="circle red"></div>
+
+    <!-- Second Row -->
+    <div class="circle red"></div>
+    <div class="circle green"></div>
+    <div class="circle black"></div>
+
+    <!-- Third Row -->
+    <div class="circle black"></div>
+    <div class="circle red"></div>
+    <div class="circle green"></div>
+</div>
+<div style="height: 1px; background-color: #3cb043;"></div>
+<div style="height: 1px; background-color: black;"></div>
+<div style="height: 1px; background-color: #ff1e1e;"></div>
+<div class="text-center mb-4: margin-top: -250px;">
+    <h1 class="display-4 custom-heading" style="font-family: 'Ubuntu Cursive', cursive;" data-aos="fade-up">KARIBU
+        <span class="second-part" style="font-family:'Allura', cursive; font-size: 24px; color: white;">+<span
+                style="color: #008000;">2</span>
+    <span style="color: #ff0000;">5</span>
+    <span style="color: #000;">4</span>
+    </span>
+    </h1>
+
+    <p class="lead" data-aos="fade-up">👋 Welcome! I'm a passionate graphic designer and front-end web developer based
+        in Kenya,<p>
+    <p class="lead" data-aos="fade-up"> with a flair for creativity and a love for coding.</p>
+    <p data-aos="fade-up">Click the button below to explore.</p>
+
+    <!-- Enter Button -->
+    <button class="enter-button" id="enterBtn" data-aos="fade-up">Enter</button>
+</div>
+
+<!-- Input Name Section -->
+<div id="inputNameSection" class="container text-center" style="display: none;">
+    <h2>Please Enter Your First Name</h2>
+    <input type="text" id="inputName" class="form-control mt-3">
+    <button class="btn btn-enter mt-3" onclick="showThankYou()">Submit</button>
+</div>
+
+<!-- Thank You Section -->
+<div id="thankYouSection" class="thank-you" style="display: none;">
+    <h2 id="thankYouMessage"></h2>
+</div>
+
+<!-- Confetti Animation -->
+<div id="confettiAnimation" class="confetti" style="display: none;">
+    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/274/party-popper_1f389.png"
+         alt="Confetti">
+</div>
+
+<div class="container mt-5 text-center">
+    <div class="contact-header"><img src="Files/Images/contactImage.png" alt="Contact Image Icon"></div>
+    <h2>Connect with me:</h2>
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/elvis.musisi/" target="_blank" class="btn btn-primary me-2">
+        <i class="bi bi-facebook"></i> Facebook
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/musisi-elvis-74a5a3271/" target="_blank" class="btn btn-primary me-2">
+        <i class="bi bi-linkedin"></i> LinkedIn
+    </a>
+
+    <!-- Twitter -->
+    <a href="https://twitter.com/emusisi" target="_blank" class="btn btn-primary me-2">
+        <i class="bi bi-twitter"></i> Twitter
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://github.com/elvismusisi" target="_blank" class="btn btn-primary me-2">
+        <i class="bi bi-github"></i> GitHub
+    </a>
+
+    <!-- Gmail -->
+    <a href="mailto:emusisi90@gmail.com" class="btn btn-primary">
+        <i class="bi bi-envelope"></i> Gmail
+    </a>
+</div>
+
+<h2 class="text-center mb-4">
+    <div id="kenya-map">
+        <img src="Files/Images/dedan-kimathi.jpg" alt="Kenya Map 2" class="hidden" style="height: 200px;">
+    </div>
+</h2>
+</div>
+<div style="height: 1px; background-color: #ffffff;"></div>
+</div>
+<footer>
+    <div id="footer0">
+        <p style="color: black; padding-top: 40px;">&copy; 2023 <span style="color: #008000;">Elvis Musisi</span> <span
+                style="color: #ff0000;">Portfolio Website.</span> All Rights Reserved.</p>
+    </div>
+</footer>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -69,6 +216,29 @@
 <script src="script.js"></script>
 <script>
     AOS.init();
+
+    document.getElementById('enterBtn').addEventListener('click', function () {
+        document.getElementById('inputNameSection').style.display = 'block';
+        document.getElementById('enterBtn').style.display = 'none';
+    });
+
+    function showThankYou() {
+        var username = document.getElementById('inputName').value;
+        if (username.trim() !== '') {
+            document.getElementById('inputNameSection').style.display = 'none';
+            document.getElementById('thankYouSection').style.display = 'block';
+            document.getElementById('thankYouMessage').innerText = `Jambo ${username}! Thanks for visiting. Now, let's learn more about me!`;
+            document.getElementById('confettiAnimation').style.display = 'block'; // Show confetti animation
+
+            // Redirect to landing.html after 3 seconds
+            setTimeout(function () {
+                window.location.href = 'landing.html';
+            }, 3000);
+        } else {
+            alert('Please enter your first name.');
+        }
+    }
 </script>
+
 </body>
 </html>
