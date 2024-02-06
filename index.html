@@ -140,7 +140,7 @@
 </div>
 
 <!-- Confetti Animation -->
-<div class="container"><div id="confettiAnimation" class="confetti" style="display: none;"><img src="Files/Images/fireworks.png" alt="confetti"></div></div>
+<div class="container"><div id="confettiAnimation" class="confetti"><img src="Files/Images/fireworks.png" alt="confetti"></div></div>
 
 <div class="container mt-5 text-center">
     <div class="contact-header"><img src="Files/Images/contactImage.png" alt="Contact Image Icon"></div>
@@ -201,12 +201,11 @@
     AOS.init();
 
     function showConfetti() {
-        document.getElementById('confettiAnimation').style.display = 'block'; // Show confetti animation
+        document.getElementById('confettiAnimation').style.display = 'block';
 
-        // Redirect to landing.html after 3 seconds
         setTimeout(function () {
             window.location.href = 'landing.html';
-        }, 3000);
+        }, 1000);
     }
 </script>
 
