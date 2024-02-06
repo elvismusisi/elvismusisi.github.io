@@ -137,26 +137,11 @@
     <p data-aos="fade-up">Click the button below to explore.</p>
 
     <!-- Enter Button -->
-    <button class="enter-button" id="enterBtn" data-aos="fade-up">Enter</button>
-</div>
-
-<!-- Input Name Section -->
-<div id="inputNameSection" class="container text-center" style="display: none;">
-    <h2>Please Enter Your First Name</h2>
-    <input type="text" id="inputName" class="form-control mt-3">
-    <button class="btn btn-enter mt-3" onclick="showThankYou()">Submit</button>
-</div>
-
-<!-- Thank You Section -->
-<div id="thankYouSection" class="thank-you" style="display: none;">
-    <h2 id="thankYouMessage"></h2>
+    <button class="enter-button" id="enterBtn" data-aos="fade-up" onclick="showConfetti()">Enter</button>
 </div>
 
 <!-- Confetti Animation -->
-<div id="confettiAnimation" class="confetti" style="display: none;">
-    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/274/party-popper_1f389.png"
-         alt="Confetti">
-</div>
+<div id="confettiAnimation" class="confetti" style="display: none;"></div>
 
 <div class="container mt-5 text-center">
     <div class="contact-header"><img src="Files/Images/contactImage.png" alt="Contact Image Icon"></div>
@@ -213,30 +198,16 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="script.js"></script>
 <script>
     AOS.init();
 
-    document.getElementById('enterBtn').addEventListener('click', function () {
-        document.getElementById('inputNameSection').style.display = 'block';
-        document.getElementById('enterBtn').style.display = 'none';
-    });
+    function showConfetti() {
+        document.getElementById('confettiAnimation').style.display = 'block'; // Show confetti animation
 
-    function showThankYou() {
-        var username = document.getElementById('inputName').value;
-        if (username.trim() !== '') {
-            document.getElementById('inputNameSection').style.display = 'none';
-            document.getElementById('thankYouSection').style.display = 'block';
-            document.getElementById('thankYouMessage').innerText = `Jambo ${username}! Thanks for visiting. Now, let's learn more about me!`;
-            document.getElementById('confettiAnimation').style.display = 'block'; // Show confetti animation
-
-            // Redirect to landing.html after 3 seconds
-            setTimeout(function () {
-                window.location.href = 'landing.html';
-            }, 3000);
-        } else {
-            alert('Please enter your first name.');
-        }
+        // Redirect to landing.html after 3 seconds
+        setTimeout(function () {
+            window.location.href = 'landing.html';
+        }, 3000);
     }
 </script>
 
