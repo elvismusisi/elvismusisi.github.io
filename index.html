@@ -164,6 +164,52 @@
     <script>
   AOS.init();
 </script>
+    
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+  $('#enterBtn').click(function(){
+    explodeButton($(this));
+  });
+});
 
+function explodeButton(button) {
+  var particles = 15;
+  var width = button.outerWidth();
+  var height = button.outerHeight();
+  var colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+
+  for (var i = 0; i < particles; i++) {
+    var color = colors[Math.floor(Math.random() * colors.length)];
+    var size = Math.floor(Math.random() * 15) + 5;
+    var left = Math.floor(Math.random() * width);
+    var top = Math.floor(Math.random() * height);
+    var angle = Math.random() * 360;
+    var speed = Math.random() * 5 + 2;
+
+    var particle = $('<div>').addClass('particle').css({
+      position: 'absolute',
+      width: size + 'px',
+      height: size + 'px',
+      background: color,
+      borderRadius: '50%',
+      left: left + 'px',
+      top: top + 'px',
+      zIndex: 9999
+    });
+
+    $('body').append(particle);
+
+    particle.animate({
+      left: left + Math.cos(angle * Math.PI / 180) * 200 + 'px',
+      top: top + Math.sin(angle * Math.PI / 180) * 200 + 'px',
+      opacity: 0,
+    }, speed * 1000, function() {
+      $(this).remove();
+    });
+  }
+  button.hide();
+}
+</script>
 </body>
 </html>
