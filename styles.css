@@ -357,6 +357,7 @@ footer {
     color:  #ca9632;
     transform: scale(1.05);
 border: 32px solid white;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 
