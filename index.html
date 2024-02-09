@@ -203,7 +203,6 @@ function explodeButton(buttonId) {
       borderRadius: '50%',
       left: left + rect.left + 'px',
       top: top + rect.top + 'px',
-      zIndex: 9999
     });
 
     $('body').append(particle);
@@ -216,8 +215,6 @@ function explodeButton(buttonId) {
       $(this).remove();
     });
   }
-  button.hide();
-}
 
 explodeButton('enterBtn');
 
