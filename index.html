@@ -109,10 +109,6 @@
     
 <!-- Enter Button -->
 <a href="#landing" class="enter-button" id="enterBtn" data-aos="fade-up">Enter</a>
-        <audio id="popSound">
-  <source src="Files/pop_sound.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
     </div>
 <div class="container mt-5 text-center">
     <div class="contact-header"><img src="Files/Images/contactImage.png" alt="Contact Image Icon"></div> <h2>Connect with me:</h2>
@@ -221,18 +217,36 @@ function explodeButton(button) {
 }
 </script>
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const enterBtn = document.getElementById('enterBtn');
-  const popSound = document.getElementById('popSound');
-   popSound.volume = 0.5;
-  enterBtn.addEventListener('click', function() {
+$(document).ready(function() {
+  const popSoundUrl = 'Files/pop_sound.mp3';
+  const context = new (window.AudioContext || window.webkitAudioContext)();
+  let buffer;
+
+  // Load the audio file
+  const request = new XMLHttpRequest();
+  request.open('GET', popSoundUrl, true);
+  request.responseType = 'arraybuffer';
+
+  request.onload = function() {
+    context.decodeAudioData(request.response, function(decodedData) {
+      buffer = decodedData;
+    });
+  };
+
+  request.send();
+
+  // Function to play the audio
+  function playPopSound() {
+    const source = context.createBufferSource();
+    source.buffer = buffer;
+    source.connect(context.destination);
+    source.start(0);
+  }
+
+  // Event listener for button click
+  $('#enterBtn').click(function() {
     playPopSound();
   });
-
-  function playPopSound() {
-    popSound.currentTime = 0; // Reset audio to start
-    popSound.play(); // Play the audio
-  }
 });
 </script>
 </body>
