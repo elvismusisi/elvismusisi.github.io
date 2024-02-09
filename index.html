@@ -171,9 +171,8 @@
     <script>
   AOS.init();
 </script>
- 
 
-<script>
+    <script>
 document.addEventListener('DOMContentLoaded', function() {
   const button = document.getElementById('enterBtn');
   const popSound = document.getElementById('popSound');
@@ -182,14 +181,9 @@ document.addEventListener('DOMContentLoaded', function() {
     playPopSound();
   });
 
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-      playPopSound();
-    }
-  });
-
   function playPopSound() {
     popSound.currentTime = 0;
+    popSound.volume = 0.5;
     popSound.play();
   }
 });
