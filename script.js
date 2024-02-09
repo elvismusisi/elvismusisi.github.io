@@ -1,3 +1,16 @@
+document.addEventListener('DOMContentLoaded', function() {
+  const enterBtn = document.getElementById('enterBtn');
+  const popSound = document.getElementById('popSound');
+
+  enterBtn.addEventListener('click', function() {
+    playPopSound();
+  });
+
+  function playPopSound() {
+    popSound.currentTime = 0; // Reset audio to start
+    popSound.play(); // Play the audio
+  }
+        
 $(document).ready(function () {
         setInterval(function () {
             $('#kenya-map img').toggleClass('hidden');
