@@ -224,7 +224,7 @@ function explodeButton(button) {
 document.addEventListener('DOMContentLoaded', function() {
   const enterBtn = document.getElementById('enterBtn');
   const popSound = document.getElementById('popSound');
-
+   popSound.volume = 0.5;
   enterBtn.addEventListener('click', function() {
     playPopSound();
   });
