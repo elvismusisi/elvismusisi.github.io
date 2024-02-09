@@ -109,7 +109,6 @@
          <p data-aos="fade-up">Click the button below to explore.</p>
     
 <!-- Enter Button -->
-        <audio id="popSound" src="Files/pop_sound.mp3"></audio>
 <a href="#landing" class="enter-button" id="enterBtn" data-aos="fade-up">Enter</a>
     </div>
 <div class="container mt-5 text-center">
@@ -219,18 +218,34 @@ function explodeButton(button) {
 }
 </script>
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const enterBtn = document.getElementById('enterBtn');
-  const popSound = document.getElementById('popSound');
+$(document).ready(function() {
+  const popSoundUrl = 'Files/pop_sound.mp3';
+  const context = new (window.AudioContext || window.webkitAudioContext)();
+  let buffer;
+
+  // Load the audio file
+  const request = new XMLHttpRequest();
+  request.open('GET', popSoundUrl, true);
+  request.responseType = 'arraybuffer';
+
+  request.onload = function() {
+    context.decodeAudioData(request.response, function(decodedData) {
+      buffer = decodedData;
+    });
+  };
+
+  request.send();
 
   // Function to play the audio
   function playPopSound() {
-    popSound.currentTime = 0; // Reset audio to start
-    popSound.play(); // Play the audio
+    const source = context.createBufferSource();
+    source.buffer = buffer;
+    source.connect(context.destination);
+    source.start(0);
   }
 
   // Event listener for button click
-  enterBtn.addEventListener('click', function() {
+  $('#enterBtn').click(function() {
     playPopSound();
   });
 });
