@@ -179,11 +179,12 @@ $(document).ready(function(){
   });
 });
 
-function explodeButton(button) {
- var button = document.getElementById('enterBtn');
+function explodeButton(buttonId) {
+  var button = document.getElementById(buttonId);
   var particles = 15;
-  var width = button.outerWidth();
-  var height = button.outerHeight();
+  var rect = button.getBoundingClientRect();
+  var width = rect.width;
+  var height = rect.height;
   var colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
 
   for (var i = 0; i < particles; i++) {
@@ -200,22 +201,26 @@ function explodeButton(button) {
       height: size + 'px',
       background: color,
       borderRadius: '50%',
-      left: left + 'px',
-      top: top + 'px',
+      left: left + rect.left + 'px',
+      top: top + rect.top + 'px',
       zIndex: 9999
     });
 
     $('body').append(particle);
 
     particle.animate({
-      left: left + Math.cos(angle * Math.PI / 180) * 200 + 'px',
-      top: top + Math.sin(angle * Math.PI / 180) * 200 + 'px',
+      left: left + Math.cos(angle * Math.PI / 180) * 200 + rect.left + 'px',
+      top: top + Math.sin(angle * Math.PI / 180) * 200 + rect.top + 'px',
       opacity: 0,
     }, speed * 1000, function() {
       $(this).remove();
     });
   }
   button.hide();
+}
+
+explodeButton('enterBtn');
+
 }
 </script>
 <script>
