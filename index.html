@@ -108,7 +108,7 @@
          <p data-aos="fade-up">Click the button below to explore.</p>
     
 <!-- Enter Button -->
-<a href="#landing" class="enter-button" id="enterBtn" data-aos="fade-up">Enter</a>
+<a href="#landing" class="enter-button" id="enterBtn" data-aos="fade-up" onclick="playPopSound()>Enter</a>
         <audio id="popSound">
   <source src="Files/pop_sound.mp3.mp3" type="audio/mpeg">
 </audio>
@@ -171,22 +171,12 @@
     <script>
   AOS.init();
 </script>
-
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const button = document.getElementById('enterBtn');
+function playPopSound() {
   const popSound = document.getElementById('popSound');
-
-  button.addEventListener('click', function() {
-    playPopSound();
-  });
-
-  function playPopSound() {
-    popSound.currentTime = 0;
-    popSound.volume = 0.5;
-    popSound.play();
-  }
-});
+  popSound.currentTime = 0;
+  popSound.play();
+}
 </script>
    
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
