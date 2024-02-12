@@ -1,3 +1,17 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const homeLink = document.querySelector('.nav-link[href="index.html"]');
+    const audio = document.getElementById('audio');
+
+    homeLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        audio.play();
+
+        audio.onended = function() {
+            window.location.href = homeLink.href;
+        };
+    });
+});
+
 document.addEventListener('scroll', function() {
   let scrollTop = window.scrollY;
   let parallaxBg = document.querySelector('.parallax-bg');
