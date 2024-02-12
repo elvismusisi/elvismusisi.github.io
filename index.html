@@ -18,23 +18,22 @@
   <style> 
       .african-background {
         background: linear-gradient(45deg, #270d00, #ca9632);
-        height: 150px;
+        height: 150px; /* Adjust height as needed */
         position: relative;
         z-index: 0;
     }
     .african-pattern {
         position: absolute;
-        width: auto;
-        height: auto;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        width: 100%; 
+        height: 100%; 
         background-image: url('Files/Images/african_pattern.jpg');
+        background-size: auto 150px;
         background-repeat: repeat;
         opacity: 0.1;
         z-index: -1;
     }
+     
+    
       #enterBtn {
     cursor: pointer;
     transition: all 0.3s ease;
