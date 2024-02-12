@@ -14,7 +14,21 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-QkVDdFyCqFO9zFXdtZtRZ08caVupTwA9irRaePvgrLPMgCQaPdVy2O+V3QOJJa9DfriMJoIe5E+5Dh/YBBDFFQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <title>Elvis Musisi</title>
-  <style>  
+  <style> 
+      .african-background {
+      background: linear-gradient(45deg, #270d00, #ca9632);
+      height: 150px; /* Adjust height as needed */
+      position: relative;
+      z-index: 0;
+    }
+    .african-pattern {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url('african_pattern.jpg');
+      opacity: 0.1; /* Adjust opacity to make it subtle */
+      z-index: -1;
+    }
       #enterBtn {
     cursor: pointer;
     transition: all 0.3s ease;
@@ -60,6 +74,11 @@
     <div class="circle red"></div>
     <div class="circle green"></div>
   </div>
+    <!-- African-themed Background -->
+<div class="african-background">
+  <div class="african-pattern"></div>
+</div>
+
 <div class="container mt-5">
     <h2 class="text-center mb-4"><div id="kenya-map">
     <img src="Files/Images/kenya-flag.jpg" alt="Kenya Map 2" class="hidden" style="height: 100px;" data-aos="fade-up"> 
@@ -166,6 +185,9 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
     <script>
