@@ -1,4 +1,9 @@
-  
+document.addEventListener('scroll', function() {
+  let scrollTop = window.scrollY;
+  let parallaxBg = document.querySelector('.parallax-bg');
+  parallaxBg.style.transform = 'translateY(' + scrollTop * 0.5 + 'px)';
+});
+
 $(document).ready(function () {
         setInterval(function () {
             $('#kenya-map img').toggleClass('hidden');
