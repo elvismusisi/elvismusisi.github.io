@@ -341,6 +341,7 @@ section {
 #footer0{
 background-color: #270d00;
 height: 100px;
+  text: bold;
 }
 footer {
     background-color:#270d00;
