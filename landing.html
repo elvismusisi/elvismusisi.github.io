@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="Files/Images/elvismusisi-logo.png">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <title>Elvis Musisi</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -151,9 +153,16 @@
     <div class="row">
       <div class="col-md-12">
         <h2 class="section-title">Portfolio <i class="fas fa-briefcase"></i></h2>
-        <p>
-          I am a versatile graphic designer and web developer passionate about creating engaging visual experiences and translating ideas into interactive digital realms.Explore the fusion of art and technology in my portfolio, and let's collaborate to bring your vision to life in the dynamic digital landscape.
-        </p>
+        <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="section-title wow animate__animated animate__fadeInLeft">Portfolio <i class="fas fa-briefcase"></i></h2>
+            <p class="wow animate__animated animate__fadeInRight">
+                I am a versatile graphic designer and web developer passionate about creating engaging visual experiences and translating ideas into interactive digital realms. Explore the fusion of art and technology in my portfolio, and let's collaborate to bring your vision to life in the dynamic digital landscape.
+            </p>
+        </div>
+    </div>
+</div>
       </div>
     </div>
   </div>
@@ -251,5 +260,11 @@
     var audio = document.getElementById("audio");
     audio.volume = 0.5;
 </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
 </body>
 </html>
