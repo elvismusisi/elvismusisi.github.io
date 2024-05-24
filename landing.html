@@ -18,6 +18,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 
     <link rel="stylesheet" href="styles.css">
+      <style>
+    /* Custom CSS for animations */
+    .scroll-up-animation {
+      animation: scrollUp 1s ease-in-out;
+    }
+
+    @keyframes scrollUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
 <body>
 <!-- Navigation Bar -->
@@ -47,6 +64,9 @@
     </div>
 </nav>
 <!-- About Section -->
+     <div class="container">
+    <div class="row my-5">
+      <div class="col-12">
 <section id="about" class="section bg-african-brown text-light" data-aos="fade-up">
     <div id="about" class="full-width-image" style="background-image: url('Files/Images/landing-image.jpg');">
     </div>
@@ -79,58 +99,18 @@
   </div>
 </section>
 <img src="Files/Images/homepagestrip.jpg" alt="Image decoration">
-<!-- Notable Clients -->
-<section id="notable-clients" class="section" data-aos="fade-up">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2 class="section-title wow animate__animated animate__fadeInRight">Notable Clients <i class="fas fa-users"></i></h2>
-        <ul class="list-unstyled">
-            <li>
-            <a href="https://www.loom.com/share/aa864247dc1e461992fb494dd97315c8" target="_blank">
-              <strong>1. RK Quality Assurance Mock Website for Rama Ken:</strong>
-            </a>
-                🚀🔍 Explore a loom update for a visual exploration of a mock website I crafted for my previous employer, Rama Ken. Explore the code in my <span style="color: #ca9632;">github portfolio</span> <code>(link in contact section)</code>.
-          <li>
-            <a href="https://www.physiotherapykenya.com/" target="_blank">
-              <strong>2. Kenya Society of Physiotherapists:</strong>
-            </a>
-            Executed website design and development, event materials, and certificates.
-          </li>
-          <li>
-            <strong>3. Taagvines Pi Trade Consulting:</strong>
-            Created a professional and functional website to enhance their online presence.
-          </li>
-          <li>
-            <strong>4. Nerd Consulting:</strong>
-            Contributed to brand development by crafting their distinctive logo and managing various design tasks.
-          </li>
-        </ul>
+
+
+<img src="Files/Images/homepagestrip.jpg" alt="Image decoration">
+
+
+       
       </div>
     </div>
-  </div>
-</section>
-<!-- Seeking Opportunities -->
-<section id="seeking-opportunities" class="section" data-aos="fade-up">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2 class="section-title section-title wow animate__animated animate__fadeInLeft" >Seeking Opportunities to Collaborate <i class="fas fa-handshake"></i></h2>
-          <ul>
-        <li><p class="section-title wow animate__animated animate__fadeInRight">
-          Thriving as a dedicated freelancer, offering expertise in web development and graphic design.
-        </p>
-        </li>
-        <li>
-        <p class="section-title wow animate__animated animate__fadeInLeft">
-          Eager to bring my diverse skills and creativity to new challenges. Open to exciting collaborations and projects that align with my passion for innovative design and technology.
-        </p>
-        </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="row my-5">
+      <div class="col-12">
+        <div class="content-section">
+           
 <!-- Education -->
 <section id="education" class="section" data-aos="fade-up">
   <div class="container">
@@ -145,28 +125,9 @@
       </div>
     </div>
   </div>
-</section>
-<img src="Files/Images/homepagestrip.jpg" alt="Image decoration">
-<!-- Portfolio Section -->
-<section id="portfolio" class="section bg-african-brown text-light" data-aos="fade-up">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h2 class="section-title wow animate__animated animate__fadeInLeft">Portfolio <i class="fas fa-briefcase"></i></h2>
-            <p class="wow animate__animated animate__fadeInRight">
-                I am a versatile graphic designer and web developer passionate about creating engaging visual experiences and translating ideas into interactive digital realms. Explore the fusion of art and technology in my portfolio:
-            </p>
-        </div>
-    </div>
-</div>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="portfolio" class="section bg-african-brown text-light" data-aos="fade-up">
+</section></div>
+        <div class="content-section">
+            <section id="portfolio" class="section bg-african-brown text-light" data-aos="fade-up">
     <div class="container">
     <div id="imageSlider" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
@@ -210,6 +171,89 @@
   </div>
 </div
 </section>
+        
+        </div>
+        <div class="content-section">
+            <!-- Notable Clients -->
+<section id="notable-clients" class="section" data-aos="fade-up">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="section-title wow animate__animated animate__fadeInRight">Notable Clients <i class="fas fa-users"></i></h2>
+        <ul class="list-unstyled">
+            <li>
+            <a href="https://www.loom.com/share/aa864247dc1e461992fb494dd97315c8" target="_blank">
+              <strong>1. RK Quality Assurance Mock Website for Rama Ken:</strong>
+            </a>
+                🚀🔍 Explore a loom update for a visual exploration of a mock website I crafted for my previous employer, Rama Ken. Explore the code in my <span style="color: #ca9632;">github portfolio</span> <code>(link in contact section)</code>.
+          <li>
+            <a href="https://www.physiotherapykenya.com/" target="_blank">
+              <strong>2. Kenya Society of Physiotherapists:</strong>
+            </a>
+            Executed website design and development, event materials, and certificates.
+          </li>
+          <li>
+            <strong>3. Taagvines Pi Trade Consulting:</strong>
+            Created a professional and functional website to enhance their online presence.
+          </li>
+          <li>
+            <strong>4. Nerd Consulting:</strong>
+            Contributed to brand development by crafting their distinctive logo and managing various design tasks.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+        </div>
+        <div class="content-section">
+            <!-- Portfolio Section -->
+<section id="portfolio" class="section bg-african-brown text-light" data-aos="fade-up">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="section-title wow animate__animated animate__fadeInLeft">Portfolio <i class="fas fa-briefcase"></i></h2>
+            <p class="wow animate__animated animate__fadeInRight">
+                I am a versatile graphic designer and web developer passionate about creating engaging visual experiences and translating ideas into interactive digital realms. Explore the fusion of art and technology in my portfolio:
+            </p>
+        </div>
+    </div>
+</div>
+      </div>
+    </div>
+  </div>
+</section>
+        </div>
+        <div class="content-section">
+            <!-- Seeking Opportunities -->
+<section id="seeking-opportunities" class="section" data-aos="fade-up">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="section-title section-title wow animate__animated animate__fadeInLeft" >Seeking Opportunities to Collaborate <i class="fas fa-handshake"></i></h2>
+          <ul>
+        <li><p class="section-title wow animate__animated animate__fadeInRight">
+          Thriving as a dedicated freelancer, offering expertise in web development and graphic design.
+        </p>
+        </li>
+        <li>
+        <p class="section-title wow animate__animated animate__fadeInLeft">
+          Eager to bring my diverse skills and creativity to new challenges. Open to exciting collaborations and projects that align with my passion for innovative design and technology.
+        </p>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+        </div>
+      </div>
+    </div>
+  </div>
+  
     <!-- Contact Section -->
    <!-- Contact Section -->
     <section id="contact" class="section bg-african-brown text-light" data-aos="fade-up">
@@ -268,5 +312,23 @@
     <script>
         new WOW().init();
     </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      let lastScrollTop = 0;
+      $(window).scroll(function () {
+        let st = $(this).scrollTop();
+        if (st < lastScrollTop) {
+          // Scrolling up
+          $('.content-section').addClass('scroll-up-animation');
+        } else {
+          // Scrolling down
+          $('.content-section').removeClass('scroll-up-animation');
+        }
+        lastScrollTop = st;
+      });
+    });
+  </script>
 </body>
 </html>
