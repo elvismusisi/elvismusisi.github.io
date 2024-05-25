@@ -19,20 +19,23 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
-  .btn-bounce {
+ 
+    .btn-bounce {
       animation: bounce 2s infinite alternate;
       font-size: 1.5rem;
       padding: 15px 30px;
-      border-radius: 50px;
-      background-color: #8B4513; 
       border: none;
       color: white;
-      transition: transform 0.3s, background-color 0.3s;
+      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+      background: linear-gradient(45deg, #8B4513, #A0522D);
+      border-radius: 25px 5px 25px 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
     }
 
     .btn-bounce:hover {
       transform: scale(1.1);
-      background-color: #A0522D; 
+      background: linear-gradient(45deg, #A0522D, #8B4513);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); 
     }
 
     @keyframes bounce {
@@ -44,6 +47,9 @@
       }
     }
 
+    .bg-african-brown {
+      background-color: #8B4513; 
+    }
    
       #key-accomplishments {margin: auto;
                            }
@@ -260,15 +266,7 @@
   </div>
   <img src="Files/Images/homepagestrip.jpg" alt="Image decoration">
    <!-- Contact Section -->
-    <section id="contact" class="section bg-african-brown text-light" data-aos="fade-up">
-        <div class="container">
-           <div class="contact-header">
-            <img src="Files/Images/contactImage.png" alt="Contact Image Icon">
-        </div
-            <p>Let's connect and craft digital magic together!</p>
-
-    <!-- Contact Information -->
-      <section id="contact" class="section bg-african-brown text-light" data-aos="fade-up">
+   <section id="contact" class="section bg-african-brown text-light" data-aos="fade-up">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -281,7 +279,7 @@
     <div class="contact-image">
       <img src="Files/Images/contactImage.jpg" alt="Illustration of Nelson Mandela" style="height: 480px;">
     </div>
-
+  </section>
     <!-- Footer Section -->
 <!-- Footer -->
 <footer class="bg-dark text-light text-center py-3">
