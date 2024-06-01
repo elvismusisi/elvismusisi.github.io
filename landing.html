@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
-       .glitch-btn {
+.glitch-btn {
     position: relative;
     display: inline-block;
     font-size: 1.25rem;
@@ -142,7 +142,7 @@
 
 /* Dramatic motion effect */
 .dramatic-motion {
-    animation: dramaticMove 2s ease-in-out 3s forwards;
+    animation: dramaticMove 2s ease-in-out 3s forwards, disappearAppear 6s infinite;
 }
 
 @keyframes dramaticMove {
@@ -156,6 +156,18 @@
     }
     100% {
         transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes disappearAppear {
+    0%, 70% {
+        opacity: 1;
+    }
+    80%, 90% {
+        opacity: 0;
+    }
+    100% {
         opacity: 1;
     }
 }
