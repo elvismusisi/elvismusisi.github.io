@@ -16,7 +16,43 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-QkVDdFyCqFO9zFXdtZtRZ08caVupTwA9irRaePvgrLPMgCQaPdVy2O+V3QOJJa9DfriMJoIe5E+5Dh/YBBDFFQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <title>Elvis Musisi</title>
   <style> 
-      
+     .parallax-bg {
+        background: url('Files/Images/background-image.jpg') no-repeat center center fixed;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        text-align: center;
+    }
+
+    .parallax-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .divider {
+        width: 80%;
+        height: 2px;
+        background-color: #ffffff;
+    }
+
+    .code-tags {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .code-tags code {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-family: 'Courier New', Courier, monospace;
+    } 
     .african-background {
   background: linear-gradient(45deg, #270d00, #ca9632);
   height: 150px; /* Adjust height as needed */
@@ -72,15 +108,16 @@
   </style>
 </head>
 <body>
-    <div class="parallax-bg">
-    <div class="parallax-content">
-        <img src="Files/Images/elvismusisi-logo.png" style="height: 200px;" data-aos="fade-up">
-      <div style="height: 1px; background-color: #ffffff;" data-aos="fade-up"></div>
-        <img src="Files/Images/homepagestrip.jpg" alt="Image decoration" data-aos="fade-up">
-        <code style="color: white; padding-left: 600px;">#Design</code>
-        <code style="color: white; padding-left: 600px;">#Code</code>
-    </div>
+   <div class="parallax-bg">
+    <div class="parallax-content" data-aos="fade-up">
+        <img src="Files/Images/elvismusisi-logo.png" style="height: 200px;">
+        <div class="divider"></div>
+        <img src="Files/Images/homepagestrip.jpg" alt="Image decoration">
+        <div class="code-tags">
+            <code>#Design</code>
+            <code>#Code</code>
         </div>
+    </div>
     <div class="circle-container"  data-aos="fade-up">
     <!-- First Row -->
     <div class="circle green"></div>
