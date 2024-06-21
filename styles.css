@@ -9,7 +9,7 @@
     background-image: url('Files/Images/markus-spiske-KDBWMSq9wh0-unsplash.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.7;
+    opacity: 0.2;
     animation: slide 20s infinite alternate;
 }
 
