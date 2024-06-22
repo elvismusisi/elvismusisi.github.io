@@ -502,6 +502,17 @@ footer { background-color: #ca9632;
         lastScrollTop = st;
       });
     });
+
+        function playPopSound() {
+                popSound.currentTime = 0;
+                popSound.play(); 
+                popSound.volume = 0.1;
+            }
+
+            enterBtn.addEventListener('click', function() {
+                playPopSound();
+            });
+        });
   </script>
 </body>
 </html>
