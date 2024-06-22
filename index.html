@@ -21,7 +21,18 @@
             min-height: 100vh;
         }
 
-    
+     .lead, p {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+            padding: 10px;
+            border-radius: 5px;
+            animation: scaleUp 5s ease infinite;
+        }
+
+        @keyframes scaleUp {
+            0%, 100% {transform: scale(1);}
+            50% {transform: scale(1.05);}
+        }
 
         .parallax-bg {
             background: url('Files/Images/background-image.jpg') no-repeat center center fixed;
