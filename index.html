@@ -21,6 +21,28 @@
             min-height: 100vh;
         }
 
+         .lead, p {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+            padding: 10px;
+            background: linear-gradient(45deg, #ca9632, #270d00);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite, fadeInOut 5s infinite;
+            border-radius: 5px;
+        }
+
+        @keyframes gradientBackground {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        @keyframes fadeInOut {
+            0% {opacity: 0;}
+            50% {opacity: 1;}
+            100% {opacity: 0;}
+        }
+
         .parallax-bg {
             background: url('Files/Images/background-image.jpg') no-repeat center center fixed;
             background-size: cover;
