@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="styles.css">
       <style>
       
+   
      .full-page {
       height: 100%;
       display: flex;
@@ -36,7 +37,7 @@
     }
     .swiper-container {
       width: 100%;
-      height: 400px;
+      height: 100%;
     }
     .swiper-slide {
       display: flex;
@@ -44,8 +45,9 @@
       align-items: center;
     }
     .swiper-slide video {
-      width: 100%;
-      height: 100%;
+      max-width: 100%;
+      max-height: 400px;
+      object-fit: contain;
     }
     .video-header {
       color: #ca9632;
@@ -451,10 +453,11 @@ footer { background-color: #ca9632;
         </div>    
   
 
-         
- <div class="full-page">
-    <div class="video-slider">
-      <div class="video-header">
+  
+ 
+     <div class="full-page">
+    <div class="video-slider" data-aos="fade-up">
+      <div class="video-header" data-aos="fade-up">
         <i class="fas fa-film"></i>
         <h4>Animation Videos</h4>
       </div>
@@ -518,9 +521,7 @@ footer { background-color: #ca9632;
         </section>
       </div>
     </div>
-  </div>
-
-          
+  </div>     
                
   
   <img src="Files/Images/homepagestrip.jpg" alt="Image decoration">
@@ -600,9 +601,6 @@ footer { background-color: #ca9632;
                 playPopSound();
             });
         });
-    
-  </script>
-         <script>
     var swiper = new Swiper('.swiper-container', {
       loop: true,
       pagination: {
@@ -615,5 +613,7 @@ footer { background-color: #ca9632;
       },
     });
   </script>
+        
+  
 </body>
 </html>
