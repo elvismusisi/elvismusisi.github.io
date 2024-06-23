@@ -19,16 +19,24 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
-      .video-slider {
-      width: 100%;
-      max-width: 300px; /* Adjust as needed */
+      
+     .full-page {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .video-slider {
+      width: 80%;
+      max-width: 800px;
       border: 2px solid #ca9632;
       padding: 10px;
       box-sizing: border-box;
     }
     .swiper-container {
       width: 100%;
-      height: 100%;
+      height: 400px;
     }
     .swiper-slide {
       display: flex;
@@ -37,7 +45,7 @@
     }
     .swiper-slide video {
       width: 100%;
-      height: auto;
+      height: 100%;
     }
     .video-header {
       color: #ca9632;
@@ -49,6 +57,9 @@
     }
     .video-header i {
       margin-right: 10px;
+    }
+    .section-title i {
+      color: #ca9632;
     }
     
 .glitch-btn {
@@ -439,74 +450,79 @@ footer { background-color: #ca9632;
             <img src="Files/Images/homepagestrip.jpg" alt="Image decoration">
         </div>    
   
-<div class="center-content">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <!-- Video Slider with Header -->
-          <div class="video-slider">
-            <div class="video-header">
-              <i class="fas fa-film"></i>
-              <h4>Animation Videos</h4>
-            </div>
-            <div class="swiper-container">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <video controls>
-                    <source src="Files/Dj Ketch Animation Assets.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <div class="swiper-slide">
-                  <video controls>
-                    <source src="Files/Logo Animation.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <div class="swiper-slide">
-                  <video controls>
-                    <source src="video3.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <!-- Add more videos as needed -->
-              </div>
-              <!-- Add Pagination -->
-              <div class="swiper-pagination"></div>
-              <!-- Add Navigation -->
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
-            </div>
+
+         
+ <div class="full-page">
+    <div class="video-slider">
+      <div class="video-header">
+        <i class="fas fa-film"></i>
+        <h4>Animation Videos</h4>
+      </div>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <video controls>
+              <source src="Files/Dj Ketch Animation Assets.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
+          <div class="swiper-slide">
+            <video controls>
+              <source src="Files/Logo Animation.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="swiper-slide">
+            <video controls>
+              <source src="video3.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <!-- Add more videos as needed -->
         </div>
-        <div class="col-md-8">
-          <!-- Key Accomplishments -->
-          <section id="key-accomplishments" class="section" data-aos="fade-up">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12">
-                  <h2 class="section-title wow animate__animated animate__fadeInLeft">Key Accomplishments <i class="fas fa-star"></i></h2>
-                  <ul class="list-unstyled">
-                    <li>
-                      <a href="https://www.freecodecamp.org/certification/elvisMusisi/responsive-web-design" target="_blank" class="section-title wow animate__animated animate__fadeInLeft">
-                        1. Web Design Certification.
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.freecodecamp.org/certification/elvisMusisi/javascript-algorithms-and-data-structures-v8" target="_blank">
-                        2. JavaScript Algorithms & Data Structures (Beta) Certification.
-                      </a>
-                    </li>
-                    <!-- Add more accomplishments as needed -->
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
       </div>
     </div>
   </div>
+
+  <!-- Accomplishments Page -->
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-12">
+        <!-- Key Accomplishments -->
+        <section id="key-accomplishments" class="section" data-aos="fade-up">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h2 class="section-title wow animate__animated animate__fadeInLeft">Key Accomplishments <i class="fas fa-star"></i></h2>
+                <ul class="list-unstyled">
+                  <li>
+                    <a href="https://www.freecodecamp.org/certification/elvisMusisi/responsive-web-design" target="_blank" class="section-title wow animate__animated animate__fadeInLeft">
+                      1. Web Design Certification.
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.freecodecamp.org/certification/elvisMusisi/javascript-algorithms-and-data-structures-v8" target="_blank">
+                      2. JavaScript Algorithms & Data Structures (Beta) Certification.
+                    </a>
+                  </li>
+                  <!-- Add more accomplishments as needed -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+          
+               
+  
   <img src="Files/Images/homepagestrip.jpg" alt="Image decoration">
    <!-- Contact Section -->
  <section id="contact" class="section bg-african-brown text-light" data-aos="fade-up">
@@ -584,7 +600,10 @@ footer { background-color: #ca9632;
                 playPopSound();
             });
         });
-      var swiper = new Swiper('.swiper-container', {
+    
+  </script>
+         <script>
+    var swiper = new Swiper('.swiper-container', {
       loop: true,
       pagination: {
         el: '.swiper-pagination',
