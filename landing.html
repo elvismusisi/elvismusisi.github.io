@@ -19,6 +19,26 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
+          .video-slider {
+      width: 100%;
+      max-width: 300px; /* Adjust as needed */
+      border: 2px solid #ca9632;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .swiper-slide video {
+      width: 100%;
+      height: auto;
+    }
 .glitch-btn {
     position: relative;
     display: inline-block;
@@ -409,6 +429,39 @@ footer { background-color: #ca9632;
   <div class="center-content">
     <div class="container">
       <div class="row">
+        <div class="col-md-4">
+          <!-- Video Slider -->
+          <div class="video-slider">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <video controls>
+                    <source src="video1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="swiper-slide">
+                  <video controls>
+                    <source src="video2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="swiper-slide">
+                  <video controls>
+                    <source src="video3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <!-- Add more videos as needed -->
+              </div>
+              <!-- Add Pagination -->
+              <div class="swiper-pagination"></div>
+              <!-- Add Navigation -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+          </div>
+        </div>
         <div class="col-md-8">
           <!-- Key Accomplishments -->
           <section id="key-accomplishments" class="section" data-aos="fade-up">
@@ -437,6 +490,7 @@ footer { background-color: #ca9632;
       </div>
     </div>
   </div>
+
   <img src="Files/Images/homepagestrip.jpg" alt="Image decoration">
    <!-- Contact Section -->
  <section id="contact" class="section bg-african-brown text-light" data-aos="fade-up">
@@ -464,6 +518,7 @@ footer { background-color: #ca9632;
 </footer>
 <script src="script.js"></script>
     <!-- Bootstrap JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -513,6 +568,17 @@ footer { background-color: #ca9632;
                 playPopSound();
             });
         });
+      var swiper = new Swiper('.swiper-container', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
   </script>
 </body>
 </html>
