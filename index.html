@@ -127,6 +127,22 @@
         footer p {
             margin: 0;
         }
+        @keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    25%, 75% { opacity: 1; }
+}
+
+
+.animated-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    animation: fadeInOut 10s infinite;
+}
     </style>
 </head>
 <body>
@@ -166,7 +182,7 @@
         <div class="african-background" data-aos="fade-up">
   <div class="african-pattern"></div>
 </div>
-    <footer>
+    <footer class="animated-footer">
         <p style="color: #000;">&copy; 2024 Elvis Musisi</span> Portfolio Website. All Rights Reserved.</p>
     </footer>
             <div class="divider"></div>
