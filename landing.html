@@ -307,6 +307,9 @@ footer { background-color: #ca9632;
     padding-bottom: 75%; 
   }
 }
+html {
+  scroll-behavior: smooth;
+}
   </style>
 </head>
 <body>
@@ -596,7 +599,16 @@ footer { background-color: #ca9632;
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
+    AOS.init({
+        duration: 1200, 
+        once: true,
+        mirror: false, 
+        easing: 'ease-in-out',
+    });
+</script>
+    <script>
         new WOW().init();
+    
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -639,6 +651,6 @@ footer { background-color: #ca9632;
     });
   </script>
         
-  
+
 </body>
 </html>
