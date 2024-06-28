@@ -292,6 +292,21 @@ footer { background-color: #ca9632;
         opacity: 1;
       }
     }
+ .full-width-image {
+  width: 100%;
+  height: auto; 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  padding-bottom: 56.25%; 
+  position: relative; 
+}
+
+@media (max-width: 767px) {
+  .full-width-image {
+    padding-bottom: 75%; 
+  }
+}
   </style>
 </head>
 <body>
@@ -323,8 +338,15 @@ footer { background-color: #ca9632;
 </nav>
 <!-- About Section -->
     <section id="about" class="section bg-african-brown text-light" data-aos="fade-up">
-    <div id="about" class="full-width-image" style="background-image: url('Files/Images/landing-image.jpg');">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="full-width-image" style="background-image: url('Files/Images/landing-image.jpg');"></div>
+      </div>
     </div>
+  </div>
+</section>
+    <section id="about" class="section bg-african-brown text-light" data-aos="fade-up">
      <div class="content-section">
      <div class="container">
     <div class="row my-5">
