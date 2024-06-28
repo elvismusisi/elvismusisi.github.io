@@ -293,11 +293,13 @@ footer { background-color: #ca9632;
       }
     }
 
+
+
 .full-width-image {
   width: 100%;
-  height: auto;
+  height: auto; 
   background-size: cover; 
-  background-position: center top -10px; 
+  background-position: 10% top; 
   background-repeat: no-repeat; 
   padding-bottom: 56.25%; 
   position: relative; 
@@ -305,8 +307,8 @@ footer { background-color: #ca9632;
 
 @media (max-width: 767px) {
   .full-width-image {
-    padding-bottom: 75%; 
-    background-position: center top -10px; 
+    padding-bottom: 75%; /* Adjust aspect ratio for smaller screens if needed */
+    background-position: 20% top; /* Push the background image 20% to the right and crop the top part for smaller screens */
   }
 }
 html {
