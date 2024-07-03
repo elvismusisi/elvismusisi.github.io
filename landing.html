@@ -653,6 +653,25 @@ html {
 </script>
     <script>
         new WOW().init();
+    
+    </script>
+    <script>
+  let lastScrollTop = 0;
+
+  window.addEventListener('scroll', function() {
+    const st = window.pageYOffset || document.documentElement.scrollTop;
+    document.querySelectorAll('[data-aos]').forEach(element => {
+      element.classList.remove('aos-animate');
+    });
+    if (st > lastScrollTop) {
+      // Downscroll
+      AOS.refreshHard();
+    } else {
+      // Upscroll
+      AOS.refreshHard();
+    }
+    lastScrollTop = st <= 0 ? 0 : st;
+  }, false);
 </script>
     <script>
   let lastScrollTop = 0;
