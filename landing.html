@@ -652,8 +652,32 @@ html {
     AOS.init();
 </script>
     <script>
+        // Initialize WOW.js
         new WOW().init();
-    
+
+        // Add scroll event listener to reset animations
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', function() {
+            const st = window.pageYOffset || document.documentElement.scrollTop;
+            document.querySelectorAll('.wow').forEach(element => {
+                element.style.visibility = 'hidden'; 
+                element.classList.remove('animate__fadeInUp'); s
+                void element.offsetWidth; 
+                element.style.visibility = 'visible'; 
+                element.classList.add('animate__fadeInUp'); 
+            });
+
+            if (st > lastScrollTop) {
+                // Downscroll
+                new WOW().sync();
+            } else {
+                // Upscroll
+                new WOW().sync();
+            }
+
+            lastScrollTop = st <= 0 ? 0 : st;
+        }, false);
     </script>
     <script>
   let lastScrollTop = 0;
