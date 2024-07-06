@@ -65,6 +65,19 @@
   color: #270d00;
   margin-right: 15px;
   font-size: 3rem;
+  animation: starAnimation 3s ease-in-out infinite; 
+}
+
+@keyframes starAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 #key-accomplishments .section-title::after {
@@ -107,6 +120,7 @@
 #key-accomplishments ul li a:hover {
   color: white;
 }
+
 
 .custom-list-item {
   position: relative;
