@@ -20,7 +20,22 @@
     <link rel="stylesheet" href="styles.css">
       <style>
     
+.custom-list-item {
+  position: relative;
+  padding-left: 20px;
+}
 
+.custom-list-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px; 
+  height: 10px; 
+  background-color: #ca9632;
+  border-radius: 50%;
+}
 
   .animate__animated {
   animation-duration: 2s; 
@@ -499,17 +514,17 @@ html {
                   Seeking Opportunities to Collaborate <i class="fas fa-handshake"></i>
                 </h2>
                 <ul class="list-unstyled">
-                  <li>
-                    <p class="wow animate__animated animate__fadeInRight">
-                      Thriving as a dedicated freelancer, offering expertise in web development and graphic design.
-                    </p>
-                  </li>
-                  <li>
-                    <p class="wow animate__animated animate__fadeInLeft">
-                      Eager to bring my diverse skills and creativity to new challenges. Open to exciting collaborations and projects.
-                    </p>
-                  </li>
-                </ul>
+  <li class="custom-list-item">
+    <p class="wow animate__animated animate__fadeInRight">
+      Thriving as a dedicated freelancer, offering expertise in web development and graphic design.
+    </p>
+  </li>
+  <li class="custom-list-item">
+    <p class="wow animate__animated animate__fadeInLeft">
+      Eager to bring my diverse skills and creativity to new challenges. Open to exciting collaborations and projects.
+    </p>
+  </li>
+</ul>
               </div>
             </div>
           </div>
