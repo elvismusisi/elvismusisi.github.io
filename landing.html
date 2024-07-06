@@ -19,7 +19,59 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
-    
+#key-accomplishments {
+  background-color: #ca9632;
+  padding: 50px 0;
+  color: white;
+}
+
+#key-accomplishments .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#key-accomplishments .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: white;
+  position: relative;
+}
+
+#key-accomplishments .section-title i {
+  color: #270d00;
+  margin-left: 10px;
+}
+
+#key-accomplishments ul {
+  padding-left: 20px;
+  list-style-type: none;
+}
+
+#key-accomplishments ul li {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+#key-accomplishments ul li a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  padding-left: 25px;
+}
+
+#key-accomplishments ul li a::before {
+  content: "•";
+  color: #270d00;
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  top: 0;
+}
+
+#key-accomplishments ul li a:hover {
+  color: #270d00;
+}
 .custom-list-item {
   position: relative;
   padding-left: 20px;
@@ -583,29 +635,31 @@ html {
       <div class="col-12">
  <!-- Key Accomplishments -->
  <section id="key-accomplishments">
- <div class="container">
- <div class="row">
-<div class="col-md-6" class="aos-init" data-aos="slide-down" data-aos-duration="700">
-<h2 class="section-title wow animate__animated animate__fadeInLeft">Key Accomplishments <i class="fas fa-star"></i></h2>
-<div>
-<ul class="list-unstyled">
-                <li>
-                    <a href="https://www.freecodecamp.org/certification/elvisMusisi/responsive-web-design" target="_blank">
-                      1. Web Design Certification.
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.freecodecamp.org/certification/elvisMusisi/javascript-algorithms-and-data-structures-v8" target="_blank">
-                      2. JavaScript Algorithms & Data Structures (Beta) Certification.
-                    </a>
-                  </li>
-                  <!-- Add more accomplishments as needed -->
-                </ul>
-              </div>
-          </div>
-</div>
-     
-        </section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 aos-init" data-aos="slide-down" data-aos-duration="700">
+        <h2 class="section-title wow animate__animated animate__fadeInLeft">
+          Key Accomplishments <i class="fas fa-star"></i>
+        </h2>
+        <div>
+          <ul class="list-unstyled">
+            <li>
+              <a href="https://www.freecodecamp.org/certification/elvisMusisi/responsive-web-design" target="_blank">
+                1. Web Design Certification.
+              </a>
+            </li>
+            <li>
+              <a href="https://www.freecodecamp.org/certification/elvisMusisi/javascript-algorithms-and-data-structures-v8" target="_blank">
+                2. JavaScript Algorithms & Data Structures (Beta) Certification.
+              </a>
+            </li>
+            <!-- Add more accomplishments as needed -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
       </div>
     </div>
   </div>     
