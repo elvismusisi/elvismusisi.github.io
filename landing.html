@@ -35,7 +35,19 @@
   height: 100%;
   background-color: #ca9632;
   z-index: 1;
-  opacity: 0.9; 
+  opacity: 0.9;
+  animation: overlayAnimation 2s ease-in-out;
+}
+
+@keyframes overlayAnimation {
+  0% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
 }
 
 #key-accomplishments .container {
