@@ -24,6 +24,7 @@
   padding: 50px 0;
   color: #270d00;
   overflow: hidden;
+  text-align: center; 
 }
 
 #key-accomplishments::before {
@@ -47,10 +48,22 @@
 
 #key-accomplishments .section-title {
   font-size: 2.5rem;
-  font-weight: bold;
+  font-weight: bold; 
   margin-bottom: 20px;
   color: #270d00;
   position: relative;
+  display: inline-block; 
+  padding-bottom: 10px; 
+}
+
+#key-accomplishments .section-title::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #270d00;
+  margin: 10px auto 0;
+  border-radius: 5px; 
 }
 
 #key-accomplishments .section-title i {
@@ -59,7 +72,7 @@
 }
 
 #key-accomplishments ul {
-  padding-left: 20px;
+  padding-left: 0;
   list-style-type: none;
 }
 
