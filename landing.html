@@ -65,6 +65,19 @@
   color: #270d00;
   margin-right: 15px;
   font-size: 3rem;
+  animation: starAnimation 3s ease-in-out infinite; 
+}
+
+@keyframes starAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 #key-accomplishments .section-title::after {
@@ -107,6 +120,8 @@
 #key-accomplishments ul li a:hover {
   color: white;
 }
+
+
 
 .custom-list-item {
   position: relative;
@@ -670,13 +685,15 @@ html {
     <div class="row">
       <div class="col-12">
  <!-- Key Accomplishments -->
-<section id="key-accomplishments">
+<section id="key-accomplishments" data-aos="fade-up" data-aos-duration="1500">
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
-        <h2 class="section-title wow animate__animated animate__fadeInLeft">Key Accomplishments <i class="fas fa-star animate__animated animate__pulse"></i></h2>
+      <div class="col-md-6 aos-init" data-aos="slide-down" data-aos-duration="700">
+        <h2 class="section-title wow animate__animated animate__fadeInLeft">
+          Key Accomplishments <i class="fas fa-star"></i>
+        </h2>
         <div>
-        <div class="content-section" class="aos-init" data-aos="fade-up" data-aos-duration="700">
+             <div class="content-section" class="aos-init" data-aos="fade-up" data-aos-duration="700">
             <img src="Files/Images/homepagestrip.jpg" alt="Image decoration">
         </div>
           <ul class="list-unstyled">
