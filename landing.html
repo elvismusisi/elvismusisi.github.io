@@ -35,19 +35,7 @@
   height: 100%;
   background-color: #ca9632;
   z-index: 1;
-  opacity: 0.9;
-  animation: overlayAnimation 2s ease-in-out;
-}
-
-@keyframes overlayAnimation {
-  0% {
-    transform: scale(1.2);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.9;
-  }
+  opacity: 0.9; 
 }
 
 #key-accomplishments .container {
@@ -59,6 +47,7 @@
 
 #key-accomplishments .section-title {
   font-size: 2.5rem;
+  font-weight: bold;
   margin-bottom: 20px;
   color: #270d00;
   position: relative;
@@ -100,6 +89,7 @@
 #key-accomplishments ul li a:hover {
   color: white;
 }
+
 
 .custom-list-item::before {
   content: '';
@@ -658,7 +648,7 @@ html {
     <div class="row">
       <div class="col-12">
  <!-- Key Accomplishments -->
- <section id="key-accomplishments">
+<section id="key-accomplishments" data-aos="fade-up" data-aos-duration="1500">
   <div class="container">
     <div class="row">
       <div class="col-md-6 aos-init" data-aos="slide-down" data-aos-duration="700">
