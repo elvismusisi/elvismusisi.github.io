@@ -19,6 +19,48 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
+    .video-section {
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.video-container {
+    position: relative;
+    display: inline-block;
+    border: 5px solid #ca9632;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.video-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .video-container h2 {
+        font-size: 20px;
+    }
+
+    .video-section {
+        padding: 10px;
+    }
+
+    .video-container {
+        padding: 5px;
+    }
+}
 .certificate-image {
             border: 5px solid #ca9632;
             display: block;
@@ -705,10 +747,19 @@ html {
     </div>
   </div>
 </section>
+         
       </div>
     </div>
   </div>     
-               
+     <section class="video-section">
+        <div class="video-container">
+            <h2>Interview After Remote Work Readiness Training with Na'amal (2023)</h2>
+            <video controls>
+                <source src="path-to-your-video-file.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>         
   
   <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"  class="aos-init" data-aos="fade-up" data-aos-duration="700">
    <!-- Contact Section -->
