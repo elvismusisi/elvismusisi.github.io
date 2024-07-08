@@ -6,6 +6,7 @@
     <link rel="icon" type="image/png" href="Files/Images/elvismusisi-logo.png">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
     <title>Elvis Musisi</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -467,7 +468,9 @@ footer { background-color: #ca9632;
     }
 
 
-
+.tilt-effect {
+  transform-style: preserve-3d;
+}
 .full-width-image {
   width: 100%;
   height: auto; 
@@ -521,11 +524,11 @@ html {
         </div>
     </nav>
 <!-- About Section -->
- <section id="about" class="section bg-african-brown text-light" class="aos-init" data-aos="fade-up" data-aos-duration="700">
+ <section id="about" class="section bg-african-brown text-light aos-init" data-aos="fade-up" data-aos-duration="700">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <div class="full-width-image" style="background-image: url('Files/Images/landing-image.jpg');"></div>
+        <div class="full-width-image tilt-effect" style="background-image: url('Files/Images/landing-image.jpg');"></div>
       </div>
     </div>
   </div>
@@ -792,6 +795,14 @@ html {
 <footer  class="text-light text-center py-3">
     <p style="color: #270d00;">&copy; 2024 Elvis Musisi Portfolio Website. All rights reserved.</p>
 </footer>
+    <script>
+  VanillaTilt.init(document.querySelector(".tilt-effect"), {
+    max: 25,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.5
+  });
+</script>
 <script src="script.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
