@@ -471,7 +471,13 @@ footer { background-color: #ca9632;
 .tilt-effect {
   transform-style: preserve-3d;
   filter: none;
-  transition: transform 0.2s ease-in-out; 
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  will-change: transform, box-shadow;
+}
+
+.tilt-effect:hover {
+  transform: scale(1.05) rotateY(10deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .full-width-image {
@@ -527,7 +533,7 @@ html {
         </div>
     </nav>
 <!-- About Section -->
- <section id="about" class="section bg-african-brown text-light aos-init" data-aos="fade-up" data-aos-duration="700">
+<section id="about" class="section bg-african-brown text-light aos-init" data-aos="fade-up" data-aos-duration="700">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -804,6 +810,16 @@ html {
     speed: 400,
     glare: true,
     "max-glare": 0.5
+  });
+
+  document.querySelector(".tilt-effect").addEventListener("mouseover", function() {
+    this.style.transition = "transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out";
+  });
+
+  document.querySelector(".tilt-effect").addEventListener("mouseout", function() {
+    this.style.transform = "scale(1) rotateY(0deg)";
+    this.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.1)";
+    this.style.transition = "transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out";
   });
 </script>
 <script src="script.js"></script>
