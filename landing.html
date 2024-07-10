@@ -20,6 +20,34 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
+    .marquee-container {
+      position: relative;
+      overflow: hidden;
+      height: 100px;
+      width: 100%;
+      background-color: #ca9632;
+    }
+    .marquee {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+      white-space: nowrap;
+      animation: marquee 10s linear infinite;
+    }
+    .marquee h1 {
+      margin: 0 50px;
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+    @keyframes marquee {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
     .divider {
   height: 3px; 
   margin: 10px 0; 
@@ -789,15 +817,15 @@ html {
       </div>
     </div>
   </div>     
-     <section class="video-section" data-aos="fade-up" data-aos-duration="700">
-        <div class="video-container">
-            <h2>Interview After Remote Work Readiness Training with Na'amal (2023)</h2>
-            <video controls>
-                <source src="Files/Images/An-fTGrHBBiVyJJMt_VMs0Z6K0VbNfD34ncKfWBiu8cSkBC9od7u19mHAygDvx8OWP7R91KR2zl6n4w2jSG-OQ (1).mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </section>         
+     <div class="container mt-5">
+    <div class="marquee-container">
+      <div class="marquee">
+        <h1>Graphic Designer</h1>
+        <h1>Video Editor</h1>
+        <h1>Web Developer</h1>
+      </div>
+    </div>
+  </div>
   <div class="divider" data-aos="slide-down" data-aos-duration="700"></div>
    <!-- Contact Section -->
  <section id="contact" class="section bg-african-brown text-light">
