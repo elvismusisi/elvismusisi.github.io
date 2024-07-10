@@ -20,7 +20,7 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
-    .marquee-container {
+     .marquee-container {
       position: relative;
       overflow: hidden;
       width: 100%;
@@ -38,12 +38,9 @@
       animation: marquee-top 10s linear infinite;
     }
     .marquee-bottom {
-      animation: marquee-bottom 10s linear infinite;
-    }
-    .marquee-top h1, .marquee-bottom h1 {
-      margin: 0 50px;
-      font-size: 24px;
-      text-transform: uppercase;
+      animation: marquee-bottom 10s linear infinite, background-effect 10s linear infinite;
+      position: relative;
+      overflow: hidden;
     }
     .marquee-bottom h1 {
       -webkit-text-stroke: 1px #fff;
@@ -63,6 +60,43 @@
       }
       100% {
         transform: translateX(100%);
+      }
+    }
+    @keyframes background-effect {
+      0%, 90%, 100% {
+        background-color: #ca9632;
+      }
+      95% {
+        background-color: #270d00;
+      }
+    }
+    .glitch {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, transparent 20%, rgba(255, 255, 255, 0.1) 50%, transparent 80%);
+      animation: glitch-effect 0.3s linear forwards;
+      transform: translateX(-100%);
+      mix-blend-mode: difference;
+      pointer-events: none;
+    }
+    @keyframes glitch-effect {
+      0% {
+        transform: translateX(-100%);
+      }
+      25% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(-10px);
+      }
+      75% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
       }
     }
     .container {
@@ -849,6 +883,7 @@ html {
         <h1>Graphic Designer</h1>
         <h1>Video Editor</h1>
         <h1>Web Developer</h1>
+        <div class="glitch"></div>
       </div>
     </div>
   </div>
