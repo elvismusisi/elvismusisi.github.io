@@ -23,30 +23,51 @@
     .marquee-container {
       position: relative;
       overflow: hidden;
-      height: 100px;
       width: 100%;
       background-color: #ca9632;
+      padding: 20px 0;
     }
-    .marquee {
+    .marquee-row {
       display: flex;
-      justify-content: space-around;
       align-items: center;
-      height: 100%;
+      height: 50px;
       white-space: nowrap;
-      animation: marquee 10s linear infinite;
+      position: relative;
     }
-    .marquee h1 {
+    .marquee-top {
+      animation: marquee-top 10s linear infinite;
+    }
+    .marquee-bottom {
+      animation: marquee-bottom 10s linear infinite;
+    }
+    .marquee-top h1, .marquee-bottom h1 {
       margin: 0 50px;
       font-size: 24px;
       text-transform: uppercase;
     }
-    @keyframes marquee {
+    .marquee-bottom h1 {
+      -webkit-text-stroke: 1px #fff;
+      color: transparent;
+    }
+    @keyframes marquee-top {
       from {
         transform: translateX(100%);
       }
       to {
         transform: translateX(-100%);
       }
+    }
+    @keyframes marquee-bottom {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(100%);
+      }
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .divider {
   height: 3px; 
@@ -819,7 +840,12 @@ html {
   </div>     
      <div class="container mt-5">
     <div class="marquee-container">
-      <div class="marquee">
+      <div class="marquee-row marquee-top">
+        <h1>Graphic Designer</h1>
+        <h1>Video Editor</h1>
+        <h1>Web Developer</h1>
+      </div>
+      <div class="marquee-row marquee-bottom">
         <h1>Graphic Designer</h1>
         <h1>Video Editor</h1>
         <h1>Web Developer</h1>
