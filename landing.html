@@ -1014,31 +1014,25 @@ html {
     
     </script>
     <script>
-const sliderContainer = document.querySelector('.slider-container');
 const sliderItems = document.querySelectorAll('.slider-item');
 
-let index = 0;
-
-function animateSlider() {
-    sliderItems.forEach((item, idx) => {
-        item.style.transform = `translateX(${(idx - index) * 150}px)`;
-    });
-    index++;
-    if (index >= sliderItems.length) {
-        index = 0;
-    }
-}
-
-setInterval(animateSlider, 2000);
-
-sliderItems.forEach(item => {
+sliderItems.forEach((item, idx) => {
     item.addEventListener('mouseover', () => {
-        clearInterval(animateSlider);
+        sliderItems.forEach((el, i) => {
+            if (i !== idx) {
+                el.style.transform = `translateX(${i > idx ? 150 : -150}px)`;
+            }
+        });
+        item.style.transform = 'scale(1.2)';
     });
+
     item.addEventListener('mouseout', () => {
-        setInterval(animateSlider, 2000);
+        sliderItems.forEach(el => {
+            el.style.transform = `translateX(0)`;
+        });
+        item.style.transform = 'scale(1)';
     });
-});     
+});  
     </script>
     
     <script>
