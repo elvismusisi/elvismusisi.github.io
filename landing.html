@@ -879,7 +879,19 @@ html {
     </a>
   </div>
     </div>
-            
+      <div class="container">
+        <h1>Personalized Greeting App</h1>
+        <input type="text" id="name" placeholder="Enter your name">
+        <input type="text" id="occasion" placeholder="Enter the occasion">
+        <select id="mood">
+            <option value="happy">Happy</option>
+            <option value="excited">Excited</option>
+            <option value="thoughtful">Thoughtful</option>
+            <option value="cheerful">Cheerful</option>
+        </select>
+        <button onclick="generateGreeting()">Generate Greeting</button>
+        <div id="greeting"></div>
+    </div>     
     <div class="content-section" class="aos-init" data-aos="fade-up" data-aos-duration="700">
             <img src="Files/Images/homepagestrip.jpg" alt="Image decoration">
         </div>
@@ -1089,19 +1101,7 @@ html {
       <div class="contact-image">
         <img src="Files/Images/dedan-kimathi.jpg" alt="Illustration of Dedan Kimathi" style="height: 480px;">
     </div>
-     <div class="container">
-        <h1>Personalized Greeting App</h1>
-        <input type="text" id="name" placeholder="Enter your name">
-        <input type="text" id="occasion" placeholder="Enter the occasion">
-        <select id="mood">
-            <option value="happy">Happy</option>
-            <option value="excited">Excited</option>
-            <option value="thoughtful">Thoughtful</option>
-            <option value="cheerful">Cheerful</option>
-        </select>
-        <button onclick="generateGreeting()">Generate Greeting</button>
-        <div id="greeting"></div>
-    </div>
+   
       <div class="slider-container">
         <div class="slider-item" data-service="graphic-design">
             <i class="fas fa-paint-brush"></i>
