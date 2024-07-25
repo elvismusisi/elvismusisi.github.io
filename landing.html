@@ -20,6 +20,39 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
+    .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ca9632;
+            border-radius: 10px;
+        }
+        .container input, .container select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #270d00;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .container button {
+            background-color: #270d00;
+            color: #ca9632;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .container button:hover {
+            background-color: #ca9632;
+            color: #270d00;
+        }
+        #greeting {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
     .contact-image {
     position: relative;
     display: inline-block;
@@ -1062,6 +1095,19 @@ html {
       <div class="contact-image">
         <img src="Files/Images/dedan-kimathi.jpg" alt="Illustration of Dedan Kimathi" style="height: 480px;">
     </div>
+     <div class="container">
+        <h1>Personalized Greeting App</h1>
+        <input type="text" id="name" placeholder="Enter your name">
+        <input type="text" id="occasion" placeholder="Enter the occasion">
+        <select id="mood">
+            <option value="happy">Happy</option>
+            <option value="excited">Excited</option>
+            <option value="thoughtful">Thoughtful</option>
+            <option value="cheerful">Cheerful</option>
+        </select>
+        <button onclick="generateGreeting()">Generate Greeting</button>
+        <div id="greeting"></div>
+    </div>
       <div class="slider-container">
         <div class="slider-item" data-service="graphic-design">
             <i class="fas fa-paint-brush"></i>
@@ -1253,6 +1299,20 @@ sliderItems.forEach((item, idx) => {
       },
     });
   </script>
+ <script>
+        function generateGreeting() {
+            const name = document.getElementById('name').value;
+            const occasion = document.getElementById('occasion').value;
+            const mood = document.getElementById('mood').value;
+
+            if (name && occasion) {
+                const greeting = `Hello, ${name}! Wishing you a ${mood} ${occasion}!`;
+                document.getElementById('greeting').innerText = greeting;
+            } else {
+                document.getElementById('greeting').innerText = 'Please fill in all fields.';
+            }
+        }
+    </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
