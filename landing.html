@@ -20,6 +20,31 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
+    #foo img {
+  height: 480px;
+  animation: futuristicEffect 5s infinite alternate ease-in-out;
+  transition: transform 0.5s, filter 0.5s;
+}
+
+@keyframes futuristicEffect {
+  0% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0px 0px 10px rgba(0, 255, 255, 0.7));
+  }
+  50% {
+    transform: scale(1.05) rotate(5deg);
+    filter: drop-shadow(0px 0px 20px rgba(0, 255, 255, 0.9));
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0px 0px 10px rgba(0, 255, 255, 0.7));
+  }
+}
+
+#foo:hover img {
+  transform: scale(1.1) rotate(0deg);
+  filter: drop-shadow(0px 0px 30px rgba(0, 255, 255, 1));
+}
     #cityInput {
     padding: 10px;
     width: 70%;
@@ -1114,7 +1139,7 @@ html {
             </div>
         </div>
     </div>
-    <div class="contact-image">
+    <div class="contact-image" id="foo">
         <img src="Files/Images/contactImage.jpg" alt="Illustration of Nelson Mandela" style="height: 480px;">
     </div>
 
