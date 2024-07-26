@@ -1164,7 +1164,7 @@ function getWeather() {
   const closeBtn = document.querySelector(".close-btn");
   const funFactText = document.getElementById("funFactText");
 
-  // Array of fun facts
+
   const funFacts = [
     "I'm a coffee enthusiast!",
     "I can speak three languages.",
@@ -1203,7 +1203,7 @@ function getWeather() {
   let timer;
   window.addEventListener("scroll", function () {
     clearTimeout(timer);
-    timer = setTimeout(showModal, 3000); 
+    timer = setTimeout(showModal, 10000); 
   });
 });
 </script>
