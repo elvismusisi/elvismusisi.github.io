@@ -21,6 +21,20 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
+    .draggable-container {
+    position: fixed;
+    z-index: 9999;
+    cursor: move;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.navbar {
+    width: auto; 
+}
+
     .modal {
   display: none; 
   position: fixed;
@@ -736,7 +750,8 @@ html {
 </head>
 <body>
 <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<div class="draggable-container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
             <img src="Files/Images/elvismusisi-logo.png" alt="Logo" height="90" style="margin-left: 20px;">
         </a>
@@ -761,6 +776,8 @@ html {
             </ul>
         </div>
     </nav>
+</div>
+
 <!-- About Section -->
 <section id="about" class="section bg-african-brown text-light aos-init" data-aos="fade-up" data-aos-duration="700">
   <div class="container">
@@ -1407,6 +1424,30 @@ sliderItems.forEach((item, idx) => {
             }
         }
     </script>
+<script>
+
+    const draggable = document.querySelector('.draggable-container');
+
+    draggable.addEventListener('mousedown', function (e) {
+        const rect = draggable.getBoundingClientRect();
+        const offsetX = e.clientX - rect.left;
+        const offsetY = e.clientY - rect.top;
+
+        function onMouseMove(e) {
+            draggable.style.left = `${e.clientX - offsetX}px`;
+            draggable.style.top = `${e.clientY - offsetY}px`;
+        }
+
+        function onMouseUp() {
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    });
+</script>
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
