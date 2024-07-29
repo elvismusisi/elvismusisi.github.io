@@ -21,18 +21,32 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
-    .draggable-container {
+.draggable-container {
     position: fixed;
     z-index: 9999;
     cursor: move;
-    top: 0;
-    left: 0;
     width: 100%;
     max-width: 100%;
+    top: 0; 
+    left: 0;
+    transition: all 0.3s ease; 
 }
 
 .navbar {
     width: auto; 
+}
+
+@media (max-width: 768px) {
+    .draggable-container {
+        top: auto; 
+        bottom: 0; 
+        left: 0; 
+    }
+
+    .navbar {
+        width: 100%; 
+        border-top: 1px solid #ccc; 
+    }
 }
 
     .modal {
