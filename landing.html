@@ -24,6 +24,9 @@
     .modal {
   display: none; 
   position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
   left: 0;
   top: 0;
@@ -39,6 +42,7 @@
 
 .modal-content {
   background-color: #ca9632;
+  position: relative;
   margin: 15% auto;
   padding: 20px;
   border-radius: 10px;
@@ -49,10 +53,13 @@
 }
 
 .close-btn {
+  position: absolute;
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
+  cursor: pointer;
+  transform: translateX(50%);
 }
 @media (max-width: 600px) {
   .modal-content {
