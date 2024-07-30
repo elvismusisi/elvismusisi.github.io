@@ -21,6 +21,33 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
+
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #270d00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; 
+}
+
+#loading-logo {
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#content {
+  display: none;
+}
+
 .draggable-container {
     position: fixed;
     z-index: 9999;
@@ -763,6 +790,10 @@ html {
   </style>
 </head>
 <body>
+<div id="loader">
+<img src="Files/Images/elvismusisi-logo.png" alt="Loading..." id="loading-logo">
+</div>
+<div id="content" style="display: none;">
 <!-- Navigation Bar -->
 <div class="draggable-container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -1167,6 +1198,13 @@ html {
     <p id="funFactText"></p>
   </div>
 </div>
+</div>
+<script>
+window.onload = function() {
+  document.getElementById('loader').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+};
+</script>
 <script>
 const API_KEY = '7be62da2b91436232540923615dc9e7d'; 
 function getWeather() {
