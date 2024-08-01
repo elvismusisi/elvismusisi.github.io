@@ -23,6 +23,30 @@
     <link rel="stylesheet" href="styles.css">
       <style>
 #about {
+  position: relative;
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: #270d00;
+  color: #ca9632;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+#about:hover + .popup {
+  display: block;
+}
+
+#about {
     padding: 20px;
     background-color: #270d00;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -839,6 +863,9 @@ html {
 <!-- About Section -->
 <section id="about" class="section bg-african-brown text-light aos-init" data-aos="fade-up" data-aos-duration="700">
     <div class="content">
+    <div id="popup-message" class="popup">
+  <p>Welcome to my creative space! Let's bring your ideas to life.</p>
+</div>
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -1214,6 +1241,23 @@ html {
   </div>
 </div>
 </div>
+<script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const aboutSection = document.getElementById('about');
+    const popup = document.getElementById('popup-message');
+
+    aboutSection.addEventListener('mouseover', function() {
+      popup.style.display = 'block';
+    });
+
+    aboutSection.addEventListener('mouseout', function() {
+      popup.style.display = 'none';
+    });
+  });
+</script>
+
+</script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
   const aboutSection = document.getElementById("about");
