@@ -21,7 +21,32 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
+#about {
+  position: relative;
+  padding: 50px;
+  background: linear-gradient(45deg, #ca9632, #e5a84f, #ca9632);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+  color: #ca9632;
+  text-align: center;
+}
 
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#about .content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+#about.show-content .content {
+  opacity: 1;
+  transform: translateY(0);
+}
 #loader {
   position: fixed;
   width: 100%;
@@ -825,6 +850,7 @@ html {
 
 <!-- About Section -->
 <section id="about" class="section bg-african-brown text-light aos-init" data-aos="fade-up" data-aos-duration="700">
+    <div class="content">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -862,6 +888,7 @@ html {
       </div>
     </div>
   </div>
+</div>
 </section>
  <img src="Files/Images/aboutmesection1.jpg" alt="aboutme image 1" 
      style="max-width: 100%; max-height: 80vh; width: auto; height: auto; display: block; margin: 0 auto;" 
@@ -1199,6 +1226,23 @@ html {
   </div>
 </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+  const aboutSection = document.getElementById("about");
+
+  function handleScroll() {
+    const rect = aboutSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+      aboutSection.classList.add("show-content");
+      window.removeEventListener("scroll", handleScroll);
+    }
+  }
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll(); 
+});
+
+</script>
 <script>
 window.onload = function() {
   document.getElementById('loader').style.display = 'none';
