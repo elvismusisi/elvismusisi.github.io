@@ -31,7 +31,7 @@
   display: none;
   position: fixed;
   top: 20px; 
-  right: -300px; 
+  right: 20px;
   background-color: #270d00;
   color: #ca9632;
   padding: 10px 20px;
@@ -41,13 +41,10 @@
   font-size: 14px;
   z-index: 1000;
   white-space: nowrap;
-  transition: right 0.5s ease;
+  transition: opacity 0.5s ease, right 0.5s ease;
+  opacity: 0;
 }
 
-#about:hover + .popup {
-  display: block;
-  right: 20px; 
-}
 
 
 #about {
@@ -1248,18 +1245,32 @@ html {
 <script>
     <script>
   <script>
+ <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const aboutSection = document.getElementById('about');
     const popup = document.getElementById('popup-message');
 
-    aboutSection.addEventListener('mouseover', function() {
+    function showPopup() {
+      popup.style.display = 'block';
+      popup.style.opacity = '1';
       popup.style.right = '20px'; 
-    });
 
-    aboutSection.addEventListener('mouseout', function() {
-      popup.style.right = '-300px'; 
+      setTimeout(() => {
+        popup.style.opacity = '0';
+        popup.style.right = '-300px'; 
+      }, 5000); 
+    }
+
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (Math.abs(scrollTop - lastScrollTop) > 200) {
+        showPopup();
+        lastScrollTop = scrollTop;
+      }
     });
   });
+</script>
+
 </script>
 
 </script>
