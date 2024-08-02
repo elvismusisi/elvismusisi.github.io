@@ -44,7 +44,9 @@
   opacity: 0;
 }
 
-
+body {
+      position: relative;
+    }
 
 #about {
     padding: 20px;
@@ -824,9 +826,21 @@ footer { background-color: #ca9632;
 html {
   scroll-behavior: smooth;
 }
+  .popup-banner {
+      position: absolute;
+      background-color: #ca9632;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      display: none;
+    }
+
   </style>
 </head>
 <body>
+<div id="popupBanner" class="popup-banner">
+    <p>Welcome to my creative space! Let's bring your ideas to life.</p>
+  </div>
 <div id="loader">
 <img src="Files/Images/elvismusisi-logo.png" alt="Loading..." id="loading-logo">
 </div>
@@ -1570,6 +1584,45 @@ sliderItems.forEach((item, idx) => {
             }
         }
     </script>
+ <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const banner = document.getElementById('popupBanner');
+      const positions = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
+      const edges = {
+        'top-left': { top: '10px', left: '10px', right: '', bottom: '' },
+        'top-right': { top: '10px', left: '', right: '10px', bottom: '' },
+        'bottom-left': { top: '', left: '10px', right: '', bottom: '10px' },
+        'bottom-right': { top: '', left: '', right: '10px', bottom: '10px' },
+      };
+
+      function getRandomPosition() {
+        const index = Math.floor(Math.random() * positions.length);
+        return positions[index];
+      }
+
+      function showBanner() {
+        const position = getRandomPosition();
+        const { top, left, right, bottom } = edges[position];
+
+        banner.style.top = top;
+        banner.style.left = left;
+        banner.style.right = right;
+        banner.style.bottom = bottom;
+        banner.style.display = 'block';
+
+        setTimeout(() => {
+          banner.style.display = 'none';
+        }, 2000);
+      }
+
+      function loopBanner() {
+        showBanner();
+        setTimeout(loopBanner, 4000); 
+      }
+
+      loopBanner();
+    });
+  </script>
 <script>
 
     const draggable = document.querySelector('.draggable-container');
