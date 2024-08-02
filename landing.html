@@ -23,6 +23,57 @@
     <link rel="stylesheet" href="styles.css">
       <style>
 .tilt-effect {
+    background-image: url('Files/Images/landing-image.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.slider-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    overflow: hidden;
+    width: 80%;
+}
+
+.slider-item {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    animation: slideIn 1s forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+.tilt-effect {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Files/Images/landing-image.jpg');
     background-size: cover;
     background-position: center;
@@ -1663,6 +1714,28 @@ sliderItems.forEach((item, idx) => {
         document.addEventListener('mousemove', onMouseMove);
         document.addEventListener('mouseup', onMouseUp);
     });
+</script>
+<script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sliderItems = document.querySelectorAll('.slider-item');
+        let currentIndex = 0;
+
+        function showNextItem() {
+            sliderItems[currentIndex].style.animation = 'slideOut 1s forwards';
+            currentIndex = (currentIndex + 1) % sliderItems.length;
+            setTimeout(() => {
+                sliderItems.forEach(item => item.style.opacity = 0);
+                sliderItems[currentIndex].style.opacity = 1;
+                sliderItems[currentIndex].style.animation = 'slideIn 1s forwards';
+            }, 1000); 
+        }
+
+        sliderItems[currentIndex].style.opacity = 1; 
+        setInterval(showNextItem, 3000); 
+    });
+</script>
+
 </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
