@@ -336,7 +336,7 @@
 .glitch-image {
     width: 100%;
     height: 100%;
-    animation: glitch 6s infinite;
+    animation: glitch 6s infinite, squish 12s infinite;
     position: relative;
     z-index: 1;
 }
@@ -377,6 +377,21 @@
     100% {
         clip: rect(0, 9999px, 0, 0);
         transform: translate(0, 0);
+    }
+}
+
+@keyframes squish {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.05, 0.95);
+    }
+    50% {
+        transform: scale(0.95, 1.05);
+    }
+    75% {
+        transform: scale(1.05, 0.95);
     }
 }
 
