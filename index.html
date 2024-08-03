@@ -309,6 +309,27 @@
         opacity: 1;
     }
 }
+
+        #backToTopBtn {
+            display: none; 
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px;
+            z-index: 99; 
+            border: none; 
+            outline: none; 
+            background-color: #270d00; 
+            color: white; 
+            cursor: pointer; 
+            padding: 15px; 
+            border-radius: 10px; 
+            font-size: 18px; 
+            transition: 0.3s; 
+        }
+
+        #backToTopBtn:hover {
+            background-color: #ca9632; /* Add a hover color */
+        }
     </style>
 </head>
 <body>
@@ -399,7 +420,24 @@
                </div>
     </div>
    
-    
+    <button id="backToTopBtn" onclick="scrollToTop()">Top</button>
+    <script>
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        const backToTopBtn = document.getElementById("backToTopBtn");
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            backToTopBtn.style.display = "block";
+        } else {
+            backToTopBtn.style.display = "none";
+        }
+    }
+
+    function scrollToTop() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; 
+    }
+</script>
        
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
