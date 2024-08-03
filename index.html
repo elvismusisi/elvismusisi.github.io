@@ -11,6 +11,87 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Elvis Musisi</title>
     <style>
+    .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+}
+    .image-section {
+    border: 5px solid #ca9632;
+    padding: 20px;
+    background-color: #270d00;
+    color: #fff;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.image-section img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-description {
+    margin-top: 15px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.services-section {
+    padding: 20px;
+    background-color: #270d00;
+    color: #fff;
+    max-width: 300px;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.service {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    animation: slideIn 1s ease-in-out;
+}
+
+.service-icon {
+    font-size: 3rem; 
+    margin-right: 15px;
+    color: #ca9632;
+}
+
+.service-text {
+    font-size: 1.5rem; 
+    color: #fff;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
         .divider {
   height: 3px; 
   margin: 10px 0; 
