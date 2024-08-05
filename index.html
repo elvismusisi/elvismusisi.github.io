@@ -460,7 +460,60 @@
         transform: scale(1.02);
     }
 }
+header h1 {
+    margin-bottom: 20px;
+    color: #ca9632;
+}
 
+.slider {
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    border: 5px solid #ca9632;
+    border-radius: 10px;
+}
+
+.slide {
+    width: 800px;
+    height: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    color: #ca9632;
+}
+
+.caption h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.caption p {
+    margin: 5px 0 0;
+    font-size: 16px;
+}
     </style>
 </head>
 <body>
@@ -526,7 +579,34 @@
         <div class="african-background" data-aos="fade-up">
   <div class="african-pattern"></div>
 </div>
-
+ <div class="container">
+        <header>
+            <h1>My Educational Journey</h1>
+        </header>
+        <div class="slider">
+            <div class="slide active">
+                <img src="learning-lions.jpg" alt="Learning Lions">
+                <div class="caption">
+                    <h2>Learning Lions</h2>
+                    <p>Studied Graphic Design and Basic I.T</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="plp.jpg" alt="Power Learn Project">
+                <div class="caption">
+                    <h2>Power Learn Project (PLP)</h2>
+                    <p>Studied Front End Development Basics</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="naamal.jpg" alt="Na'amal">
+                <div class="caption">
+                    <h2>Na'amal</h2>
+                    <p>Soft Skills Training and Mentorship Program</p>
+                </div>
+            </div>
+        </div>
+    </div>
           <div class="parallax-content" data-aos="fade-up">
           <div class="code-tags">
                 <code>#Design</code>
@@ -569,7 +649,31 @@
         document.documentElement.scrollTop = 0; 
     }
 </script>
-       
+<script>
+    let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+            slide.classList.add('active');
+        }
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+setInterval(nextSlide, 3000);
+
+document.addEventListener('DOMContentLoaded', () => {
+    showSlide(currentSlide);
+});
+
+</script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
