@@ -640,6 +640,45 @@ header h1 {
         transform: scale(1);
     }
 }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.animated-section {
+    position: relative;
+    width: 50%;
+    height: auto;
+    overflow: hidden;
+}
+
+.zoom-image {
+    width: 100px; 
+    height: 100px; 
+    animation: zoomMove 5s infinite;
+}
+
+@keyframes zoomMove {
+    0% {
+        transform: scale(1) translateX(0);
+    }
+    50% {
+        transform: scale(1.5) translateX(200px); 
+    }
+    100% {
+        transform: scale(1) translateX(0);
+    }
+}
+
 
     </style>
 </head>
@@ -650,6 +689,13 @@ header h1 {
     
     <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"> 
      <div class="divider"></div>
+    
+    <div class="container">
+        <img src="Files/Images/elvismusisi-logo.png" style="width: 50%; height: auto;" class="glitch-image">
+        <div class="animated-section">
+            <img src="Files/Images/animated-section.jpg" alt="Animated Image" class="zoom-image">
+        </div>
+    </div>
      <div class="container">
               <img src="Files/Images/elvismusisi-logo.png" style="width: 50%; height: auto;" class="glitch-image">
                </div>
