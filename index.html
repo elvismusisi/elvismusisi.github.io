@@ -929,6 +929,61 @@ body {
     50% { opacity: 1; }
     100% { transform: translateX(0) translateY(-50%); opacity: 1; }
 }
+.animation-container {
+    position: relative;
+    width: 300px; 
+    margin: 0 auto;
+    height: 300px; 
+}
+
+.header {
+    position: absolute;
+    font-size: 2rem;
+    color: #ca9632;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.header-top {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header-right {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.header-bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header-left {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.center-image {
+    position: relative;
+    text-align: center;
+    height: 100%;
+}
+
+.center-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.image-text {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #333;
+}
 
     </style>
 </head>
@@ -1062,13 +1117,14 @@ body {
     <div class="header header-top">Design</div>
     <div class="header header-right">Web Development</div>
     <div class="header header-bottom">Animation</div>
-    
+    <div class="header header-left">Code</div>
 
     <div class="center-image">
         <img src="Files/Images/meatstartuplions.jpg" alt="Image of me while at start up lions">
         <p class="image-text">In front of the Google IT House at Start-Up Lions</p>
     </div>
 </div>
+
 
     <div class="golden-stripe"></div>
 </div>
@@ -1246,6 +1302,31 @@ document.addEventListener('DOMContentLoaded', () => {
             header.style.animationPlayState = 'running';
         });
     }
+});
+
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const headers = document.querySelectorAll('.header');
+    let angle = 0;
+    const radius = 150; 
+    const centerX = 150; 
+    const centerY = 150;
+
+    function rotateHeaders() {
+        angle += 1; // Speed of rotation
+        headers.forEach((header, index) => {
+            const theta = angle + index * 90;
+            const x = centerX + radius * Math.cos(theta * Math.PI / 180);
+            const y = centerY + radius * Math.sin(theta * Math.PI / 180);
+            header.style.left = `${x}px`;
+            header.style.top = `${y}px`;
+        });
+
+        requestAnimationFrame(rotateHeaders);
+    }
+
+    rotateHeaders(); 
 });
 
 </script>
