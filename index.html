@@ -807,6 +807,44 @@ body {
         transform: translateX(100%);
     }
 }
+.image-container {
+    position: relative;
+    text-align: center;
+}
+
+.golden-stripe {
+    height: 10px;
+    background-color: #ca9632;
+}
+
+.image-track img {
+    width: 100%;
+    height: auto;
+}
+
+.center-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid #ca9632; 
+    border-radius: 10px; 
+    text-align: center;
+}
+
+.center-image img {
+    width: 200px; 
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.image-text {
+    margin-top: 10px;
+    color: #333; 
+    font-size: 16px; 
+    font-family: Arial, sans-serif;
+}
 
     </style>
 </head>
@@ -926,16 +964,21 @@ body {
     </div>
 </div>
                </div>
+         
          <div class="image-container">
-        <div class="golden-stripe"></div>
-        <div class="image-track">
-            <img src="Files/Images/african_pattern.jpg" alt="African Pattern">
-            <img src="Files/Images/african_pattern.jpg" alt="African Pattern">
-            <img src="Files/Images/african_pattern.jpg" alt="African Pattern">
-            <img src="Files/Images/african_pattern.jpg" alt="African Pattern">
-        </div>
-        <div class="golden-stripe"></div>
+    <div class="golden-stripe"></div>
+    <div class="image-track">
+        <img src="Files/Images/african_pattern.jpg" alt="African Pattern">
+        <img src="Files/Images/african_pattern.jpg" alt="African Pattern">
+        <img src="Files/Images/african_pattern.jpg" alt="African Pattern">
+        <img src="Files/Images/african_pattern.jpg" alt="African Pattern">
     </div>
+    <div class="center-image">
+        <img src="Files/Images/meatstartuplions.jpg" alt="Image of me while at start up lions">
+        <p class="image-text">In front of the Google IT House at Start-Up Lions</p>
+    </div>
+    <div class="golden-stripe"></div>
+</div>
        <div class="parallax-bg">
         <div class="african-background" data-aos="fade-up">
   <div class="african-pattern"></div>
@@ -974,16 +1017,6 @@ body {
         <div class="animated-section">
             <img src="Files/Images/animated-section.jpg" alt="Animated Image" class="zoom-image">
         </div>
-          <div class="image-container">
-        <div class="golden-stripe"></div>
-        <div class="image-track">
-            <img src="Files/Images/african_pattern.jpg" alt="African Pattern">
-            <img src="Files/Images/african_pattern.jpg" alt="African Pattern">
-            <img src="Files/Images/african_pattern.jpg" alt="African Pattern">
-            <img src="Files/Images/african_pattern.jpg" alt="African Pattern">
-        </div>
-        <div class="golden-stripe"></div>
-        <div class="golden-stripe"></div>
     </div>
          
     <script>
