@@ -897,10 +897,30 @@ html {
       border-radius: 5px;
       display: none;
     }
+#popup-image {
+    position: fixed;
+    left: -100%; 
+    top: 20%; 
+    transition: all 1s ease;
+    z-index: 1000; 
+}
 
+#popup-image img {
+    max-width: 300px; 
+    height: auto;
+}
+
+.popup.active {
+    left: 20px; 
+}
+
+.popup.inactive {
+    left: -100%; 
+}
   </style>
 </head>
 <body>
+
 <div id="popupBanner" class="popup-banner">
     <p>Welcome to my creative space! Let's bring your ideas to life.</p>
   </div>
@@ -936,7 +956,8 @@ html {
         </div>
     </nav>
 </div>
-
+ <div id="popup-image" class="popup">
+<img src="Files/Images/start-up_lions.jpg" alt="Pop-Up Image">
 <!-- About Section -->
 <section id="about" class="section bg-african-brown text-light aos-init" data-aos="fade-up" data-aos-duration="700">
     <div class="content">
@@ -1301,7 +1322,7 @@ html {
         <i class="fas fa-envelope"></i> Gmail
     </a>
 </div>
-
+</div>
 
     <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"  class="aos-init" data-aos="fade-up" data-aos-duration="700">
 </section>
@@ -1733,8 +1754,23 @@ sliderItems.forEach((item, idx) => {
     });
 </script>
 
-</script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('popup-image');
+
+  
+    setTimeout(function() {
+        popup.classList.add('active');
+    }, 500); 
+
+  
+    setTimeout(function() {
+        popup.classList.remove('active');
+        popup.classList.add('inactive');
+    }, 4000); 
+});
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
