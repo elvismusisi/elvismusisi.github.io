@@ -845,6 +845,90 @@ body {
     font-size: 16px; 
     font-family: Arial, sans-serif;
 }
+.animation-container {
+    position: relative;
+    width: 300px; 
+    margin: 0 auto;
+}
+
+.header {
+    position: absolute;
+    font-size: 2rem;
+    color: #ca9632;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0; 
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+.header-top {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-name: animateTop;
+}
+
+.header-right {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    animation-name: animateRight;
+}
+
+.header-bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-name: animateBottom;
+}
+
+.header-left {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    animation-name: animateLeft;
+}
+
+.center-image {
+    position: relative;
+    text-align: center;
+}
+
+.center-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.image-text {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+@keyframes animateTop {
+    0% { transform: translateX(-50%) translateY(-100%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+
+@keyframes animateRight {
+    0% { transform: translateX(100%) translateY(-50%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(0) translateY(-50%); opacity: 1; }
+}
+
+@keyframes animateBottom {
+    0% { transform: translateX(-50%) translateY(100%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+
+@keyframes animateLeft {
+    0% { transform: translateX(-100%) translateY(-50%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(0) translateY(-50%); opacity: 1; }
+}
 
     </style>
 </head>
@@ -974,10 +1058,18 @@ body {
         <img src="Files/Images/african_pattern.jpg" alt="African Pattern">
         <img src="Files/Images/african_pattern.jpg" alt="African Pattern">
     </div>
+   <div class="animation-container">
+    <div class="header header-top">Design</div>
+    <div class="header header-right">Web Development</div>
+    <div class="header header-bottom">Animation</div>
+    <div class="header header-left">App Development</div>
+
     <div class="center-image">
         <img src="Files/Images/meatstartuplions.jpg" alt="Image of me while at start up lions">
         <p class="image-text">In front of the Google IT House at Start-Up Lions</p>
     </div>
+</div>
+
     <div class="golden-stripe"></div>
 </div>
 <img src="Files/Images/start-up_lions.jpg">
@@ -1140,6 +1232,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const clone = track.cloneNode(true);
     track.parentNode.appendChild(clone);
 };
+
+</script>
+<script>
+    window.addEventListener('scroll', function() {
+    const animationContainer = document.querySelector('.animation-container');
+    const containerPosition = animationContainer.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.5;
+
+    if (containerPosition < screenPosition) {
+        const headers = document.querySelectorAll('.header');
+        headers.forEach(header => {
+            header.style.animationPlayState = 'running';
+        });
+    }
+});
 
 </script>
 </body>
