@@ -985,6 +985,53 @@ body {
     color: #333;
 }
 
+#maneno {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #270d00;
+}
+
+#maneno img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.2) brightness(0.9);
+  animation: image-animation 20s infinite;
+}
+
+.code-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ca9632;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #ca9632;
+  animation: typing 4s steps(40) infinite, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #ca9632; }
+}
+
+@keyframes image-animation {
+  0% { filter: grayscale(100%) contrast(1.2) brightness(0.9); }
+  50% { filter: grayscale(0%) contrast(1) brightness(1); }
+  100% { filter: grayscale(100%) contrast(1.2) brightness(0.9); }
+}
+
+
     </style>
 </head>
 <body>
@@ -1128,7 +1175,10 @@ body {
 
     <div class="golden-stripe"></div>
 </div>
-<img src="Files/Images/start-up_lions.jpg">
+<div id="maneno">
+  <img src="Files/Images/start-up_lions.jpg" alt="Start-Up Lions">
+  <div class="code-text"></div>
+</div>
        <div class="parallax-bg">
         <div class="african-background" data-aos="fade-up">
   <div class="african-pattern"></div>
@@ -1169,7 +1219,26 @@ body {
             <img src="Files/Images/animated-section.jpg" alt="Animated Image" class="zoom-image">
         </div>
     </div>
-         
+    <script>
+        const codeLines = [
+  'const welcome = "Hello, World!";',
+  'function animate() { /* ... */ }',
+  'console.log("Start-Up Lions");',
+  'document.getElementById("maneno").style.display = "block";'
+];
+
+let i = 0;
+const codeText = document.querySelector('.code-text');
+
+function typeCode() {
+  codeText.textContent = codeLines[i];
+  i = (i + 1) % codeLines.length;
+  setTimeout(typeCode, 4000);
+}
+
+typeCode();
+
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
     const imageSection = document.querySelector('.image-section');
