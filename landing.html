@@ -909,11 +909,8 @@ html {
       border-radius: 5px;
       display: none;
     }
-#hide-navbar {
-    margin-left: auto;
-    margin-right: 20px;
-}
 
+/* Button Styles */
 .btn-custom {
     background-color: #ca9632;
     color: #fff;
@@ -922,10 +919,11 @@ html {
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.3s, bottom 0.3s, right 0.3s;
     margin-left: auto;
     margin-right: 20px;
     cursor: pointer;
+    position: relative;
 }
 
 
@@ -944,15 +942,26 @@ html {
 
 .logo-centered {
     position: absolute;
-    top: 10px; 
+    top: 10px; /* Adjust as needed */
     left: 50%;
     transform: translateX(-50%);
 }
+
 
 .hidden-navbar {
     opacity: 0; 
     pointer-events: none; 
 }
+
+
+.btn-bottom-corner {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    transform: translateX(0);
+    z-index: 9999; 
+}
+
 
 
   </style>
@@ -1794,25 +1803,28 @@ sliderItems.forEach((item, idx) => {
 
 
 <script>
-   document.getElementById('toggle-navbar').addEventListener('click', function() {
+ document.getElementById('toggle-navbar').addEventListener('click', function() {
     var navbar = document.querySelector('.navbar');
     var logo = document.querySelector('.navbar-brand img');
+    var button = this;
 
-   
+    
     navbar.classList.toggle('hidden-navbar');
     
     
     logo.classList.toggle('logo-centered');
 
-    
+   
     if (navbar.classList.contains('hidden-navbar')) {
-        this.textContent = 'Show Navbar';
-        this.style.backgroundColor = '#270d00';
-        this.style.color = '#ca9632';
+        button.textContent = 'Show Navbar';
+        button.classList.add('btn-bottom-corner');
+        button.style.backgroundColor = '#270d00';
+        button.style.color = '#ca9632';
     } else {
-        this.textContent = 'Hide Navbar';
-        this.style.backgroundColor = '#ca9632';
-        this.style.color = '#fff';
+        button.textContent = 'Hide Navbar';
+        button.classList.remove('btn-bottom-corner');
+        button.style.backgroundColor = '#ca9632';
+        button.style.color = '#fff';
     }
 });
 
