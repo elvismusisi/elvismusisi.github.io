@@ -1166,7 +1166,34 @@ body {
         transform: translateY(-20px);
     }
 }
+.lightning-logo {
+    position: relative;
+    z-index: 1;
+}
 
+
+.lightning-logo.strike::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0.8;
+    z-index: 2;
+    pointer-events: none;
+    animation: flash 0.5s forwards;
+}
+
+@keyframes flash {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
     </style>
 </head>
 <body>
@@ -1178,7 +1205,7 @@ body {
      <div class="divider"></div>
     
     <div class="container">
-        <img src="Files/Images/elvismusisi-logo.png" style="width: 50%; height: auto;" class="glitch-image">
+        <img src="Files/Images/elvismusisi-logo.png" style="width: 50%; height: auto;" class="glitch-image lightning-logo">
     </div>
   <div class="golden-stripe"></div>
   <div></div>
@@ -1547,6 +1574,30 @@ document.addEventListener('DOMContentLoaded', () => {
             logo.style.display = "none";
         }, 3000); 
     }, 6000); 
+});
+
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const logo = document.querySelector('.lightning-logo');
+
+    function triggerLightning() {
+        logo.classList.add('strike');
+        setTimeout(() => {
+            logo.classList.remove('strike');
+        }, 500); 
+    }
+
+   
+    function startLightning() {
+        const randomTime = Math.random() * 5000 + 5000; 
+        setTimeout(() => {
+            triggerLightning();
+            startLightning();
+        }, randomTime);
+    }
+
+    startLightning();
 });
 
 </script>
