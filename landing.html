@@ -22,6 +22,18 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
+.hidden-navbar {
+    opacity: 0; 
+    pointer-events: none; 
+}
+
+.logo-centered {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 @media (max-width: 768px) {
     .slider-container {
         display: none;
@@ -897,6 +909,10 @@ html {
       border-radius: 5px;
       display: none;
     }
+#hide-navbar {
+    margin-left: auto;
+    margin-right: 20px;
+}
 
   </style>
 </head>
@@ -914,6 +930,7 @@ html {
         <a class="navbar-brand" href="#">
             <img src="Files/Images/elvismusisi-logo.png" alt="Logo" height="90" style="margin-left: 20px;">
         </a>
+        <button id="hide-navbar" class="btn btn-outline-dark">Hide Navbar</button>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -936,6 +953,7 @@ html {
         </div>
     </nav>
 </div>
+
 
 <!-- About Section -->
 <section id="about" class="section bg-african-brown text-light aos-init" data-aos="fade-up" data-aos-duration="700">
@@ -1733,8 +1751,27 @@ sliderItems.forEach((item, idx) => {
     });
 </script>
 
-</script>
 
+<script>
+    document.getElementById('hide-navbar').addEventListener('click', function() {
+    var navbar = document.querySelector('.navbar');
+    var logo = document.querySelector('.navbar-brand img');
+
+   
+    navbar.classList.toggle('hidden-navbar');
+    
+    
+    logo.classList.toggle('logo-centered');
+
+    
+    if (navbar.classList.contains('hidden-navbar')) {
+        this.textContent = 'Show Navbar';
+    } else {
+        this.textContent = 'Hide Navbar';
+    }
+});
+
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
