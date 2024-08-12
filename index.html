@@ -1633,5 +1633,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
+<script>
+    document.addEventListener('scroll', function() {
+  const logo = document.getElementById('lightning-logo');
+  const logoPosition = logo.getBoundingClientRect().top;
+  
+  if (logoPosition < window.innerHeight && logoPosition >= 0) {
+    
+    logo.style.animationPlayState = 'running';
+  } else {
+    
+    logo.style.animation = 'none'; 
+    logo.style.transform = 'scale(1) rotate(0deg)'; 
+    logo.offsetHeight; 
+    logo.style.transition = 'transform 1s ease'; 
+  }
+});
+
+</script>
 </body>
 </html>
