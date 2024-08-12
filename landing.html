@@ -22,30 +22,7 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
-.navbar {
-    position: relative; 
-    z-index: 1000; 
-}
 
-
-.btn-bottom-corner {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1001;
-}
-.hidden-navbar {
-    opacity: 0; 
-    pointer-events: none; 
-}
-          
-
-.logo-centered {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-}
 
 @media (max-width: 768px) {
     .slider-container {
@@ -924,19 +901,22 @@ html {
     }
 
 
+
+/* Button Styles */
 .btn-custom {
     background-color: #ca9632;
     color: #fff;
-    border: 1px solid #270d00;
-    border-radius: 10px;
-    padding: 8px 20px;
+    border: 2px solid #270d00;
+    border-radius: 25px;
+    padding: 10px 20px;
     font-size: 16px;
-    font-weight: light;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.3s, bottom 0.3s, right 0.3s;
-    margin-left: auto;
-    margin-right: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     cursor: pointer;
-    position: relative;
+    position: fixed;
+    bottom: 20px; 
+    right: 20px; 
+    z-index: 1001; 
 }
 
 
@@ -953,26 +933,9 @@ html {
 }
 
 
-.logo-centered {
-    position: absolute;
-    top: 10px; /* Adjust as needed */
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-
 .hidden-navbar {
     opacity: 0; 
     pointer-events: none; 
-}
-
-
-.btn-bottom-corner {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    transform: translateX(0);
-    z-index: 9999; 
 }
 
 
@@ -1816,30 +1779,28 @@ sliderItems.forEach((item, idx) => {
 
 
 <script>
- document.getElementById('toggle-navbar').addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', function() {
+    var toggleButton = document.getElementById('toggle-navbar');
     var navbar = document.querySelector('.navbar');
-    var logo = document.querySelector('.navbar-brand img');
-    var button = this;
-
     
-    navbar.classList.toggle('hidden-navbar');
-    
-    
-    logo.classList.toggle('logo-centered');
-
    
-    if (navbar.classList.contains('hidden-navbar')) {
-        button.textContent = 'Show Navbar';
-        button.classList.add('btn-bottom-corner');
-        button.style.backgroundColor = '#270d00';
-        button.style.color = '#ca9632';
-    } else {
-        button.textContent = 'Hide Navbar';
-        button.classList.remove('btn-bottom-corner');
-        button.style.backgroundColor = '#ca9632';
-        button.style.color = '#fff';
-    }
+    toggleButton.addEventListener('click', function() {
+        
+        navbar.classList.toggle('hidden-navbar');
+        
+        
+        if (navbar.classList.contains('hidden-navbar')) {
+            toggleButton.textContent = 'Show Navbar';
+            toggleButton.style.backgroundColor = '#270d00';
+            toggleButton.style.color = '#ca9632';
+        } else {
+            toggleButton.textContent = 'Hide Navbar';
+            toggleButton.style.backgroundColor = '#ca9632';
+            toggleButton.style.color = '#fff';
+        }
+    });
 });
+
 
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
