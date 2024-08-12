@@ -1166,34 +1166,63 @@ body {
         transform: translateY(-20px);
     }
 }
- #lightning-logo {
-    position: relative;
-    z-index: 1;
+#lightning-logo {
+  width: 100px;
+  height: auto; 
+  animation: grow-glitch 10s infinite; 
 }
 
+@keyframes grow-glitch {
+  0% {
+    transform: scale(1); 
+    filter: none;
+  }
+  
+  20% {
+    transform: scale(10); 
+    filter: url(#glitch-effect); 
+  }
+  
+  30% {
+    transform: scale(10.5);
+    filter: none;
+  }
 
- #lightning-logo.strike::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    opacity: 0.8;
-    z-index: 2;
-    pointer-events: none;
-    animation: flash 0.5s forwards;
+  40% {
+    transform: scale(10);
+    filter: url(#glitch-effect); 
+  }
+
+  60% {
+    transform: scale(1);
+    filter: none;
+  }
+  
+  90% {
+    transform: scale(1); 
+    filter: none;
+  }
+  
+  100% {
+    transform: scale(1); 
+    filter: none;
+  }
 }
 
-@keyframes flash {
-    0%, 100% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
+svg {
+  position: absolute;
+  width: 0;
+  height: 0;
 }
+
+<svg xmlns="http://www.w3.org/2000/svg">
+  <filter id="glitch-effect">
+    <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="2" />
+    <feDisplacementMap in="SourceGraphic" scale="20" />
+    <feColorMatrix type="saturate" values="0" />
+  </filter>
+</svg>
+
     </style>
 </head>
 <body>
