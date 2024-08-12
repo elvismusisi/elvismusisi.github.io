@@ -902,7 +902,7 @@ html {
 
 
 
-/* Button Styles */
+
 .btn-custom {
     background-color: #ca9632;
     color: #fff;
@@ -913,9 +913,9 @@ html {
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     cursor: pointer;
-    position: fixed;
+    position: fixed; 
     bottom: 20px; 
-    right: 20px; 
+    right: 20px;
     z-index: 1001; 
 }
 
@@ -934,10 +934,8 @@ html {
 
 
 .hidden-navbar {
-    opacity: 0; 
-    pointer-events: none; 
+    display: none; 
 }
-
 
 
   </style>
@@ -1784,9 +1782,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var toggleButton = document.getElementById('toggle-navbar');
     var navbar = document.querySelector('.navbar');
     
-   
+    
     toggleButton.addEventListener('click', function() {
-        
+        // Toggle the hidden-navbar class
         navbar.classList.toggle('hidden-navbar');
         
         
@@ -1801,7 +1799,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
 
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
