@@ -1780,25 +1780,30 @@ sliderItems.forEach((item, idx) => {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var toggleButton = document.getElementById('toggle-navbar');
-    var navbar = document.querySelector('.navbar');
+    var navbarCollapse = document.getElementById('navbarNav');
     
     
-    toggleButton.addEventListener('click', function() {
-        // Toggle the hidden-navbar class
-        navbar.classList.toggle('hidden-navbar');
+    function toggleNavbar() {
         
-        
-        if (navbar.classList.contains('hidden-navbar')) {
+        if (navbarCollapse.classList.contains('show')) {
+            // Hide the navbar
+            navbarCollapse.classList.remove('show');
             toggleButton.textContent = 'Show Navbar';
             toggleButton.style.backgroundColor = '#270d00';
             toggleButton.style.color = '#ca9632';
         } else {
+           
+            navbarCollapse.classList.add('show');
             toggleButton.textContent = 'Hide Navbar';
             toggleButton.style.backgroundColor = '#ca9632';
             toggleButton.style.color = '#fff';
         }
-    });
+    }
+
+   
+    toggleButton.addEventListener('click', toggleNavbar);
 });
+
 
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
