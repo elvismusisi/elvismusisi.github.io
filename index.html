@@ -1099,6 +1099,34 @@ body {
         font-size: 12px; 
     }
 }
+.light-effect {
+  position: relative;
+  display: inline-block;
+  color: #ca9632;
+  animation: lightPass 5s infinite;
+}
+
+@keyframes lightPass {
+  0% {
+    background-position: -200%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
+.light-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  background-size: 200% 200%;
+  animation: lightPass 5s infinite;
+  pointer-events: none;
+}
 
     </style>
 </head>
@@ -1121,7 +1149,7 @@ body {
 <div class="golden-stripe"></div>
    
     <div class="container">
-        <h1 class="display-4" style="font-family: 'Ubuntu Cursive', cursive;">Musisi Elvis Portfolio</h1>
+        <h1 class="display-4 light-effect" style="font-family: 'Ubuntu Cursive', cursive;">Musisi Elvis Portfolio</h1>
         <img src="Files/Images/homepagestrip.jpg" alt="Image decoration" class="aos-init" data-aos="fade-up" data-aos-duration="700">
         <p class="lead">👋 Welcome! I'm a passionate graphic designer and self-taught front-end web developer based in Kenya, with a flair for creativity and a love for coding.</p>
             
