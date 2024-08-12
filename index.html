@@ -1166,8 +1166,9 @@ body {
         transform: translateY(-20px);
     }
 }
+
 #lightning-logo {
-  width: 100px;
+  width: 100px; 
   height: auto; 
   animation: grow-glitch 10s infinite; 
 }
@@ -1179,22 +1180,22 @@ body {
   }
   
   20% {
-    transform: scale(10); 
+    transform: scale(4); 
     filter: url(#glitch-effect); 
   }
   
   30% {
-    transform: scale(10.5);
+    transform: scale(4.2); 
     filter: none;
   }
 
   40% {
-    transform: scale(10);
+    transform: scale(4); 
     filter: url(#glitch-effect); 
   }
 
   60% {
-    transform: scale(1);
+    transform: scale(1); 
     filter: none;
   }
   
@@ -1209,6 +1210,7 @@ body {
   }
 }
 
+
 svg {
   position: absolute;
   width: 0;
@@ -1218,7 +1220,7 @@ svg {
 <svg xmlns="http://www.w3.org/2000/svg">
   <filter id="glitch-effect">
     <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="2" />
-    <feDisplacementMap in="SourceGraphic" scale="5" />
+    <feDisplacementMap in="SourceGraphic" scale="20" />
     <feColorMatrix type="saturate" values="0" />
   </filter>
 </svg>
