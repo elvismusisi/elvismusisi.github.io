@@ -1030,6 +1030,37 @@ html {
             cursor: default !important;
             pointer-events: none;
         }
+    .random-words-container {
+    position: relative;
+    z-index: 999; 
+}
+
+.random-word {
+    position: absolute;
+    font-size: 2em;
+    color: #ca9632;
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+    pointer-events: none;
+}
+
+.random-word .icon-design, 
+.random-word .icon-web, 
+.random-word .icon-code, 
+.random-word .icon-animation {
+    color: #270d00;
+    margin-left: 10px;
+}
+
+#graphic-design { top: 10%; left: 15%; }
+#web-development { top: 30%; left: 60%; }
+#coding { top: 50%; left: 25%; }
+#animation { top: 70%; left: 45%; }
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; transform: translateY(20px); }
+    50% { opacity: 1; transform: translateY(0); }
+}
 
   </style>
 </head>
@@ -1071,7 +1102,11 @@ html {
 </div>
 <button id="show-navbar" class="btn-custom">Show Navbar</button>
 
-
+<div class="random-words-container">
+    <span class="random-word" id="graphic-design">Graphic Design <i class="icon-design"></i></span>
+    <span class="random-word" id="web-development">Web Development <i class="icon-web"></i></span>
+    <span class="random-word" id="coding">Coding <i class="icon-code"></i></span>
+    <span class="random-word" id="animation">Animation <i class="icon-animation"></i></span>
 <!-- About Section -->
 <section id="about" class="section bg-african-brown text-light aos-init" data-aos="fade-up" data-aos-duration="700">
     <div class="content">
@@ -1437,7 +1472,7 @@ html {
     </a>
 </div>
 
-
+</div>
     <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"  class="aos-init" data-aos="fade-up" data-aos-duration="700">
 </section>
 </section>
@@ -1952,6 +1987,26 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+</script>
+<script>
+    document.addEventListener('scroll', function() {
+    const words = document.querySelectorAll('.random-word');
+
+    words.forEach(word => {
+        const randomTime = Math.random() * 2 + 0.5; 
+        const randomX = Math.random() * 100 - 50; 
+        const randomY = Math.random() * 100 - 50; 
+
+        word.style.transition = `transform ${randomTime}s ease, opacity ${randomTime}s ease`;
+        word.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        word.style.opacity = 1;
+
+        setTimeout(() => {
+            word.style.opacity = 0;
+        }, randomTime * 1000);
+    });
+});
+
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
