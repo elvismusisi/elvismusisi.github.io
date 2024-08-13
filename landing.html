@@ -1807,38 +1807,56 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    const toggleNavbarButton = document.getElementById("toggle-navbar");
-    const showNavbarButton = document.getElementById("show-navbar");
-    const navbar = document.querySelector(".navbar");
+        const toggleNavbarButton = document.getElementById("toggle-navbar");
+        const showNavbarButton = document.getElementById("show-navbar");
+        const navbar = document.querySelector(".navbar");
+        const navbarLinks = document.querySelectorAll(".navbar-nav .nav-link");
 
-    toggleNavbarButton.addEventListener("click", function() {
-        
-        navbar.style.display = "none";
+        function hideNavbar() {
+            navbar.style.display = "none";
+
+            setTimeout(function() {
+                showNavbarButton.style.display = "block";
+            }, 3000);
+
+            toggleNavbarButton.style.display = "none";
+        }
+
+        function showNavbar() {
+            navbar.style.display = "flex";
+            navbar.classList.remove("collapse", "collapsed", "hidden", "invisible");
+            navbar.style.visibility = "visible";
+            navbar.style.opacity = "1";
+            navbar.style.height = "auto";
+            navbar.style.overflow = "visible";
+
+            showNavbarButton.style.display = "none";
+            toggleNavbarButton.style.display = "block"; 
+        }
 
         
-        setTimeout(function() {
-            showNavbarButton.style.display = "block";
-        }, 3000);
+        toggleNavbarButton.addEventListener("click", hideNavbar);
+
+       
+        showNavbarButton.addEventListener("click", function() {
+            showNavbar();
+
+           
+            navbarLinks.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault(); 
+
+                    
+                    alert(`You clicked on the ${link.textContent} link!`);
+
+                    hideNavbar(); 
+
+                   
+                    window.location.href = link.getAttribute("href"); 
+                });
+            });
+        });
     });
-
-    showNavbarButton.addEventListener("click", function() {
-        
-        navbar.style.display = "flex";  
-
-        
-        navbar.classList.remove("collapse", "collapsed", "hidden", "invisible");
-
-    
-        navbar.style.visibility = "visible";
-        navbar.style.opacity = "1";
-        navbar.style.height = "auto";
-        navbar.style.overflow = "visible";
-
-
-        showNavbarButton.style.display = "none";
-    });
-});
-
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
