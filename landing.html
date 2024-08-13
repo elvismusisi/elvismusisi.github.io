@@ -980,6 +980,7 @@ html {
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     </nav>
 </div>
+<button id="show-navbar" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);" class="btn-custom">Show Navbar</button>
 
 
 <!-- About Section -->
@@ -1802,6 +1803,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const toggleNavbarButton = document.getElementById("toggle-navbar");
+    const showNavbarButton = document.getElementById("show-navbar");
+    const navbar = document.querySelector(".navbar");
+
+    toggleNavbarButton.addEventListener("click", function() {
+       
+        navbar.style.display = "none";
+
+       
+        setTimeout(function() {
+            showNavbarButton.style.display = "block";
+        }, 3000);
+    });
+
+    showNavbarButton.addEventListener("click", function() {
+        
+        navbar.style.display = "flex";
+
+        
+        showNavbarButton.style.display = "none";
+    });
+});
 
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
