@@ -902,7 +902,7 @@ html {
 
 
 
-/* Button Styles */
+
 .btn-custom {
     background-color: #ca9632;
     color: #fff;
@@ -933,12 +933,26 @@ html {
 }
 
 
-.hidden-navbar {
-    opacity: 0; 
-    pointer-events: none; 
-}
 
 
+       .draggable-container {
+            position: relative;
+        }
+        .btn-custom {
+            margin-left: 20px;
+        }
+        #show-navbar {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+        }
+        .no-drag {
+            cursor: default !important;
+            pointer-events: none;
+        }
 
   </style>
 </head>
@@ -956,9 +970,7 @@ html {
         <a class="navbar-brand" href="#">
             <img src="Files/Images/elvismusisi-logo.png" alt="Logo" height="90" style="margin-left: 20px;">
         </a>
-        
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <span class="navbar-toggler-icon"></span>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -977,10 +989,10 @@ html {
             </ul>
         </div>
         <button id="toggle-navbar" class="btn-custom">Hide Navbar</button>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"></button>
     </nav>
 </div>
-<button id="show-navbar" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);" class="btn-custom">Show Navbar</button>
+<button id="show-navbar" class="btn-custom">Show Navbar</button>
 
 
 <!-- About Section -->
@@ -1806,7 +1818,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
         const toggleNavbarButton = document.getElementById("toggle-navbar");
         const showNavbarButton = document.getElementById("show-navbar");
         const navbar = document.querySelector(".navbar");
@@ -1817,13 +1829,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
             setTimeout(function() {
                 showNavbarButton.style.display = "block";
+                showNavbarButton.classList.remove("no-drag");
+                showNavbarButton.style.pointerEvents = "auto"; 
             }, 3000);
 
             toggleNavbarButton.style.display = "none";
         }
 
         function showNavbar() {
-            navbar.style.display = "flex";
+            navbar.style.display = "flex"; 
             navbar.classList.remove("collapse", "collapsed", "hidden", "invisible");
             navbar.style.visibility = "visible";
             navbar.style.opacity = "1";
@@ -1832,12 +1846,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
             showNavbarButton.style.display = "none";
             toggleNavbarButton.style.display = "block"; 
+
+            
+            showNavbarButton.classList.add("no-drag");
+            showNavbarButton.style.pointerEvents = "none"; 
         }
 
-        
+       
         toggleNavbarButton.addEventListener("click", hideNavbar);
 
-       
+        
         showNavbarButton.addEventListener("click", function() {
             showNavbar();
 
