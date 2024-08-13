@@ -1806,16 +1806,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     const toggleNavbarButton = document.getElementById("toggle-navbar");
     const showNavbarButton = document.getElementById("show-navbar");
     const navbar = document.querySelector(".navbar");
 
     toggleNavbarButton.addEventListener("click", function() {
-       
+        
         navbar.style.display = "none";
 
-       
+        
         setTimeout(function() {
             showNavbarButton.style.display = "block";
         }, 3000);
@@ -1823,9 +1823,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     showNavbarButton.addEventListener("click", function() {
         
-        navbar.style.display = "flex";
+        navbar.style.display = "flex";  
 
         
+        navbar.classList.remove("collapse", "collapsed", "hidden", "invisible");
+
+    
+        navbar.style.visibility = "visible";
+        navbar.style.opacity = "1";
+        navbar.style.height = "auto";
+        navbar.style.overflow = "visible";
+
+
         showNavbarButton.style.display = "none";
     });
 });
