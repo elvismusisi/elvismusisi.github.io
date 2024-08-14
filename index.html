@@ -1245,6 +1245,7 @@ svg {
 </svg>
         
  
+
 #upwork-snippet {
   background-color: rgba(39, 13, 0, 0.9);
   color: #ca9632;
@@ -1278,21 +1279,9 @@ svg {
 }
 
 
-.hire-btn {
-  display: inline-block;
-  padding: 10px 30px;
-  font-size: 1.2em;
-  background-color: #270d00;
-  color: #ca9632;
-  border-radius: 5px;
-  text-decoration: none;
-  animation: pulse 1.5s infinite;
-}
-
-
 .arrow-down {
   position: absolute;
-  bottom: -30px; 
+  top: -25px; 
   left: 50%;
   transform: translateX(-50%);
   animation: arrowBounce 2s infinite;
@@ -1302,6 +1291,19 @@ svg {
   width: 30px;
   height: 30px;
   fill: #ca9632;
+}
+
+
+.hire-btn {
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 1.2em;
+  background-color: #270d00;
+  color: #ca9632;
+  border-radius: 5px;
+  text-decoration: none;
+  animation: pulse 1.5s infinite;
+  margin-top: 20px; 
 }
 
 /* Hover Effects */
@@ -1319,11 +1321,11 @@ svg {
 }
 
 .arrow-down:hover {
-  transform: translateY(-15px);
+  transform: translateY(-10px); 
   transition: transform 0.3s ease;
 }
 
-/* Keyframe Animations */
+
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -1367,11 +1369,6 @@ svg {
     transform: translateY(-10px);
   }
 }
-
-    
-  
- 
-  
 
     </style>
 </head>
@@ -1565,27 +1562,32 @@ svg {
     </div>
     <!-- Upwork Profile Snippet Section -->
 <!-- Upwork Profile Snippet Section -->
+<!-- Upwork Profile Snippet Section -->
 <section id="upwork-snippet">
   <div class="container">
     <h2 class="upwork-title">Let's Create Something Amazing Together</h2>
+    <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"> 
     <p class="upwork-description">
       I’m a professional Graphic Designer, Animator, and Web Developer with extensive experience. Explore my Upwork profile and let’s collaborate!
     </p>
     <div class="profile-card">
       <h3>My Upwork Profile</h3>
       <p>Top Rated Freelancer | 5+ Years Experience | 100+ Projects Completed</p>
-      <a href="https://www.upwork.com/profile-link" target="_blank" class="hire-btn">
+      
+      <!-- Animated Arrow Down -->
+      <div class="arrow-down">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="#ca9632" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21L3 9h18l-9 12z"/>
+        </svg>
+      </div>
+      
+      <a href="https://www.upwork.com/freelancers/~017331783205f30a30" target="_blank" class="hire-btn">
         Hire Me
       </a>
     </div>
   </div>
-
-  <div class="arrow-down">
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="#ca9632" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 21L3 9h18l-9 12z"/>
-    </svg>
-  </div>
 </section>
+
 
     <script>
         const codeLines = [
