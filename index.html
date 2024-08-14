@@ -1393,7 +1393,7 @@ svg {
 
 .tools-list {
   display: flex;
-  animation: slide 15s linear infinite;
+  transition: transform 0.5s ease-in-out;
 }
 
 .tool {
@@ -1882,14 +1882,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </script>
 <script>
-    const toolsList = document.querySelector('.tools-list'); 
+  document.addEventListener("DOMContentLoaded", function () {
+    const toolsList = document.querySelector('.tools-list');
+    const tools = document.querySelectorAll('.tool');
+    const toolsCount = tools.length;
 
-toolsList.addEventListener('mouseover', () => {
-  toolsList.style.animationPlayState = 'paused';
-});
+    let currentIndex = 0;
 
-toolsList.addEventListener('mouseout', () => {
-  toolsList.style.animationPlayState = 'running';
+    function animateSlider() {
+        const toolWidth = tools[0].offsetWidth;
+        currentIndex++;
+
+        if (currentIndex >= toolsCount) {
+            currentIndex = 0;
+            toolsList.style.transition = 'none';
+            toolsList.style.transform = `translateX(0)`;
+            setTimeout(() => {
+                toolsList.style.transition = 'transform 0.5s ease-in-out';
+            }, 20);
+        } else {
+            toolsList.style.transform = `translateX(-${toolWidth * currentIndex}px)`;
+        }
+    }
+
+    setInterval(animateSlider, 2000);
 });
 
 </script>
