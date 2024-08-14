@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
     <title>Elvis Musisi</title>
     <style>
 .hire-btn i {
@@ -1381,6 +1384,43 @@ svg {
   }
 }
 
+.tools-slider {
+  width: 100%;
+  overflow: hidden;
+  background-color: #ca9632;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.tools-list {
+  display: flex;
+  animation: slide 15s linear infinite;
+}
+
+.tool {
+  min-width: 200px;
+  padding: 10px;
+  color: #270d00;
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tool i {
+  margin-right: 10px;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
     </style>
 </head>
 <body>
@@ -1489,7 +1529,21 @@ svg {
                 <code>#Code</code>
             </div>
         </div>
-
+<div class="tools-slider">
+  <div class="tools-list">
+    <div class="tool"><i class="fab fa-adobe"></i> Adobe After Effects</div>
+    <div class="tool"><i class="fab fa-adobe"></i> Photoshop</div>
+    <div class="tool"><i class="fab fa-adobe"></i> Illustrator</div>
+    <div class="tool"><i class="fab fa-adobe"></i> Lightroom</div>
+    <div class="tool"><i class="fab fa-html5"></i> HTML</div>
+    <div class="tool"><i class="fab fa-css3-alt"></i> CSS</div>
+    <div class="tool"><i class="fab fa-js"></i> JavaScript</div>
+    <div class="tool"><i class="fas fa-code"></i> jQuery</div>
+    <div class="tool"><i class="fab fa-bootstrap"></i> Bootstrap</div>
+    <div class="tool"><i class="fab fa-figma"></i> Figma</div>
+    <div class="tool"><i class="fab fa-git-alt"></i> Git</div>
+  </div>
+</div>
 <div class="parallax-content" data-aos="fade-up">
               <div class="cube-container">
     <div class="cube">
@@ -1830,6 +1884,18 @@ document.addEventListener('DOMContentLoaded', () => {
     logo.offsetHeight; 
     logo.style.transition = 'transform 1s ease'; 
   }
+});
+
+</script>
+<script>
+    const toolsList = document.querySelector('.tools-list'); 
+
+toolsList.addEventListener('mouseover', () => {
+  toolsList.style.animationPlayState = 'paused';
+});
+
+toolsList.addEventListener('mouseout', () => {
+  toolsList.style.animationPlayState = 'running';
 });
 
 </script>
