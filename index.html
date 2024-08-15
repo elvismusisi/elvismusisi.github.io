@@ -15,6 +15,32 @@
 </head>
     <title>Elvis Musisi</title>
     <style>
+ .centered-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #ca9632;
+            animation: subtleAnimation 5s infinite ease-in-out;
+            padding: 20px;
+        }
+
+    
+        @keyframes subtleAnimation {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
 .hire-btn i {
     color: white; 
     font-size: 24px; 
@@ -1426,10 +1452,12 @@ svg {
     <div class="container">
         <img src="Files/Images/elvismusisi-logo.png" style="width: 50%; height: auto;" class="glitch-image" id="lightning-logo">
     </div>
+    <div class="centered-container">
     <div class="code-tags">
                 <code>#Design</code>
                 <code>#Code</code>
             </div>
+    </div>
   <div class="golden-stripe"></div>
   <div></div>
             
