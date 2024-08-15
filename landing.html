@@ -1092,6 +1092,34 @@ html {
     50% { opacity: 1; transform: translateY(0); }
 }
 
+.parallax-section {
+    position: relative;
+    height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ca9632;
+    transition: background-color 1s, color 1s;
+}
+
+
+.info-section {
+    padding: 50px;
+    background-color: #270d00;
+}
+
+.title {
+    font-size: 3rem;
+}
+
+.scrolled #section1,
+.scrolled #section3 {
+    background-color: #ca9632;
+    color: #270d00;
+}
   </style>
 </head>
 <body>
@@ -1399,7 +1427,10 @@ html {
           </div>     
       </div>
     </div>
-  </div> 
+  </div>
+<div class="parallax-section" id="section1">
+    </div>
+     <div class="info-section" id="section2">
 <div class="container" class="aos-init" data-aos="fade-up" data-aos-duration="700">
     <div class="row my-5">
       <!-- Notable Clients on the left -->
@@ -1501,6 +1532,8 @@ html {
       </div>
     </div>
   </div>
+</div>
+<div class="info-section" id="section2">
   <div class="divider" data-aos="slide-down" data-aos-duration="700" stlye="margin-bottom: -60px;"></div>
  <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"  class="aos-init" data-aos="fade-down" data-aos-duration="700">
    <!-- Contact Section -->
@@ -1517,6 +1550,8 @@ html {
             </div>
         </div>
     </div>
+     </div>
+    <div class="parallax-section" id="section3">
     <div class="contact-image" id="foo" class="aos-init" data-aos="fade-down" data-aos-duration="700">
         <img src="Files/Images/contactImage.jpg" alt="Illustration of Nelson Mandela" style="height: 480px;">
     </div>
@@ -1569,6 +1604,8 @@ html {
     <div class="tool"><i class="fab fa-figma"></i> Figma</div>
     <div class="tool"><i class="fab fa-git-alt"></i> Git</div>
   </div>
+</div>
+</div>
 </div>
 </div>
     <!-- Footer Section -->
@@ -2130,6 +2167,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     setInterval(animateSlider, 1000);
+});
+
+</script>
+<script>
+    window.addEventListener('scroll', function() {
+    let scrollPosition = window.scrollY;
+
+    
+    document.querySelectorAll('.parallax-section').forEach(function(section) {
+        let offset = section.offsetTop;
+        let height = section.offsetHeight;
+
+        if (scrollPosition >= offset - window.innerHeight && scrollPosition < offset + height) {
+            section.style.backgroundPositionY = `${(scrollPosition - offset) * 0.5}px`;
+        }
+    });
+
+    
+    if (scrollPosition > 100) {
+        document.body.classList.add('scrolled');
+    } else {
+        document.body.classList.remove('scrolled');
+    }
 });
 
 </script>
