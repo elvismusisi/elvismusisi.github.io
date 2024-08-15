@@ -22,6 +22,12 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
+
+.scroll-shadow {
+    text-shadow: 0px 0px 5px #ca9632;
+    transition: text-shadow 0.3s ease-out;
+}
+
 .tools-slider {
   width: 100%;
   overflow: hidden;
@@ -1333,11 +1339,11 @@ html {
               Your browser does not support the video tag.
             </video>
           </div>
-          <!-- Add more videos as needed -->
+         
         </div>
-        <!-- Add Pagination -->
+        
         <div class="swiper-pagination"></div>
-        <!-- Add Navigation -->
+       
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
       </div>
@@ -1346,11 +1352,10 @@ html {
         </div>
 </section>
 <img src="Files/Images/homepagestrip.jpg" alt="Image decoration" class="aos-init" data-aos="fade-up" data-aos-duration="700">
-  <!-- Accomplishments Page -->
+
   <div class="container my-5">
     <div class="row">
       <div class="col-12">
- <!-- Key Accomplishments -->
           <div class="random-words-container">
         <span class="random-word" id="graphic-design">Graphic Design <i class="icon-design"></i></span>
         <span class="random-word" id="web-development">Web Development <i class="icon-web"></i></span>
@@ -1360,7 +1365,7 @@ html {
   <div class="container">
     <div class="row">
       <div class="col-md-6 aos-init" data-aos="slide-down" data-aos-duration="700">
-        <h2 class="section-title wow animate__animated animate__fadeInLeft">
+        <h2 class="section-title wow animate__animated animate__fadeInLeft scroll-shadow">
           Key Accomplishments <i class="fas fa-star"></i>
         </h2>
         <div>
@@ -1408,7 +1413,7 @@ html {
           <div class="container">
             <div class="row">
               <div class="col-md-12">
-                <h2 class="section-title wow animate__animated animate__fadeInRight">
+                <h2 class="section-title wow animate__animated animate__fadeInRight scroll-shadow">
                   Notable Clients <i class="fas fa-users"></i>
                 </h2>
                 <ul class="list-unstyled">
@@ -1431,7 +1436,7 @@ html {
       </div>
       <!-- Seeking Opportunities on the right -->
       <div class="col-md-6">
-<section id="seeking-opportunities" class="section" data-aos="slide-down">
+<section id="seeking-opportunities" class="section scroll-shadow" data-aos="slide-down">
           <div class="container">
             <div class="row">
               <div class="col-md-12">
@@ -1440,12 +1445,12 @@ html {
                 </h2>
  <ul class="list-unstyled">
   <li class="custom-list-item">
-    <p class="wow animate__animated animate__fadeInRight">
+    <p class="wow animate__animated animate__fadeInRight scroll-shadow">
       Thriving as a dedicated freelancer, offering expertise in web development and graphic design.
     </p>
   </li>
   <li class="custom-list-item">
-    <p class="wow animate__animated animate__fadeInLeft">
+    <p class="wow animate__animated animate__fadeInLeft scroll-shadow">
       Eager to bring my diverse skills and creativity to new challenges. Open to exciting collaborations and projects.
     </p>
   </li>
@@ -2130,6 +2135,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     setInterval(animateSlider, 1000);
+});
+
+</script>
+<script>
+
+window.addEventListener('scroll', function() {
+    const shadowElements = document.querySelectorAll('.scroll-shadow');
+    let scrollPosition = window.scrollY;
+
+    shadowElements.forEach(element => {
+        let intensity = scrollPosition / 100;
+        element.style.textShadow = `${intensity}px ${intensity}px 10px #ca9632`;
+    });
 });
 
 </script>
