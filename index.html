@@ -25,22 +25,12 @@
             animation: subtleAnimation 5s infinite ease-in-out;
             padding: 20px;
         }
-
-    
-        @keyframes subtleAnimation {
-            0% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.05);
-                opacity: 0.8;
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 1;
-            }
-        }
+@media only screen and (max-width: 480px) {
+    .centered-container {
+        width: 100%; 
+        max-width: 90%; 
+    }
+}
 .hire-btn i {
     color: white; 
     font-size: 24px; 
