@@ -15,7 +15,55 @@
 </head>
     <title>Elvis Musisi</title>
     <style>
+.chochote {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
 
+#mamake {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 5px solid #ca9632;
+    animation: pulse 2s infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px #ca9632, 0 0 20px #ca9632, 0 0 30px #ca9632;
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #ca9632, 0 0 25px #ca9632, 0 0 35px #ca9632;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px #ca9632, 0 0 20px #ca9632, 0 0 30px #ca9632;
+    }
+}
+
+.chochote:hover #mamake {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 0 20px #ca9632, 0 0 40px #ca9632, 0 0 60px #ca9632;
+}
+
+@media (max-width: 600px) {
+    .chochote {
+        width: 150px;
+        height: 150px;
+    }
+
+    #mamake {
+        border-width: 3px;
+    }
+}
  .centered-container {
             position: absolute;
             top: 100%;
@@ -1615,6 +1663,9 @@ svg {
         <img src="Files/Images/elvismusisi-logo.png" alt="">
         <p class="image-text" >Creative</p>
     </div>    
+    </div>
+        <div class="chochote">
+        <img src="Files/Images/home-image.jpg" alt="Home Image" id="mamake">
     </div>
        <div class="animated-section">
             <img src="Files/Images/animated-section.jpg" alt="Animated Image" class="zoom-image">
