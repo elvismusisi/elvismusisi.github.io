@@ -2021,5 +2021,27 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
+<script>
+    const image = document.getElementById('mamake');
+let scale = 0.75;
+let direction = 1;  
+const minScale = 0.75;
+const maxScale = 0.8;
+const step = 0.005;
+const interval = 30; 
+
+function zoomImage() {
+    scale += step * direction;
+
+    if (scale >= maxScale || scale <= minScale) {
+        direction *= -1;
+    }
+
+    image.style.transform = `scale(${scale})`;
+}
+
+setInterval(zoomImage, interval);
+
+</script>
 </body>
 </html>
