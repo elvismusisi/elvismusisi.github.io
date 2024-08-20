@@ -16,67 +16,6 @@
     <title>Elvis Musisi</title>
     <style>
 
-.chochote {
-    opacity: 0.5;
-    width: 1300px;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-    border: 5px solid #ca9632;
-}
-
-#mamake {
-    width: 150%;
-    height: auto;
-    transform: scale(0.75); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: pulse 2s infinite;
-}
-
-.corner-logo {
-    width: 130px;
-    height: 130px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(0.75);
-        box-shadow: 0 0 10px #ca9632, 0 0 20px #ca9632, 0 0 30px #ca9632;
-    }
-    50% {
-        transform: scale(0.8);
-        box-shadow: 0 0 15px #ca9632, 0 0 25px #ca9632, 0 0 35px #ca9632;
-    }
-    100% {
-        transform: scale(0.75);
-        box-shadow: 0 0 10px #ca9632, 0 0 20px #ca9632, 0 0 30px #ca9632;
-    }
-}
-
-.chochote:hover #mamake {
-    transform: scale(0.8) rotate(10deg);
-    box-shadow: 0 0 20px #ca9632, 0 0 40px #ca9632, 0 0 60px #ca9632;
-}
-
-@media (max-width: 600px) {
-    .chochote {
-        width: 100%;
-        height: auto;
-    }
-
-    #mamake {
-        width: 200%;
-        border-width: 3px;
-    }
-}
  .centered-container {
             position: absolute;
             top: 100%;
@@ -1701,11 +1640,6 @@ svg {
             <div class="divider"></div>
          <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"> 
     <button id="backToTopBtn" onclick="scrollToTop()">Top</button>
-         <div class="chochote">
-        <img src="Files/Images/home-image.jpg" alt="Home Image" id="mamake">
-        <img src="Files/Images/elvismusisi-logo.png" alt="Logo" class="corner-logo">
-    </div>
-    <img src="Files/Images/homepagestrip.jpg" alt="Image decoration" class="aos-init" data-aos="fade-up" data-aos-duration="700">
     <div class="golden-stripe"></div>
          <img src="Files/Images/kenya-flag.jpg" data-aos="fade-up">
           <div class="golden-stripe"></div>
