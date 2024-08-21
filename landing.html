@@ -1752,7 +1752,7 @@ function getWeather() {
     .then(data => {
         let forecastHTML = '<h2>5-Day Forecast</h2>';
 
-        for (let i = 0; i < data.list.length; i += 8) { // data is given every 3 hours, so skipping 8 indexes gives us roughly daily data
+        for (let i = 0; i < data.list.length; i += 8) { 
             forecastHTML += `
                 <div>
                     <h3>${data.list[i].dt_txt.split(' ')[0]}</h3>
@@ -1784,7 +1784,8 @@ function getWeather() {
     "I obtained a JavaScript Certification from freeCodeCamp.org in 2024.",
     "I enjoy studying and playing chess, and I'm pretty good at both.",
     "I'm a front-end developer who studied independently through online resources and bootcamps.",
-    "I worked at Digital Lions, in Lodwar, Kenya, for one year.",
+    "I worked at Digital Lions, in Lodwar, Kenya,as a graphic designer, for one year.",
+    "I studied graphic design at Learning Lions.",
     "I was born on 9th September.",
     "I believe that great design goes hand in hand with great functionality.",
     "I received soft skills training and mentorship through the Na'amal Program.",
@@ -2238,7 +2239,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const offset = -index * 100;
         document.querySelector('.slides').style.transform = `translateX(${offset}%)`;
 
-        // Update the active pagination dot
+
         document.querySelectorAll('.pagination-dot').forEach((dot, i) => {
             dot.classList.toggle('active', i === index);
         });
@@ -2246,11 +2247,11 @@ document.addEventListener('DOMContentLoaded', function() {
         currentIndex = index;
     }
 
-    // Optional: Auto-slide functionality
+    
     setInterval(() => {
         currentIndex = (currentIndex + 1) % slides.length;
         goToSlide(currentIndex);
-    }, 5000); // Change slide every 5 seconds
+    }, 5000); 
 });
 
 </script>
