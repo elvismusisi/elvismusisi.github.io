@@ -22,7 +22,27 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
-          
+    .draggable-container {
+    position: relative; 
+}
+
+.draggable-container img.image-passing-through {
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 60%; 
+    z-index: 10; 
+    pointer-events: none;
+    animation: pass-through 5s infinite; 
+}
+
+@keyframes pass-through {
+    0% { left: -100%; }
+    50% { left: 50%; transform: translateX(-50%); }
+    100% { left: 200%; }
+}
+
     #matata img {
     animation: pulse 2s infinite;
     transition: transform 0.3s ease-in-out;
@@ -1184,6 +1204,7 @@ html {
 <div id="content" style="display: none;">
 <!-- Navigation Bar -->
 <div class="draggable-container">
+    <img src="Files/Images/homepagestrip.jpg" alt="Image decoration" class="image-passing-through">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
             <img src="Files/Images/elvismusisi-logo.png" alt="Logo" height="90" style="margin-left: 20px;">
