@@ -22,7 +22,40 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
-/* Updated Styles */
+.carousel-thumbnails .btn-thumbnail {
+  border: none;
+  padding: 0;
+  margin: 0 5px;
+}
+
+.carousel-thumbnails .img-thumbnail {
+  width: 60px;
+  height: auto;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-thumbnails .img-thumbnail:hover {
+  opacity: 1;
+}
+
+
+.carousel-item {
+  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.8s ease-in-out;
+  transform-origin: center;
+}
+
+.carousel-item-next,
+.carousel-item-prev {
+  transform: scale(0.85) translateX(-30%);
+  opacity: 0.5;
+}
+
+.carousel-item.active {
+  transform: scale(1.1) translateX(0);
+  opacity: 1;
+  z-index: 2;
+}
 .carousel-inner {
   overflow: visible;
 }
@@ -1390,6 +1423,54 @@ html {
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
+    <div class="carousel-thumbnails text-center mt-4">
+    <button class="btn btn-thumbnail" data-target="#imageSlider" data-slide-to="0">
+      <img src="Files/Images/Logo Design1.jpg" class="img-thumbnail" alt="Thumbnail 1">
+    </button>
+    <button class="btn btn-thumbnail" data-target="#imageSlider" data-slide-to="0">
+      <img src="Files/Images/Logo Design2.jpg" class="img-thumbnail" alt="Thumbnail 1">
+    </button>
+    <button class="btn btn-thumbnail" data-target="#imageSlider" data-slide-to="0">
+      <img src="Files/Images/Logo Design3.jpg" class="img-thumbnail" alt="Thumbnail 1">
+    </button>
+    <button class="btn btn-thumbnail" data-target="#imageSlider" data-slide-to="0">
+      <img src="Files/Images/Logo Design4.jpg" class="img-thumbnail" alt="Thumbnail 1">
+    </button>
+    <button class="btn btn-thumbnail" data-target="#imageSlider" data-slide-to="0">
+      <img src="Files/Images/Logo Design5.jpg" class="img-thumbnail" alt="Thumbnail 1">
+    </button>
+    <button class="btn btn-thumbnail" data-target="#imageSlider" data-slide-to="0">
+      <img src="Files/Images/Logo Design6.jpg" class="img-thumbnail" alt="Thumbnail 1">
+    </button>
+    <button class="btn btn-thumbnail" data-target="#imageSlider" data-slide-to="0">
+      <img src="Files/Images/Logo DesignMobileApp.jpg" class="img-thumbnail" alt="Thumbnail 1">
+    </button>
+    <button class="btn btn-thumbnail" data-target="#imageSlider" data-slide-to="0">
+      <img src="Files/Images/Logo DesignChakula.jpg" class="img-thumbnail" alt="Thumbnail 1">
+    </button>
+    <button class="btn btn-thumbnail" data-target="#imageSlider" data-slide-to="0">
+      <img src="Files/Images/Logo DesignIllustrationDesign.jpg" class="img-thumbnail" alt="Thumbnail 1">
+    </button>
+    <button class="btn btn-thumbnail" data-target="#imageSlider" data-slide-to="0">
+      <img src="Files/Images/WebsiteDesign.jpg" class="img-thumbnail" alt="Thumbnail 1">
+    </button>
+     <button class="btn btn-thumbnail" data-target="#imageSlider" data-slide-to="0">
+      <img src="Files/Images/Logo Designp.jpg" class="img-thumbnail" alt="Thumbnail 1">
+    </button>
+    <button class="btn btn-thumbnail" data-target="#imageSlider" data-slide-to="0">
+      <img src="Files/Images/AdDesign.jpg" class="img-thumbnail" alt="Thumbnail 1">
+    </button>
+    <button class="btn btn-thumbnail" data-target="#imageSlider" data-slide-to="0">
+      <img src="Files/Images/Logo DesignThankYou.jpg" class="img-thumbnail" alt="Thumbnail 1">
+    </button>
+    <button class="btn btn-thumbnail" data-target="#imageSlider" data-slide-to="0">
+      <img src="Files/Images/eventdesign.jpg" class="img-thumbnail" alt="Thumbnail 1">
+    </button>
+    <button class="btn btn-thumbnail" data-target="#imageSlider" data-slide-to="0">
+      <img src="Files/Images/Logo DesignEventPoster.jpg" class="img-thumbnail" alt="Thumbnail 1">
+    </button>
+        
+  </div>
   </div>
     </div>
     <div class="container">
@@ -2350,6 +2431,45 @@ document.addEventListener('DOMContentLoaded', function() {
       opacity: 0.7,
       zIndex: 1
     });
+  });
+</script>
+<script>
+  $('#imageSlider').on('slide.bs.carousel', function (e) {
+    var $nextImage = $(e.relatedTarget);
+    var $currentImage = $(this).find('.carousel-item.active');
+
+    $nextImage.css({
+      transform: 'scale(0.85) translateX(-30%)',
+      opacity: 0.5,
+      zIndex: 1
+    });
+
+    $currentImage.css({
+      transform: 'scale(1.1) translateX(0)',
+      opacity: 1,
+      zIndex: 2
+    });
+  });
+
+  $('#imageSlider').on('slid.bs.carousel', function (e) {
+    var $currentImage = $(this).find('.carousel-item.active');
+
+    $currentImage.css({
+      transform: 'scale(1.1) translateX(0)',
+      opacity: 1,
+      zIndex: 3
+    });
+
+    $(this).find('.carousel-item').not('.active').css({
+      transform: 'scale(0.85) translateX(-30%)',
+      opacity: 0.5,
+      zIndex: 1
+    });
+  });
+
+  $('.btn-thumbnail').on('click', function() {
+    var index = $(this).data('slide-to');
+    $('#imageSlider').carousel(index);
   });
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
