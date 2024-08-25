@@ -2642,13 +2642,19 @@ document.addEventListener('DOMContentLoaded', function() {
   $('#imageSlider').on('slide.bs.carousel', function (e) {
     var $nextImage = $(e.relatedTarget).find('img').attr('src');
     
+   
     $('#singlePreview .img-preview').attr('src', $nextImage);
   });
 
   $('#singlePreview').on('click', function() {
+    
     $('#imageSlider').carousel('next');
+
+    
+    $('.carousel-control-prev, .carousel-control-next').show();
   });
 </script>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
