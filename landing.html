@@ -43,6 +43,66 @@
   transform: translateY(-3px);
 }
 
+
+.preview-container {
+  position: absolute;
+  bottom: 50%;
+  right: 10px;
+  z-index: 5;
+  border: 2px solid #ca9632;
+  padding: 10px;
+  background-color: rgba(39, 13, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(39, 13, 0, 0.5);
+  transform: translateY(50%); 
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.img-preview {
+  width: 300px;
+  height: auto;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.preview-container:hover .img-preview {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.preview-container:hover {
+  transform: translateY(45%); 
+  box-shadow: 0 0 25px rgba(39, 13, 0, 0.8);
+}
+
+/* Instruction text */
+.preview-instruction {
+  color: #ca9632;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+.btn-prev,
+.btn-next {
+  background-color: #ca9632;
+  color: #270d00;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-prev:hover,
+.btn-next:hover {
+  background-color: #270d00;
+  color: #ca9632;
+  transform: translateY(-3px);
+}
+
 .preview-container {
   position: absolute;
   bottom: 10px;
@@ -1504,6 +1564,7 @@ html {
     </a>
     <div id="singlePreview" class="preview-container">
     <img src="Files/Images/Logo Design2.jpg" alt="Next Image Preview" class="img-preview">
+    <p class="preview-instruction">Click on the image to navigate</p>
   </div>
     <div class="carousel-thumbnails text-center mt-4">
     <button class="btn btn-thumbnail" data-target="#imageSlider" data-slide-to="0">
@@ -2570,6 +2631,17 @@ document.addEventListener('DOMContentLoaded', function() {
     var $nextImage = $(e.relatedTarget).find('img').attr('src');
     
 
+    $('#singlePreview .img-preview').attr('src', $nextImage);
+  });
+
+  $('#singlePreview').on('click', function() {
+    $('#imageSlider').carousel('next');
+  });
+</script>
+<script>
+  $('#imageSlider').on('slide.bs.carousel', function (e) {
+    var $nextImage = $(e.relatedTarget).find('img').attr('src');
+    
     $('#singlePreview .img-preview').attr('src', $nextImage);
   });
 
