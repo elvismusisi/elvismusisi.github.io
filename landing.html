@@ -22,6 +22,35 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
+.preview-container {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 5;
+  border: 2px solid #ca9632;
+  padding: 5px;
+  background-color: rgba(39, 13, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(39, 13, 0, 0.5);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.img-preview {
+  width: 150px;
+  height: auto;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.preview-container:hover .img-preview {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.preview-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(39, 13, 0, 0.8);
+}
 .carousel-thumbnails .btn-thumbnail {
   border: none;
   padding: 0;
@@ -1423,6 +1452,9 @@ html {
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
+    <div id="singlePreview" class="preview-container">
+    <img src="Files/Images/Logo Design2.jpg" alt="Next Image Preview" class="img-preview">
+  </div>
     <div class="carousel-thumbnails text-center mt-4">
     <button class="btn btn-thumbnail" data-target="#imageSlider" data-slide-to="0">
       <img src="Files/Images/Logo Design1.jpg" class="img-thumbnail" alt="Thumbnail 1">
@@ -2472,6 +2504,18 @@ document.addEventListener('DOMContentLoaded', function() {
     $('#imageSlider').carousel(index);
   });
 </script>
+<script>
+  $('#imageSlider').on('slide.bs.carousel', function (e) {
+    var $nextImage = $(e.relatedTarget).find('img').attr('src');
+
+    $('#singlePreview .img-preview').attr('src', $nextImage);
+  });
+
+  $('#singlePreview').on('click', function() {
+    $('#imageSlider').carousel('next');
+  });
+</script>
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
