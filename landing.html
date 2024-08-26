@@ -2957,6 +2957,34 @@ window.addEventListener('scroll', function() {
 });
 
 </script>
+<script>
+    function triggerMarkerAnimation() {
+    const marker = document.getElementById('marker');
+    marker.style.animation = 'markerBounce 0.8s ease-out'; 
+
+   
+    setTimeout(() => {
+        marker.style.animation = '';
+    }, 800); 
+}
+
+window.addEventListener('scroll', function() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = scrollTop / docHeight;
+    
+    const markerPosition = scrollPercent * 100;
+    
+    document.getElementById('scroll-indicator').style.transform = `scaleY(${scrollPercent})`;
+    document.getElementById('marker').style.transform = `translateY(${markerPosition}%)`;
+
+    // Check if the user has scrolled to the top or bottom
+    if (scrollTop === 0 || scrollTop >= docHeight) {
+        triggerMarkerAnimation();
+    }
+});
+
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
