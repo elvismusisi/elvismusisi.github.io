@@ -22,6 +22,41 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
+#marker {
+    position: absolute;
+    left: -4px;
+    width: 16px;
+    height: 8px;
+    background-color: #270d00;
+    border-radius: 50%;
+    transform: translateY(0);
+    transition: transform 0.1s ease-out;
+}
+
+/* Animation keyframes for the marker */
+@keyframes markerAnimation {
+    0% {
+        transform: translateY(0);
+        width: 16px;
+    }
+    25% {
+        transform: translateY(100%); 
+        width: 24px; 
+    }
+    50% {
+        transform: translateY(-100%); 
+        width: 24px; 
+    }
+    75% {
+        transform: translateY(0);
+        width: 16px; 
+    }
+    100% {
+        transform: translateY(0);
+        width: 16px; 
+    }
+}
+
 #scroll-indicator {
     position: fixed;
     right: 0;
@@ -2703,7 +2738,34 @@ window.addEventListener('scroll', function() {
 });
 
 </script>
+<script>
+    function triggerMarkerAnimation() {
+    const marker = document.getElementById('marker');
+    marker.style.animation = 'markerAnimation 0.5s ease-out'; 
 
+    
+    setTimeout(() => {
+        marker.style.animation = '';
+    }, 500); 
+}
+
+window.addEventListener('scroll', function() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = scrollTop / docHeight;
+    
+    const markerPosition = scrollPercent * 100;
+    
+    document.getElementById('scroll-indicator').style.transform = `scaleY(${scrollPercent})`;
+    document.getElementById('marker').style.transform = `translateY(${markerPosition}%)`;
+
+    
+    if (scrollTop === 0 || scrollTop >= docHeight) {
+        triggerMarkerAnimation();
+    }
+});
+
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
