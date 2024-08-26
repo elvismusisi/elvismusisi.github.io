@@ -24,16 +24,39 @@
       <style>
 #marker {
     position: absolute;
-    left: -4px;
-    width: 16px;
-    height: 8px;
-    background-color: #270d00;
+    left: -8px; 
+    width: 24px;
+    height: 12px;
+    background-color: #ca9632; 
     border-radius: 50%;
     transform: translateY(0);
     transition: transform 0.1s ease-out;
-    box-shadow: 0 0 10px rgba(202, 150, 50, 0.5); 
+    box-shadow: 0 0 10px rgba(202, 150, 50, 0.5);
 }
 
+
+@keyframes markerBounce {
+    0% {
+        transform: translateY(0);
+        width: 24px;
+    }
+    30% {
+        transform: translateY(-15px); 
+        width: 30px;
+    }
+    50% {
+        transform: translateY(15px); 
+        width: 30px; 
+    }
+    70% {
+        transform: translateY(-8px); 
+        width: 26px; 
+    }
+    100% {
+        transform: translateY(0);
+        width: 24px; 
+    }
+}
 
 @keyframes markerAnimation {
     0% {
@@ -2900,6 +2923,34 @@ window.addEventListener('scroll', function() {
     document.getElementById('marker').style.transform = `translateY(${markerPosition}%)`;
 
     
+    if (scrollTop === 0 || scrollTop >= docHeight) {
+        triggerMarkerAnimation();
+    }
+});
+
+</script>
+<script>
+    function triggerMarkerAnimation() {
+    const marker = document.getElementById('marker');
+    marker.style.animation = 'markerBounce 0.8s ease-out'; 
+
+    
+    setTimeout(() => {
+        marker.style.animation = '';
+    }, 800); 
+}
+
+window.addEventListener('scroll', function() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = scrollTop / docHeight;
+    
+    const markerPosition = scrollPercent * 100;
+    
+    document.getElementById('scroll-indicator').style.transform = `scaleY(${scrollPercent})`;
+    document.getElementById('marker').style.transform = `translateY(${markerPosition}%)`;
+
+   
     if (scrollTop === 0 || scrollTop >= docHeight) {
         triggerMarkerAnimation();
     }
