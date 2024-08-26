@@ -22,6 +22,19 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
+#scroll-indicator {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 8px; 
+    height: 100%;
+    background: linear-gradient(to bottom, #ca9632, #270d00);
+    z-index: 9999;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 0.1s ease-out;
+    border-radius: 4px; 
+}
 .popup {
     width: 300px;
     padding: 20px;
@@ -1475,6 +1488,7 @@ html {
         <span class="random-word" id="animation">Animation <i class="icon-animation"></i></span>
     </div>
 <!-- About Section -->
+<div id="scroll-indicator"></div>
 <section id="about" class="section bg-african-brown text-light aos-init" data-aos="fade-up" data-aos-duration="700">
     <div class="content">
   <div class="container">
@@ -2636,7 +2650,17 @@ document.addEventListener('DOMContentLoaded', function() {
     $('.carousel-control-prev, .carousel-control-next').show();
   });
 </script>
+<script>
+    window.addEventListener('scroll', function() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight);
+    const scaleValue = scrollPercent;
 
+    document.getElementById('scroll-indicator').style.transform = `scaleY(${scaleValue})`;
+});
+
+</script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
