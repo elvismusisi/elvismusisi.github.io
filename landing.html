@@ -22,6 +22,73 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
+.quote-slider {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #270d00;
+  padding: 20px 0;
+}
+
+.quote-slider-inner {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.quote-symbol {
+  font-size: 80px;
+  color: #ca9632;
+  opacity: 0.2;
+  position: absolute;
+}
+
+.quote-content {
+  color: white;
+  text-align: center;
+  max-width: 60%;
+  animation: slide-in 1s ease-in-out forwards;
+}
+
+.quote-text {
+  font-size: 1.5em;
+  font-style: italic;
+  margin: 0;
+}
+
+.quote-author {
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #ca9632;
+}
+
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+}
+
 #about {
     cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1kYXNoYXJyYXk9InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTEwNS43NSwxMTcuMTYyTDIxNi4yMDksMzMuNTkxTDEyOC41ODgsMjcuMTYyIiBzdHJva2U9IiNjMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWRhc2hhcnJheT0iMjAiLz48L3BhdGg+PC9zdmc+'), auto;
 }
@@ -2136,7 +2203,17 @@ html {
      <div class="contact-image" id="foo" class="aos-init" data-aos="fade-up" data-aos-duration="700" style="padding-left: 100px;">
         <img src="Files/Images/elvismusisi-logo.png" alt="Image of Elvis Musisi Logo" style="height: 480px;">
     </div>
-            
+<div class="quote-slider">
+  <div class="quote-slider-inner">
+    <span class="quote-symbol">“</span>
+    <div class="quote-content">
+      <p class="quote-text">"The greatest glory in living lies not in never falling, but in rising every time we fall."</p>
+      <p class="quote-author">- Nelson Mandela</p>
+    </div>
+    <span class="quote-symbol">”</span>
+  </div>
+</div>
+         
 <div class="container mt-5 text-center" data-aos="fade-up" data-aos-duration="700">
     
     <div id="matata"><img src="Files/Images/hoverimage.jpg"></div>
@@ -2998,6 +3075,46 @@ window.addEventListener('scroll', function() {
         triggerMarkerAnimation();
     }
 });
+
+</script>
+<script>
+    const quotes = [
+  {
+    text: "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+    author: "- Nelson Mandela"
+  },
+  {
+    text: "It always seems impossible until it's done.",
+    author: "- Nelson Mandela"
+  },
+  {
+    text: "Education is the most powerful weapon which you can use to change the world.",
+    author: "- Nelson Mandela"
+  },
+  // Add more quotes as needed
+];
+
+let currentQuoteIndex = 0;
+const quoteTextElement = document.querySelector('.quote-text');
+const quoteAuthorElement = document.querySelector('.quote-author');
+
+function showNextQuote() {
+  
+  document.querySelector('.quote-content').style.animation = 'slide-out 1s ease-in-out forwards';
+  
+ 
+  setTimeout(() => {
+    currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+    quoteTextElement.textContent = quotes[currentQuoteIndex].text;
+    quoteAuthorElement.textContent = quotes[currentQuoteIndex].author;
+    
+    
+    document.querySelector('.quote-content').style.animation = 'slide-in 1s ease-in-out forwards';
+  }, 1000); 
+}
+
+
+setInterval(showNextQuote, 5000); 
 
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
