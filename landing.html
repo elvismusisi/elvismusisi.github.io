@@ -3005,22 +3005,7 @@ document.addEventListener('DOMContentLoaded', function() {
     $('#imageSlider').carousel('next');
   });
 </script>
-<script>
-  $('#imageSlider').on('slide.bs.carousel', function (e) {
-    var $nextImage = $(e.relatedTarget).find('img').attr('src');
-    
-   
-    $('#singlePreview .img-preview').attr('src', $nextImage);
-  });
 
-  $('#singlePreview').on('click', function() {
-    
-    $('#imageSlider').carousel('next');
-
-    
-    $('.carousel-control-prev, .carousel-control-next').show();
-  });
-</script>
 <script>
 window.addEventListener('scroll', function() {
     const scrollTop = window.scrollY;
@@ -3112,7 +3097,7 @@ window.addEventListener('scroll', function() {
     document.getElementById('scroll-indicator').style.transform = `scaleY(${scrollPercent})`;
     document.getElementById('marker').style.transform = `translateY(${markerPosition}%)`;
 
-    // Check if the user has scrolled to the top or bottom
+    
     if (scrollTop === 0 || scrollTop >= docHeight) {
         triggerMarkerAnimation();
     }
