@@ -3189,6 +3189,43 @@ setInterval(showNextQuote, 5000);
 });
 
 </script>
+<script>
+    
+let autoSlideInterval; 
+
+
+function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+        $('#imageSlider').carousel('next');
+    }, 5000); // Adjust the time according to your needs
+}
+
+
+function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    startAutoSlide();
+
+    const glossyButton = document.getElementById('glossyButton');
+    
+    
+    glossyButton.addEventListener('click', function() {
+        stopAutoSlide();
+        
+        const activeItem = document.querySelector('#imageSlider .carousel-item.active');
+        activeItem.classList.add('zoom-animation');
+
+        setTimeout(() => {
+            activeItem.classList.remove('zoom-animation');
+            $('#imageSlider').carousel('next');
+        }, 700); 
+    });
+});
+
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
