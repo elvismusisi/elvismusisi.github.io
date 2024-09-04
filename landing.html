@@ -2506,7 +2506,7 @@ function getWeather() {
 
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script src="script.js"></script>
-    <!-- Bootstrap JS -->
+    
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
@@ -2865,83 +2865,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(animateSlider, 1000);
 });
 
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-    const slides = document.querySelectorAll('.slide');
-    const paginationContainer = document.querySelector('.pagination');
-    let currentIndex = 0;
-
-    
-    slides.forEach((slide, index) => {
-        const dot = document.createElement('div');
-        dot.classList.add('pagination-dot');
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => {
-            goToSlide(index);
-        });
-        paginationContainer.appendChild(dot);
-    });
-
-    function goToSlide(index) {
-        // Move to the selected slide
-        const offset = -index * 100;
-        document.querySelector('.slides').style.transform = `translateX(${offset}%)`;
-
-
-        document.querySelectorAll('.pagination-dot').forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
-
-        currentIndex = index;
-    }
-
-    
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        goToSlide(currentIndex);
-    }, 5000); 
-});
-
-</script>
-  
-  <script>
-  $('#imageSlider').on('slide.bs.carousel', function (e) {
-    var $nextImage = $(e.relatedTarget);
-    var $currentImage = $(this).find('.carousel-item.active');
-
-
-    $nextImage.css({
-      transform: 'scale(0.85)',
-      opacity: 0.7,
-      zIndex: 1
-    });
-
-   
-    $currentImage.css({
-      transform: 'scale(1)',
-      opacity: 1,
-      zIndex: 2
-    });
-  });
-
-  $('#imageSlider').on('slid.bs.carousel', function (e) {
-    var $currentImage = $(this).find('.carousel-item.active');
-
-   
-    $currentImage.css({
-      transform: 'scale(1.1)',
-      opacity: 1,
-      zIndex: 3
-    });
-
- 
-    $(this).find('.carousel-item').not('.active').css({
-      transform: 'scale(0.85)',
-      opacity: 0.7,
-      zIndex: 1
-    });
-  });
 </script>
 <script>
   $('#imageSlider').on('slide.bs.carousel', function (e) {
