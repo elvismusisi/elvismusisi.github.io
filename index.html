@@ -1544,10 +1544,11 @@ svg {
 
 
 
+
 .unique-button {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  bottom: 20px; 
+  left: 20px; 
   z-index: 1000;
   transform: translateY(0);
   animation: bounce 2s infinite;
@@ -1587,6 +1588,14 @@ svg {
     transform: translateY(-10px);
   }
 }
+
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
 
     </style>
 </head>
@@ -2183,6 +2192,24 @@ setInterval(zoomImage, interval);
         }, 1000); 
     });
 });
+
+</script>
+<script>
+    <script>
+  window.addEventListener('scroll', function() {
+    const uniqueButton = document.getElementById('unique-button');
+    const scrollHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const windowHeight = window.innerHeight;
+
+    
+    if (scrollTop + windowHeight >= scrollHeight - 50) {
+      uniqueButton.classList.add('hidden'); 
+    } else {
+      uniqueButton.classList.remove('hidden'); 
+    }
+  });
+</script>
 
 </script>
 </body>
