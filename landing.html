@@ -22,6 +22,84 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
+
+.lock-unlock-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 999;
+}
+
+
+.lock-unlock-slider {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  background-color: #ca9632;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lock-unlock-slider input[type="checkbox"] {
+  display: none;
+}
+
+
+.slider-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 5px;
+}
+
+.lock-icon, .unlock-icon {
+  font-size: 18px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.unlock-icon {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+input[type="checkbox"]:checked ~ .slider-label .unlock-icon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+input[type="checkbox"]:checked ~ .slider-label .lock-icon {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+input[type="checkbox"]:checked ~ .lock-unlock-slider {
+  background-color: white;
+}
+
+
+.lock-unlock-slider:before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input[type="checkbox"]:checked ~ .lock-unlock-slider:before {
+  left: calc(100% - 25px);
+  background-color: #ca9632;
+}
+
 .glossy-button {
     display: block;
     margin: 20px auto;
@@ -1965,6 +2043,15 @@ html {
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
+    <div class="lock-unlock-container">
+  <div class="lock-unlock-slider">
+    <input type="checkbox" id="lockSwitch">
+    <label for="lockSwitch" class="slider-label">
+      <span class="lock-icon">🔒</span>
+      <span class="unlock-icon">🔓</span>
+    </label>
+  </div>
+</div>
     <div id="singlePreview" class="preview-container">
     <img src="Files/Images/Logo Design2.jpg" alt="Next Image Preview" class="img-preview">
     <p class="preview-instruction">Click on the side icons to navigate freeze mode.</p>
@@ -3146,6 +3233,23 @@ document.addEventListener('DOMContentLoaded', function() {
             $('#imageSlider').carousel('next');
         }, 700); 
     });
+});
+</script>
+<script>
+    const lockSwitch = document.getElementById('lockSwitch');
+const imageSlider = document.getElementById('imageSlider');
+let isLocked = false;
+
+lockSwitch.addEventListener('change', function() {
+  if (lockSwitch.checked) {
+    // Lock the slider
+    isLocked = true;
+    imageSlider.setAttribute('data-ride', 'false'); 
+  } else {
+    // Unlock the slider
+    isLocked = false;
+    imageSlider.setAttribute('data-ride', 'carousel'); 
+  }
 });
 
 </script>
