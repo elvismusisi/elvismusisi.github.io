@@ -1543,7 +1543,6 @@ svg {
 }
 
 
-
 .unique-button {
   position: fixed;
   top: 20px; 
@@ -1551,6 +1550,9 @@ svg {
   z-index: 1000;
   transform: translateY(0);
   animation: bounce 2s infinite;
+  opacity: 0; 
+  pointer-events: none; 
+  transition: opacity 0.5s ease;
 }
 
 
@@ -1594,7 +1596,6 @@ svg {
   pointer-events: none;
   transition: opacity 0.5s ease;
 }
-
 
 
     </style>
