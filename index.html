@@ -1544,6 +1544,50 @@ svg {
 
 
 
+.unique-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  transform: translateY(0);
+  animation: bounce 2s infinite;
+}
+
+
+.unique-button a {
+  display: inline-block;
+  padding: 15px 25px;
+  background-color: #270d00;
+  color: #ca9632;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 50% 50% 0 50%;
+  border: 2px solid #ca9632;
+  font-family: 'Arial', sans-serif;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+
+.unique-button a:hover {
+  transform: scale(1.1);
+  background-color: #ca9632;
+  color: #270d00;
+}
+
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
     </style>
 </head>
 <body>
@@ -1553,7 +1597,10 @@ svg {
     
     <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"> 
      <div class="divider"></div>
-    
+    <div class="unique-button">
+  <a href="#">Bottom</a>
+</div>
+
     <div class="container">
         <img src="Files/Images/elvismusisi-logo.png" style="width: 50%; height: auto;" class="glitch-image" id="lightning-logo">
     </div>
