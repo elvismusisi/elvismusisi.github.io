@@ -2218,6 +2218,22 @@ setInterval(zoomImage, interval);
     }
   });
 </script>
+<script>
+  window.addEventListener('scroll', function() {
+    const uniqueButton = document.getElementById('unique-button');
+    const targetHeading = document.querySelector('h1 > i.fas.fa-graduation-cap').parentElement; 
+
+    const headingRect = targetHeading.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    
+    if (headingRect.top < windowHeight && headingRect.bottom >= 0) {
+      uniqueButton.classList.add('hidden'); 
+    } else {
+      uniqueButton.classList.remove('hidden');
+    }
+  });
+</script>
 
 
 
