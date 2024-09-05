@@ -1543,6 +1543,7 @@ svg {
 }
 
 
+
 .unique-button {
   position: fixed;
   top: 20px; 
@@ -1587,12 +1588,13 @@ svg {
   }
 }
 
-
+/* Hidden state for the button */
 .hidden {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.5s ease;
 }
+
 
 
     </style>
@@ -1604,8 +1606,8 @@ svg {
     
     <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"> 
      <div class="divider"></div>
-    <div class="unique-button">
-  <a href="#">Top</a>
+   <div class="unique-button" id="unique-button">
+  <a href="#">Scroll to bottom</a>
 </div>
 
     <div class="container">
@@ -2193,21 +2195,31 @@ setInterval(zoomImage, interval);
 
 </script>
 <script>
-    <script>
- <script>
   document.getElementById('unique-button').addEventListener('click', function(event) {
     event.preventDefault(); 
 
-   
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
+    
+    document.querySelector('.animated-section').scrollIntoView({
       behavior: 'smooth'
     });
   });
+
+  window.addEventListener('scroll', function() {
+    const uniqueButton = document.getElementById('unique-button');
+    const animatedSection = document.querySelector('.animated-section');
+    const sectionRect = animatedSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    
+    if (sectionRect.top < windowHeight && sectionRect.bottom >= 0) {
+      uniqueButton.classList.add('hidden'); 
+    } else {
+      uniqueButton.classList.remove('hidden'); 
+    }
+  });
 </script>
 
-</script>
 
-</script>
+
 </body>
 </html>
