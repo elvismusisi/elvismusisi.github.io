@@ -3236,21 +3236,44 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script>
-    const lockSwitch = document.getElementById('lockSwitch');
+const lockSwitch = document.getElementById('lockSwitch');
 const imageSlider = document.getElementById('imageSlider');
 let isLocked = false;
 
 lockSwitch.addEventListener('change', function() {
   if (lockSwitch.checked) {
-    // Lock the slider
+    
     isLocked = true;
-    imageSlider.setAttribute('data-ride', 'false'); 
+    disableSlider();
   } else {
-    // Unlock the slider
+    
     isLocked = false;
-    imageSlider.setAttribute('data-ride', 'carousel'); 
+    enableSlider();
   }
 });
+
+function disableSlider() {
+  
+  imageSlider.setAttribute('data-ride', 'false');
+
+  
+  $('.carousel').carousel('pause');
+  $('.carousel').off('slide.bs.carousel'); 
+  $('.carousel-control-prev, .carousel-control-next').hide(); 
+  $('.carousel-thumbnails').css('pointer-events', 'none'); 
+}
+
+function enableSlider() {
+  
+  imageSlider.setAttribute('data-ride', 'carousel');
+
+  
+  $('.carousel').carousel('cycle'); // Resume auto-slide
+  $('.carousel').on('slide.bs.carousel', function () {}); 
+  $('.carousel-control-prev, .carousel-control-next').show(); 
+  
+  $('.carousel-thumbnails').css('pointer-events', 'auto');
+}
 
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
