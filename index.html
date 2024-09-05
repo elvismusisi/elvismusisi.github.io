@@ -2219,26 +2219,29 @@ setInterval(zoomImage, interval);
 
 </script>
 <script>
-  const icons = [
-    { icon: 'fas fa-laptop-code', text: 'Web Development', className: 'icon-web-development' },
-    { icon: 'fas fa-paint-brush', text: 'Graphic Design', className: 'icon-graphic-design' },
-    { icon: 'fas fa-desktop', text: 'UI/UX Design', className: 'icon-ui-ux-design' }
-  ];
+ 
+  document.addEventListener('DOMContentLoaded', () => {
+    const icons = [
+       { icon: 'fas fa-desktop', text: 'UI/UX Designer', className: 'icon-ui-ux-design' },
+      { icon: 'fas fa-paint-brush', text: 'Graphic Design', className: 'icon-graphic-design' },
+      { icon: 'fas fa-laptop-code', text: 'Web Development', className: 'icon-web-development' }
+    ];
 
-  const rotatingContent = document.querySelector('.rotating-content');
-  let currentIndex = 0;
+    const rotatingContent = document.querySelector('.rotating-content');
+    let currentIndex = 0;
 
-  function updateContent() {
-    const { icon, text, className } = icons[currentIndex];
-    rotatingContent.querySelector('.icon').className = `fas ${icon}`;
-    rotatingContent.querySelector('.text').textContent = text;
-    rotatingContent.className = `rotating-content ${className}`;
-    
-    currentIndex = (currentIndex + 1) % icons.length;
-  }
+    function updateContent() {
+      const { icon, text, className } = icons[currentIndex];
+      rotatingContent.querySelector('.icon').className = `fas ${icon}`; /
+      rotatingContent.querySelector('.text').textContent = text; 
+      rotatingContent.className = `rotating-content ${className}`; 
+      currentIndex = (currentIndex + 1) % icons.length; 
+    }
 
-  setInterval(updateContent, 1000); 
+    setInterval(updateContent, 3000); 
+  });
 </script>
+
 
 
 
