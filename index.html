@@ -1543,38 +1543,41 @@ svg {
 }
 
 
-.unique-button {
+.rotating-button {
   position: fixed;
   top: 20px; 
   left: 20px; 
   z-index: 1000;
-  transform: translateY(0);
-  animation: bounce 2s infinite;
-  opacity: 0; 
-  pointer-events: none; 
-  transition: opacity 0.5s ease;
-}
-
-
-.unique-button a {
-  display: inline-block;
-  padding: 15px 25px;
+  width: 200px; 
+  height: 60px; 
   background-color: #270d00;
   color: #ca9632;
-  font-size: 16px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounce 2s infinite;
+  overflow: hidden;
   text-align: center;
-  border-radius: 50% 50% 0 50%;
-  border: 2px solid #ca9632;
-  font-family: 'Arial', sans-serif;
-  text-decoration: none;
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
 }
 
 
-.unique-button a:hover {
-  transform: scale(1.1);
-  background-color: #ca9632;
-  color: #270d00;
+.rotating-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.icon {
+  font-size: 24px; 
+  margin-bottom: 5px;
+}
+
+.text {
+  font-size: 12px; 
+  font-family: 'Arial', sans-serif;
 }
 
 
@@ -1591,10 +1594,27 @@ svg {
 }
 
 
-.hidden {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
+@keyframes rotateContent {
+  0% { opacity: 1; }
+  25% { opacity: 0; }
+  50% { opacity: 1; }
+  75% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+.icon-web-development {
+  animation: rotateContent 8s infinite;
+}
+
+.icon-graphic-design {
+  animation: rotateContent 8s infinite;
+  animation-delay: 2s;
+}
+
+.icon-ui-ux-design {
+  animation: rotateContent 8s infinite;
+  animation-delay: 4s;
 }
 
 
@@ -1607,8 +1627,11 @@ svg {
     
     <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"> 
      <div class="divider"></div>
-   <div class="unique-button" id="unique-button">
-  <a href="#">Scroll to flag</a>
+   <div class="rotating-button" id="rotating-button">
+  <div class="rotating-content">
+    <i class="fas fa-laptop-code icon"></i>
+    <span class="text">Web Development</span>
+  </div>
 </div>
 
     <div class="container">
@@ -2196,45 +2219,28 @@ setInterval(zoomImage, interval);
 
 </script>
 <script>
-  document.getElementById('unique-button').addEventListener('click', function(event) {
-    event.preventDefault(); 
+  const icons = [
+    { icon: 'fas fa-laptop-code', text: 'Web Development', className: 'icon-web-development' },
+    { icon: 'fas fa-paint-brush', text: 'Graphic Design', className: 'icon-graphic-design' },
+    { icon: 'fas fa-desktop', text: 'UI/UX Design', className: 'icon-ui-ux-design' }
+  ];
 
+  const rotatingContent = document.querySelector('.rotating-content');
+  let currentIndex = 0;
+
+  function updateContent() {
+    const { icon, text, className } = icons[currentIndex];
+    rotatingContent.querySelector('.icon').className = `fas ${icon}`;
+    rotatingContent.querySelector('.text').textContent = text;
+    rotatingContent.className = `rotating-content ${className}`;
     
-    document.querySelector('.animated-section').scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
+    currentIndex = (currentIndex + 1) % icons.length;
+  }
 
-  window.addEventListener('scroll', function() {
-    const uniqueButton = document.getElementById('unique-button');
-    const animatedSection = document.querySelector('.animated-section');
-    const sectionRect = animatedSection.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-
-    
-    if (sectionRect.top < windowHeight && sectionRect.bottom >= 0) {
-      uniqueButton.classList.add('hidden'); 
-    } else {
-      uniqueButton.classList.remove('hidden'); 
-    }
-  });
+  setInterval(updateContent, 3000); 
 </script>
-<script>
-  window.addEventListener('scroll', function() {
-    const uniqueButton = document.getElementById('unique-button');
-    const targetHeading = document.querySelector('h1 > i.fas.fa-graduation-cap').parentElement; 
 
-    const headingRect = targetHeading.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
 
-    
-    if (headingRect.top < windowHeight && headingRect.bottom >= 0) {
-      uniqueButton.classList.add('hidden'); 
-    } else {
-      uniqueButton.classList.remove('hidden');
-    }
-  });
-</script>
 
 
 
