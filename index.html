@@ -15,6 +15,37 @@
 </head>
     <title>Elvis Musisi</title>
     <style>
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+.service {
+    opacity: 0;
+    transform: scale(0.3);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+
+.service.visible {
+    opacity: 1;
+    animation: bounceIn 0.6s ease forwards;
+}
+
 .move-to-top-right {
     position: fixed;
     top: 20px;
@@ -2384,7 +2415,22 @@ setInterval(zoomImage, interval);
 });
 
 </script>
+<script>
+    window.addEventListener('scroll', function() {
+    const servicesSection = document.querySelector('.services-section');
+    const services = document.querySelectorAll('.service');
+    const sectionTop = servicesSection.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
 
+    if (sectionTop < windowHeight - 100) { 
+        services.forEach((service, index) => {
+            setTimeout(() => {
+                service.classList.add('visible');
+            }, index * 300); 
+        });
+    }
+});
 
+</script>
 </body>
 </html>
