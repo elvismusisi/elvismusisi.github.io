@@ -2416,19 +2416,17 @@ setInterval(zoomImage, interval);
 
 </script>
 <script>
-    window.addEventListener('scroll', function() {
-    const servicesSection = document.querySelector('.services-section');
+  window.addEventListener('scroll', function() {
     const services = document.querySelectorAll('.service');
-    const sectionTop = servicesSection.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-
-    if (sectionTop < windowHeight - 100) { 
-        services.forEach((service, index) => {
-            setTimeout(() => {
-                service.classList.add('visible');
-            }, index * 300); 
-        });
-    }
+    
+    services.forEach(service => {
+        const serviceTop = service.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (serviceTop < windowHeight - 100 && !service.classList.contains('visible')) {
+            service.classList.add('visible');
+        }
+    });
 });
 
 </script>
