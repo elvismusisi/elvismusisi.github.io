@@ -15,7 +15,46 @@
 </head>
     <title>Elvis Musisi</title>
     <style>
+.move-to-top-right {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: auto;
+    height: auto;
+    transform: none;
+    transition: all 0.5s ease-in-out;
+}
 
+.move-to-top-right .icon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    animation: none;
+    color: #ca9632;
+    transition: all 0.5s ease-in-out;
+}
+
+
+#icon1 {
+    transform: translate(0, 0);
+}
+
+#icon2 {
+    transform: translate(50px, 0);
+}
+
+#icon3 {
+    transform: translate(100px, 0);
+}
+
+#icon4 {
+    transform: translate(150px, 0);
+}
+
+.hidden {
+    display: none;
+}
 .enter-button {
     position: absolute; 
     top: 50%; 
@@ -2336,8 +2375,22 @@ setInterval(zoomImage, interval);
 });
 
 </script>
+<script>
+    window.addEventListener("scroll", function() {
+    const icons = document.querySelectorAll(".icon");
+    const iconContainer = document.querySelector(".icon-container");
 
+    if (window.scrollY > 0) {
+        
+        icons.forEach(icon => icon.classList.add("hidden"));
+    } else {
+        
+        icons.forEach(icon => icon.class.remove("hidden"));
+        iconContainer.classList.add("move-to-top-right");
+    }
+});
 
+</script>
 
 
 </body>
