@@ -15,7 +15,44 @@
 </head>
     <title>Elvis Musisi</title>
     <style>
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
 
+.services-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.service {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    border: 2px solid transparent;
+    transition: border 0.3s ease, transform 0.3s ease;
+}
+
+.service-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.service-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.highlight {
+    border: 2px solid #ca9632;
+    transform: scale(1.1);
+}
 
 @keyframes bounceIn {
     0% {
@@ -1819,23 +1856,24 @@ svg {
                </div>
 <div class="container">
     <div class="services-section">
-            <div class="service">
-                <span class="service-icon">🎨</span>
-                <span class="service-text">Graphic Design</span>
-            </div>
-            <div class="service">
-                <span class="service-icon">🎥</span>
-                <span class="service-text">Animation</span>
-            </div>
-            <div class="service">
-                <span class="service-icon">💻</span>
-                <span class="service-text">Web Development</span>
-            </div>
-            <div class="service">
-                <span class="service-icon">🎬</span>
-                <span class="service-text">Video Editing</span>
-            </div>
+        <div class="service">
+            <span class="service-icon">🎨</span>
+            <span class="service-text">Graphic Design</span>
         </div>
+        <div class="service">
+            <span class="service-icon">🎥</span>
+            <span class="service-text">Animation</span>
+        </div>
+        <div class="service">
+            <span class="service-icon">💻</span>
+            <span class="service-text">Web Development</span>
+        </div>
+        <div class="service">
+            <span class="service-icon">🖌️</span>
+            <span class="service-text">UI/UX Design</span>
+        </div>
+    </div>
+</div>
      <div class="golden-stripe"></div>
      <img src="Files/Images/homepagestrip.jpg" alt="Image decoration" class="aos-init" data-aos="fade-up" data-aos-duration="700">   
 <div class="golden-stripe"></div>
@@ -2433,6 +2471,22 @@ window.addEventListener('scroll', function() {
     });
 });
 
+</script>
+<script>
+    const services = document.querySelectorAll('.service');
+let currentIndex = 0;
+
+function highlightService() {
+    services.forEach((service, index) => {
+        service.classList.remove('highlight');
+        if (index === currentIndex) {
+            service.classList.add('highlight');
+        }
+    });
+    currentIndex = (currentIndex + 1) % services.length;
+}
+
+setInterval(highlightService, 3000); 
 </script>
 </body>
 </html>
