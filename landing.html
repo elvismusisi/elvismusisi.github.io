@@ -23,6 +23,21 @@
     <link rel="stylesheet" href="styles.css">
       <style>
 
+@media (max-width: 768px) {
+  #singlePreview {
+    display: none;
+  }
+}
+
+
+@media (max-width: 768px) {
+  #imageSlider img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; 
+  }
+}
+
 .lock-unlock-container {
   position: absolute;
   top: 10px;
@@ -3114,7 +3129,7 @@ window.addEventListener('scroll', function() {
     text: "Education is the most powerful weapon which you can use to change the world.",
     author: "- Nelson Mandela"
   },
-  // Add more quotes as needed
+  
 ];
 
 let currentQuoteIndex = 0;
@@ -3271,6 +3286,39 @@ function enableSlider() {
 });
 
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const imageSlider = document.getElementById('imageSlider');
+    
+   
+    const carousel = new bootstrap.Carousel(imageSlider, {
+      interval: 5000, 
+      touch: true
+    });
+
+    
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    imageSlider.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    imageSlider.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      handleGesture();
+    });
+
+    function handleGesture() {
+      if (touchEndX < touchStartX) {
+        carousel.next(); 
+      } else if (touchEndX > touchStartX) {
+        carousel.prev(); 
+      }
+    }
+  });
+</script>
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
