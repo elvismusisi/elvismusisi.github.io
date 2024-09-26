@@ -30,13 +30,46 @@
 }
 
 
-@media (max-width: 768px) {
-  #imageSlider img {
+.slider-container {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 100vh;
-    object-fit: cover; 
-  }
 }
+
+.slider-item {
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.slider-item:hover {
+    background-color: #e2e6ea;
+}
+
+.slider-item i {
+    margin-right: 8px;
+}
+
+.service-description {
+    display: none;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    margin-top: 5px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+}
+
+.slider-item.active .service-description {
+    display: block;
+}
+
 
 .lock-unlock-container {
   position: absolute;
@@ -1920,7 +1953,7 @@ html {
         <span class="random-word" id="graphic-design">Graphic Design <i class="icon-design"></i></span>
         <span class="random-word" id="web-development">Web Development <i class="icon-web"></i></span>
         <span class="random-word" id="animation">Animation <i class="icon-animation"></i></span>
-    </div>
+</div>
 <!-- About Section -->
 <div id="scroll-indicator">
     <div id="marker"></div>
@@ -1933,24 +1966,28 @@ html {
       <div class="col-12">
           <div class="overlay">   </div>
         <div class="full-width-image tilt-effect" style="background-image: url('Files/Images/landing-image.jpg');">
-            <div class="slider-container">
-        <div class="slider-item" data-service="graphic-design">
-            <i class="fas fa-paint-brush"></i>
-            <span>Graphic Design</span>
-        </div>
-        <div class="slider-item" data-service="animation">
-            <i class="fas fa-film"></i>
-            <span>Animation</span>
-        </div>
-        <div class="slider-item" data-service="web-development">
-            <i class="fas fa-code"></i>
-            <span>Web Development</span>
-        </div>
-        <div class="slider-item" data-service="video-editing">
-            <i class="fas fa-brush"></i>
-            <span>UI/UX Design</span>
-        </div>
+           <div class="slider-container">
+    <div class="slider-item" data-service="graphic-design">
+        <i class="fas fa-paint-brush"></i>
+        <span>Graphic Design</span>
+        <div class="service-description">Graphic design involves creating visual content to communicate messages through typography, imagery, and color.</div>
     </div>
+    <div class="slider-item" data-service="animation">
+        <i class="fas fa-film"></i>
+        <span>Animation</span>
+        <div class="service-description">Animation is the art of bringing static images to life by creating movement and visual effects.</div>
+    </div>
+    <div class="slider-item" data-service="web-development">
+        <i class="fas fa-code"></i>
+        <span>Web Development</span>
+        <div class="service-description">Web development is the process of building websites and web applications that are fast, responsive, and user-friendly.</div>
+    </div>
+    <div class="slider-item" data-service="video-editing">
+        <i class="fas fa-brush"></i>
+        <span>UI/UX Design</span>
+        <div class="service-description">UI/UX design focuses on creating a seamless, user-friendly interface with an emphasis on visual appeal and functionality.</div>
+    </div>
+</div>
         </div>
       </div>
     </div>
@@ -3318,7 +3355,22 @@ function enableSlider() {
     }
   });
 </script>
+<script>
+    document.querySelectorAll('.slider-item').forEach(item => {
+    item.addEventListener('click', function() {
+        
+        this.classList.toggle('active');
+        
+        
+        document.querySelectorAll('.slider-item').forEach(otherItem => {
+            if (otherItem !== this) {
+                otherItem.classList.remove('active');
+            }
+        });
+    });
+});
 
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
