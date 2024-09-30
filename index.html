@@ -51,7 +51,7 @@
   top: 10px;
   right: 20px;
   font-size: 1.5rem;
-  color: #ca9632; 
+  color: #ca9632; /* Close button color */
   cursor: pointer;
   transition: color 0.3s ease-in-out;
 }
@@ -60,6 +60,19 @@
   color: white;
 }
 
+.close-btn-bottom {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;  
+  font-size: 1.5rem;
+  color: #ca9632; 
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.close-btn-bottom:hover {
+  color: white;
+}
 .show-modal {
   display: flex; 
   align-items: center;
@@ -2263,12 +2276,16 @@ svg {
             <img src="Files/Images/animated-section.jpg" alt="Animated Image" class="zoom-image">
         </div>
     <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"> 
-    <div id="subtext-modal" class="modal">
+   
+<div id="subtext-modal" class="modal">
   <div class="modal-content">
     <span class="close-btn">&times;</span>
+    <span class="close-btn-bottom">&times;</span> 
     <p class="modal-subtext"></p>
   </div>
 </div>
+
+ 
 <script>
    
 const modal = document.getElementById('subtext-modal');
@@ -2695,6 +2712,35 @@ setInterval(highlightService, 3000);
     subtext.textContent = this.getAttribute('data-subtext');
     subtext.classList.add('show-subtext');
   });
+});
+</script>
+<script>
+   
+const closeBtnBottom = document.querySelector('.close-btn-bottom');
+
+
+document.querySelectorAll('.attribute-item').forEach(item => {
+  item.addEventListener('click', function() {
+    modalSubtext.textContent = this.getAttribute('data-subtext'); 
+    modal.classList.add('show-modal'); 
+  });
+});
+
+
+closeBtn.addEventListener('click', function() {
+  modal.classList.remove('show-modal'); 
+});
+
+
+closeBtnBottom.addEventListener('click', function() {
+  modal.classList.remove('show-modal'); 
+});
+
+
+window.addEventListener('click', function(event) {
+  if (event.target === modal) {
+    modal.classList.remove('show-modal'); 
+  }
 });
 
 </script>
