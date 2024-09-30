@@ -18,11 +18,14 @@
 .chochote {
   background-color: #270d00;
   padding: 20px;
+  border: 2px solid #ca9632;
   border-radius: 10px;
-  max-width: 1200px;
+  max-width: 600px;
   margin: 0 auto;
   text-align: center;
   color: white;
+  position: relative; 
+  overflow: visible; 
 }
 
 #mamake {
@@ -75,18 +78,22 @@
 }
 
 .subtext {
-  display: none;
+  display: block; 
   font-size: 1rem;
   margin-top: 20px;
   color: #ca9632;
-  padding: 20px;
+  padding: 10px;
   background-color: rgba(42, 42, 42, 0.8);
   border-radius: 8px;
-  line-height: 1.8;
+  line-height: 1.6;
+  position: absolute; 
+  left: 0;
+  right: 0;
+  top: 120%; 
+  z-index: 10; 
 }
 
 .show-subtext {
-  display: block;
   animation: fadeIn 0.5s ease-in-out;
 }
 
