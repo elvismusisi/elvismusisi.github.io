@@ -16,57 +16,6 @@
     <title>Elvis Musisi</title>
     <style>
 
-.confetti {
-  position: fixed;
-  top: -10%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; 
-  z-index: 50; 
-  overflow: hidden;
-}
-
-.confetti span {
-  position: absolute;
-  top: -10%;
-  color: #ca9632; 
-  font-size: 1.5rem;
-  font-family: 'Courier New', Courier, monospace;
-  animation: fall 5s linear infinite; 
-  opacity: 0;
-  text-shadow: 0 0 10px #ca9632, 0 0 20px #fff;
-}
-
-
-@keyframes fall {
-  0% {
-    transform: translateY(-100vh);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh);
-    opacity: 0;
-  }
-}
-
-
-.confetti span:nth-child(odd) {
-  animation-duration: 7s;
-  left: calc(10% + (80% * random()));
-}
-
-.confetti span:nth-child(even) {
-  animation-duration: 6s;
-  left: calc(5% + (90% * random()));
-}
-
-
-.confetti span:nth-child(3n) {
-  animation-duration: 8s;
-  font-size: 2rem;
-}
-
 .modal {
   display: none; 
   position: fixed; 
@@ -2327,47 +2276,8 @@ svg {
     <p class="modal-subtext"></p>
   </div>
 </div>
-<div class="confetti" id="confetti"></div>
-<script>
-    
-function createConfetti() {
-  const confettiContainer = document.getElementById('confetti');
-  confettiContainer.innerHTML = ''; 
-
- 
-  for (let i = 0; i < 50; i++) {
-    const span = document.createElement('span');
-    span.textContent = Math.random() > 0.5 ? '0' : '1'; 
-    confettiContainer.appendChild(span);
-  }
-}
 
 
-function showConfettiAndModal(subtext) {
-  
-  createConfetti();
-
-  
-  const confettiContainer = document.getElementById('confetti');
-  confettiContainer.style.display = 'block'; 
-
-  
-  setTimeout(() => {
-    confettiContainer.style.display = 'none'; 
-    modalSubtext.textContent = subtext; 
-    modal.classList.add('show-modal'); 
-  }, 2000); // 2000ms = 2 seconds
-}
-
-
-document.querySelectorAll('.attribute-item').forEach(item => {
-  item.addEventListener('click', function() {
-    const subtext = this.getAttribute('data-subtext');
-    showConfettiAndModal(subtext); 
-  });
-});
-
-</script>
 <script>
    
 const modal = document.getElementById('subtext-modal');
