@@ -15,82 +15,44 @@
 </head>
     <title>Elvis Musisi</title>
     <style>
-  .mountain-section {
-        position: relative;
-        width: 100%;
-        height: 500px;
-        background-color: #270d00; /* Dark background to contrast the mountains */
-        overflow: hidden;
-    }
-
-    .mountain {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 300px;
-        background: linear-gradient(to bottom, #ca9632, #b38429, #9a7424);
-        clip-path: polygon(50% 0%, 100% 100%, 0% 100%); /* Triangle shape for the mountain */
-        transition: transform 0.2s ease-in-out;
-    }
-
-    #mountain1 {
-        height: 300px;
-        background: linear-gradient(to bottom, #ca9632, #b38429, #9a7424);
-        z-index: 1;
-    }
-
-    #mountain2 {
-        height: 250px;
-        background: linear-gradient(to bottom, #b38429, #a67425, #8b6020);
-        left: -50px;
-        z-index: 2;
-    }
-
-    #mountain3 {
-        height: 200px;
-        background: linear-gradient(to bottom, #9a7424, #8b6020, #73501c);
-        left: -100px;
-        z-index: 3;
-    }
-        
-  .image-section {
-        position: relative;
-    }
-
-    .image-container {
+.image-container {
         position: relative;
         overflow: hidden;
     }
 
+   
     .hover-image {
         width: 100%;
-        height: auto;
         transition: transform 0.5s ease;
     }
 
+
     .image-container:hover .hover-image {
-        transform: scale(1.1);
+        transform: scale(1.1); 
     }
 
+    
     .hover-text {
         position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: rgba(39, 13, 0, 0.8);
+        background-color: rgba(39, 13, 0, 0.8); 
         color: #ca9632;
         padding: 20px;
         text-align: center;
-        transform: translateY(100%);
-        transition: transform 0.5s ease;
+        transform: translateY(100%); 
+        transition: transform 0.5s ease, opacity 0.5s ease;
         opacity: 0;
     }
 
+   
     .image-container:hover .hover-text {
-        transform: translateY(0);
-        opacity: 1;
+        transform: translateY(0); 
+        opacity: 1; 
     }
 
+    /* Text styling */
     .image-description {
         font-size: 16px;
         line-height: 1.5;
@@ -2354,11 +2316,6 @@ svg {
     <span class="close-btn-bottom">&times;</span> 
     <p class="modal-subtext"></p>
   </div>
-</div>
-<div class="mountain-section">
-    <div class="mountain" id="mountain1"></div>
-    <div class="mountain" id="mountain2"></div>
-    <div class="mountain" id="mountain3"></div>
 </div>
 
 <script>
