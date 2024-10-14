@@ -15,6 +15,44 @@
 </head>
     <title>Elvis Musisi</title>
     <style>
+  .mountain-section {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        background-color: #270d00; /* Dark background to contrast the mountains */
+        overflow: hidden;
+    }
+
+    .mountain {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(to bottom, #ca9632, #b38429, #9a7424);
+        clip-path: polygon(50% 0%, 100% 100%, 0% 100%); /* Triangle shape for the mountain */
+        transition: transform 0.2s ease-in-out;
+    }
+
+    #mountain1 {
+        height: 300px;
+        background: linear-gradient(to bottom, #ca9632, #b38429, #9a7424);
+        z-index: 1;
+    }
+
+    #mountain2 {
+        height: 250px;
+        background: linear-gradient(to bottom, #b38429, #a67425, #8b6020);
+        left: -50px;
+        z-index: 2;
+    }
+
+    #mountain3 {
+        height: 200px;
+        background: linear-gradient(to bottom, #9a7424, #8b6020, #73501c);
+        left: -100px;
+        z-index: 3;
+    }
+        
   .image-section {
         position: relative;
     }
@@ -2317,7 +2355,11 @@ svg {
     <p class="modal-subtext"></p>
   </div>
 </div>
-
+<div class="mountain-section">
+    <div class="mountain" id="mountain1"></div>
+    <div class="mountain" id="mountain2"></div>
+    <div class="mountain" id="mountain3"></div>
+</div>
 
 <script>
    
@@ -2776,6 +2818,20 @@ window.addEventListener('click', function(event) {
   }
 });
 
+</script>
+<script>
+    const mountainSection = document.querySelector('.mountain-section');
+    const mountains = document.querySelectorAll('.mountain');
+
+    mountainSection.addEventListener('mousemove', (e) => {
+        let x = (e.clientX - window.innerWidth / 2) / 20;
+        let y = (e.clientY - window.innerHeight / 2) / 20;
+
+        mountains.forEach((mountain, index) => {
+            let movement = (index + 1) * 10;
+            mountain.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    });
 </script>
 </body>
 </html>
