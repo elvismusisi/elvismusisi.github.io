@@ -15,6 +15,7 @@
 </head>
     <title>Elvis Musisi</title>
     <style>
+
 .image-container {
     position: relative;
     overflow: hidden;
@@ -28,40 +29,40 @@
 
 
 .image-container:hover .hover-image {
-    transform: scale(1.1); /* Zoom in */
+    transform: scale(1.1);
 }
 
 
-.hover-text {
+.image-container:hover .hover-image,
+.image-section:hover .hover-image {
+    transform: none !important; 
+}
+
+
+.image-section:hover .hover-text {
     position: absolute;
-    top: 0; 
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: #ca9632;
     color: #ffffff;
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
     text-align: center;
-    transform: translateY(100%); 
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    opacity: 0;
+    transform: none !important; 
+    opacity: 1 !important; 
+    transition: none !important; 
 }
-
-
-.image-container:hover .hover-text {
-    transform: translateY(0); 
-    opacity: 1; 
-}
-
 
 .image-description {
     font-size: 18px;
     line-height: 1.6;
-    width: 100%; 
+    width: 100%;
 }
+
 .modal {
   display: none; 
   position: fixed; 
