@@ -15,20 +15,7 @@
 </head>
     <title>Elvis Musisi</title>
     <style>
-.icons {
-  display: flex;
-  justify-content: center;   
-  gap: 50px;                 
-  opacity: 0;                
-}
 
-.icon {
-  font-size: 50px;           
-  color: #ca9632;            
-  position: relative;
-  transform: translateY(150px); 
-}
-        
 .modal {
   display: none; 
   position: fixed; 
@@ -1914,7 +1901,29 @@ svg {
     margin-top: 10px;
 }
 
+#icon1 {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
+#icon2 {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+#icon3 {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+#icon4 {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
 @keyframes rotate {
     0% {
@@ -1933,73 +1942,12 @@ svg {
 .hidden {
     display: none;
 }
-
-
-
-.loader {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-}
-
-.title {
-  color: #ca9632;
-  font-size: 2em;
-  opacity: 0;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.icons {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  opacity: 0;
-}
-
-
-@keyframes fadeInText {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.title {
-  animation: fadeInText 2s ease forwards 0.5s; 
-}
-
-.icons {
-  animation: fadeInText 2s ease forwards 2s; 
-}
-
-.icon {
-  animation: slideUp 2s ease forwards 2.5s; 
-}
-
-
     </style>
 </head>
 <body>
     <footer class="animated-footer">
         <p style="color: #ca9632; padding-left: 200px;">&copy; 2024 Elvis Musisi</span> Portfolio Website. All Rights Reserved.</p>
     </footer>
-    <div class="loader">
-  <div class="graphic-icon">🎨</div>
-  <div class="uiux-icon">💻</div>
-  <div class="frontend-icon">👨‍💻</div>
-  <h1 class="title">Professional Graphic Designer, UI/UX Designer & Front-End Developer</h1>
-</div>
     <div></div> 
     <div class="background"></div>
     <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"> 
@@ -2786,12 +2734,6 @@ window.addEventListener('click', function(event) {
     modal.classList.remove('show-modal'); 
   }
 });
-
-</script>
-<script>
-    window.onload = function() {
-  document.querySelector('.loader').classList.add('start-animation');
-};
 
 </script>
 </body>
