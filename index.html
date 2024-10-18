@@ -91,9 +91,9 @@
   object-fit: cover;
   position: absolute;
   top: 100%; 
-  transition: transform 0.6s ease-out, top 0.6s ease-out; 
+  transition: transform 0.3s ease-out;
 }
-        
+  
 .image-container {
     position: relative;
     overflow: hidden;
@@ -2971,27 +2971,24 @@ window.addEventListener('click', function(event) {
 </script>
 <script>
 let sliderImage = document.getElementById('sliderImage');
-let scrollPos = window.scrollY; 
-    
+let imageWrapper = document.querySelector('.image-wrapper');
+let wrapperHeight = imageWrapper.offsetHeight;
+
 window.addEventListener('scroll', () => {
   let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-  if (scrollTop > scrollPos) {
-    
-    sliderImage.style.top = '100%'; 
-  } else {
-    
-    sliderImage.style.top = '0'; 
-  }
-
+  let windowHeight = window.innerHeight;
   
-  if (scrollTop < scrollPos) {
-    sliderImage.style.transform = 'translateY(0%)'; 
-  } else {
-    sliderImage.style.transform = 'translateY(5%)'; 
+  let wrapperTop = imageWrapper.getBoundingClientRect().top;
+  
+  if (wrapperTop < windowHeight && wrapperTop > 0) {
+    
+    let revealPercentage = Math.min(1, (windowHeight - wrapperTop) / wrapperHeight);
+    
+    
+    sliderImage.style.top = `${(1 - revealPercentage) * 100}%`;
   }
+  
 
-  scrollPos = scrollTop <= 0 ? 0 : scrollTop; 
 });
 </script>
 </body>
