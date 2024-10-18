@@ -15,7 +15,85 @@
 </head>
     <title>Elvis Musisi</title>
     <style>
+.slider-section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
 
+.slider-container {
+  width: 80%;
+  height: 80%;
+  background-color: #270d00;
+  position: relative;
+  border: 2px solid #ca9632;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scroll-icon {
+  font-size: 2rem;
+  color: #ca9632;
+  animation: bounce 1.5s infinite;
+}
+
+.popup-text {
+  color: #ca9632;
+  margin-top: 10px;
+  opacity: 0;
+  animation: fadeIn 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.image-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 100%; 
+  transition: transform 0.6s ease-out, top 0.6s ease-out; 
+}
+        
 .image-container {
     position: relative;
     overflow: hidden;
@@ -2892,34 +2970,29 @@ window.addEventListener('click', function(event) {
     });
 </script>
 <script>
-    let sliderImage = document.getElementById('sliderImage');
-let scrollPos = 0;
-
+let sliderImage = document.getElementById('sliderImage');
+let scrollPos = window.scrollY; 
+    
 window.addEventListener('scroll', () => {
   let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  
- 
-  let offset = scrollTop - scrollPos;
 
-  if (offset > 0) {
-    // Scrolling down
-    sliderImage.style.transform = 'translateY(100%)'; 
-  } else {
-    // Scrolling up
-    sliderImage.style.transform = 'translateY(0)'; 
-  }
-
- 
   if (scrollTop > scrollPos) {
-    sliderImage.style.transform = 'translateY(95%)';
+    
+    sliderImage.style.top = '100%'; 
   } else {
-    sliderImage.style.transform = 'translateY(5%)';
+    
+    sliderImage.style.top = '0'; 
   }
 
   
+  if (scrollTop < scrollPos) {
+    sliderImage.style.transform = 'translateY(0%)'; 
+  } else {
+    sliderImage.style.transform = 'translateY(5%)'; 
+  }
+
   scrollPos = scrollTop <= 0 ? 0 : scrollTop; 
 });
-
 </script>
 </body>
 </html>
