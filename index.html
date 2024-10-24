@@ -2153,51 +2153,90 @@ svg {
 
 
 
+
 #progress-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 10px;
-  background-color: #270d00; 
+  background-color: #270d00;
   z-index: 1000; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
   border-radius: 5px; 
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 
 #progress-bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #ca9632 0%, #ffde88 100%); 
-  transition: width 0.4s ease-in-out, box-shadow 0.4s ease; 
+  background: linear-gradient(90deg, #ca9632 0%, #ffde88 100%);
+  transition: width 0.4s ease-in-out, box-shadow 0.4s ease;
   box-shadow: 0 0 8px rgba(202, 150, 50, 0.8); 
   border-radius: 5px; 
+  position: relative;
 }
 
 
-#progress-bar.active {
-  animation: glow 1.5s ease-in-out infinite;
+#progress-image {
+  height: 20px; 
+  position: absolute;
+  top: -5px;
+  left: 0;
+  transform: translateX(-50%); 
+  transition: left 0.4s ease-in-out;
 }
 
 
-@keyframes glow {
-  0%, 100% {
-    box-shadow: 0 0 8px rgba(202, 150, 50, 0.8), 0 0 20px rgba(202, 150, 50, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 16px rgba(202, 150, 50, 1), 0 0 30px rgba(202, 150, 50, 0.6);
-  }
+.popup {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #270d00;
+  color: #ca9632;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+
+.popup.visible {
+  opacity: 1;
+}
+
+
+.hidden {
+  display: none;
 }
 
 
     </style>
 </head>
 <body>
+
 <div id="progress-container">
-  <div id="progress-bar"></div>
+  <div id="progress-bar">
+    <img id="progress-image" src="Files/Images/elvismusisi-logo.png" alt="logo">
+  </div>
 </div>
+
+
+<div id="bottom-popup" class="popup hidden">
+  You’ve reached the bottom! Click "Enter" at the top to explore more.
+</div>
+
+
+<div id="center-popup" class="popup hidden">
+  You’re halfway through! Keep exploring.
+</div>
+
 
     <footer class="animated-footer">
         <p style="color: #ca9632; padding-left: 200px;">&copy; 2024 Elvis Musisi</span> Portfolio Website. All Rights Reserved.</p>
@@ -3044,30 +3083,58 @@ window.addEventListener('scroll', () => {
 </script>
 
 <script>
- 
   window.onscroll = function() {
     updateProgressBar();
+    checkScrollPosition();
   };
 
   function updateProgressBar() {
-    
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     var scrollPercent = (scrollTop / scrollHeight) * 100;
 
-    
     var progressBar = document.getElementById("progress-bar");
+    var progressImage = document.getElementById("progress-image");
 
-   
+    
     progressBar.style.width = scrollPercent + "%";
 
    
+    progressImage.style.left = scrollPercent + "%";
+
+    
     progressBar.classList.add('active');
     setTimeout(() => {
       progressBar.classList.remove('active');
     }, 500);
   }
+
+  function checkScrollPosition() {
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+    var centerOfPage = scrollHeight / 2;
+    var bottomOfPage = scrollHeight - 50; 
+
+    var bottomPopup = document.getElementById("bottom-popup");
+    var centerPopup = document.getElementById("center-popup");
+
+   
+    if (scrollTop >= centerOfPage - 100 && scrollTop <= centerOfPage + 100) {
+      centerPopup.classList.add('visible');
+    } else {
+      centerPopup.classList.remove('visible');
+    }
+
+    
+    if (scrollTop >= bottomOfPage) {
+      bottomPopup.classList.add('visible');
+    } else {
+      bottomPopup.classList.remove('visible');
+    }
+  }
 </script>
+
 
 </body>
 </html>
