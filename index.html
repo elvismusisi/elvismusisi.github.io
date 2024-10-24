@@ -15,6 +15,45 @@
 </head>
     <title>Elvis Musisi</title>
     <style>
+
+.popup {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #270d00;
+  color: #ca9632;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+
+.popup.visible {
+  opacity: 1;
+}
+
+
+.hidden {
+  display: none;
+}
+
+#progress-image {
+  height: 20px; 
+  position: absolute;
+  top: -5px;
+  left: 0;
+  transform: translateX(-50%);
+  transition: left 0.4s ease-in-out;
+  z-index: 1000; 
+  display: block; 
+}
+
 #rotating-button {
     border: 2px solid #ca9632;
     padding: 10px;
@@ -3099,7 +3138,7 @@ window.addEventListener('scroll', () => {
     
     progressBar.style.width = scrollPercent + "%";
 
-   
+    
     progressImage.style.left = scrollPercent + "%";
 
     
@@ -3119,21 +3158,25 @@ window.addEventListener('scroll', () => {
     var bottomPopup = document.getElementById("bottom-popup");
     var centerPopup = document.getElementById("center-popup");
 
-   
+    
     if (scrollTop >= centerOfPage - 100 && scrollTop <= centerOfPage + 100) {
       centerPopup.classList.add('visible');
+      centerPopup.classList.remove('hidden');
     } else {
       centerPopup.classList.remove('visible');
+      centerPopup.classList.add('hidden');
     }
 
-    
     if (scrollTop >= bottomOfPage) {
       bottomPopup.classList.add('visible');
+      bottomPopup.classList.remove('hidden');
     } else {
       bottomPopup.classList.remove('visible');
+      bottomPopup.classList.add('hidden');
     }
   }
 </script>
+
 
 
 </body>
