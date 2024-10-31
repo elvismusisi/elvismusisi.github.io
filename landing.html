@@ -1966,7 +1966,60 @@ html {
     0%, 100% { opacity: 0; transform: translateY(20px); }
     50% { opacity: 1; transform: translateY(0); }
 }
+.back-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: none; /* Hidden by default */
+    background-color: #ca9632;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: fadeIn 0.5s ease; /* Add fade-in animation */
+}
 
+.back-button a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.back-button:hover {
+    transform: scale(1.1);
+    background-color: #270d00; 
+}
+
+.back-button:focus {
+    outline: 2px solid #fff; 
+    outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+    .back-button {
+        display: flex;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
   </style>
 </head>
 <body>
@@ -2007,6 +2060,11 @@ html {
     </nav>
 </div>
 <button id="show-navbar" class="btn-custom">Show Navbar</button>
+    <div class="back-button" aria-label="Go back to home page">
+        <a href="index.html" role="button" aria-pressed="false">
+            <span class="arrow" aria-hidden="true">&larr;</span>
+        </a>
+    </div>
 <div class="random-words-container">
         <span class="random-word" id="graphic-design">UI/UX Design <i class="icon-design"></i></span>
         <span class="random-word" id="graphic-design">Graphic Design <i class="icon-design"></i></span>
