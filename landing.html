@@ -2020,6 +2020,68 @@ html {
         transform: translateY(0);
     }
 }
+
+
+#feedback-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background-color: #270d00;
+  color: #ca9632;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 50px auto;
+}
+
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #ca9632;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+
+.prompt {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #270d00;
+  color: #ca9632;
+  border-radius: 8px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.prompt.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.prompt.hide {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
   </style>
 </head>
 <body>
@@ -2554,6 +2616,15 @@ html {
   </div>
 </div>
 </div>
+    <section id="feedback-section">
+  <h2>Do you like my portfolio?</h2>
+  <div class="buttons">
+    <button id="like-button">👍 Like</button>
+    <button id="dislike-button">👎 Dislike</button>
+  </div>
+  <div id="prompt" class="prompt hidden"></div>
+</section>
+
 <footer  class="text-light text-center py-3">
     <p style="color: #270d00;">&copy; 2024 Elvis Musisi Portfolio Website. All rights reserved.</p>
 </footer>
@@ -3524,6 +3595,35 @@ function enableSlider() {
         });
     });
 });
+</script>
+<script>
+    const likeButton = document.getElementById("like-button");
+const dislikeButton = document.getElementById("dislike-button");
+const prompt = document.getElementById("prompt");
+
+
+function showPrompt(message) {
+  prompt.textContent = message;
+  prompt.classList.remove("hidden", "hide");
+  prompt.classList.add("show");
+
+  
+  setTimeout(() => {
+    prompt.classList.remove("show");
+    prompt.classList.add("hide");
+  }, 3000);
+}
+
+
+likeButton.addEventListener("click", () => {
+  showPrompt("Thank you for your feedback! 🙏");
+});
+
+// Dislike button functionality
+dislikeButton.addEventListener("click", () => {
+  showPrompt("Sorry! I'm working hard to improve daily. Thank you for your honesty!");
+});
+
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
