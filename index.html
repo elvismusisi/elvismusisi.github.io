@@ -3289,7 +3289,7 @@ window.addEventListener('scroll', () => {
   }
 </script>
 
-<script>
+  <script>
     const faqItems = document.querySelectorAll('.faq-item');
 
     faqItems.forEach(item => {
@@ -3298,10 +3298,17 @@ window.addEventListener('scroll', () => {
       const icon = item.querySelector('.faq-icon');
 
       question.addEventListener('click', () => {
+       
         const isVisible = answer.classList.contains('show');
-        document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.remove('show'));
-        document.querySelectorAll('.faq-icon').forEach(icon => icon.classList.remove('rotate'));
-        if (!isVisible) {
+        if (isVisible) {
+          answer.classList.remove('show');
+          icon.classList.remove('rotate');
+        } else {
+          // Close all other FAQs
+          document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.remove('show'));
+          document.querySelectorAll('.faq-icon').forEach(ic => ic.classList.remove('rotate'));
+
+          // Open the clicked FAQ
           answer.classList.add('show');
           icon.classList.add('rotate');
         }
