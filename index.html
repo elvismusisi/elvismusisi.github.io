@@ -15,71 +15,68 @@
 </head>
     <title>Elvis Musisi</title>
     <style>
-    .faq-container {
+    .faq-slider {
       width: 80%;
+      max-width: 600px;
       margin: 50px auto;
       background-color: #ca9632;
       border-radius: 10px;
-      padding: 20px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .faq-header {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    details {
-      margin: 15px 0;
-      border: 2px solid white;
-      border-radius: 8px;
       overflow: hidden;
-      transition: all 0.3s ease-in-out;
+      position: relative;
     }
 
-    summary {
-      cursor: pointer;
-      padding: 15px;
-      font-size: 1.2rem;
-      background-color: #270d00;
-      color: white;
-      list-style: none;
-      outline: none;
+    .faq-slide {
+      display: none;
+      padding: 20px;
+      text-align: center;
     }
 
-    summary:hover {
-      background-color: white;
-      color: #270d00;
+    .faq-slide.active {
+      display: block;
+      animation: slideIn 0.5s ease-in-out;
     }
 
-    summary::marker {
-      color: white;
+    .faq-question {
       font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
 
-    details[open] summary {
-      background-color: #ca9632;
-      color: #270d00;
-    }
-
-    details[open] summary::marker {
-      color: #270d00;
-    }
-
-    .faq-content {
-      padding: 15px;
-      background-color: white;
-      color: #270d00;
+    .faq-answer {
       font-size: 1rem;
       line-height: 1.6;
-      animation: fadeIn 0.3s ease-in-out;
     }
 
-    @keyframes fadeIn {
+    .faq-controls {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      padding: 0 10px;
+    }
+
+    .faq-button {
+      background-color: #270d00;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .faq-button:hover {
+      background-color: white;
+      color: #270d00;
+    }
+
+    @keyframes slideIn {
       from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(20px);
       }
       to {
         opacity: 1;
@@ -2697,30 +2694,31 @@ svg {
             <img src="Files/Images/animated-section.jpg" alt="Animated Image" class="zoom-image">
         </div>
     <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"> 
-  <div class="faq-container">
-    <div class="faq-header">Frequently Asked Questions</div>
-
-    <details>
-      <summary>What services do you offer?</summary>
-      <div class="faq-content">
-        I offer graphic design, web development, animation, and video editing services. I specialize in creating impactful digital solutions.
+   <div class="faq-slider">
+    <div class="faq-slide active">
+      <div class="faq-question">What services do you offer?</div>
+      <div class="faq-answer">
+        I offer graphic design, web development, animation, and video editing services.
       </div>
-    </details>
-
-    <details>
-      <summary>How can I contact you?</summary>
-      <div class="faq-content">
+    </div>
+    <div class="faq-slide">
+      <div class="faq-question">How can I contact you?</div>
+      <div class="faq-answer">
         You can contact me via the "Connect with Me" section of my portfolio or through my Upwork profile link at the bottom of the page.
       </div>
-    </details>
-
-    <details>
-      <summary>What tools do you use?</summary>
-      <div class="faq-content">
+    </div>
+    <div class="faq-slide">
+      <div class="faq-question">What tools do you use?</div>
+      <div class="faq-answer">
         I use tools such as Adobe After Effects, Photoshop, Illustrator, Lightroom, Figma, HTML, CSS, JavaScript, and Git to deliver top-notch projects.
       </div>
-    </details>
+    </div>
+    <div class="faq-controls">
+      <button class="faq-button" id="prev-btn">Previous</button>
+      <button class="faq-button" id="next-btn">Next</button>
+    </div>
   </div>
+
 <div id="subtext-modal" class="modal">
   <div class="modal-content">
     <span class="close-btn">&times;</span>
@@ -3285,18 +3283,31 @@ window.addEventListener('scroll', () => {
     }
   }
 </script>
+
 <script>
-    document.querySelectorAll("details").forEach(details => {
-  details.addEventListener("click", () => {
-    const openDetails = document.querySelector("details[open]");
-    if (openDetails && openDetails !== details) {
-      openDetails.removeAttribute("open");
+    const slides = document.querySelectorAll('.faq-slide');
+    const prevButton = document.getElementById('prev-btn');
+    const nextButton = document.getElementById('next-btn');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
     }
-  });
-});
 
-</script>
+    nextButton.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    });
 
+    prevButton.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    });
 
+    // Initialize
+    showSlide(currentSlide);
+  </script>
 </body>
 </html>
