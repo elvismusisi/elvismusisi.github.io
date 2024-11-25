@@ -16,6 +16,69 @@
     <title>Elvis Musisi</title>
     <style>
 
+    .faq-container {
+      width: 80%;
+      margin: 50px auto;
+      background-color: #ca9632;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .faq-header {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .faq-item {
+      margin: 10px 0;
+      border: 2px solid white;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question {
+      padding: 15px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      background-color: #270d00;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question:hover {
+      background-color: #ca9632;
+      color: #270d00;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      background-color: white;
+      color: #270d00;
+      padding: 0 15px;
+      font-size: 1rem;
+      line-height: 1.6;
+      transition: all 0.3s ease;
+    }
+
+    .faq-answer.show {
+      max-height: 500px; 
+      padding: 15px;
+    }
+
+    .faq-icon {
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-icon.rotate {
+      transform: rotate(180deg);
+    }
 #progress-container {
   position: fixed;
   top: 0;
@@ -2627,7 +2690,40 @@ svg {
             <img src="Files/Images/animated-section.jpg" alt="Animated Image" class="zoom-image">
         </div>
     <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"> 
-   
+<div class="faq-container">
+    <div class="faq-header">Frequently Asked Questions</div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What services do you offer?</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-answer">
+        I offer graphic design, web development, animation, and video editing services. I specialize in creating impactful digital solutions.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>How can I contact you?</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-answer">
+        You can contact me via the "Connect with Me" section of my portfolio after exploring the "Enter" button at the top of the page or through my Upwork profile link at the top of the page.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What tools do you use?</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-answer">
+        I use tools such as Adobe After Effects, Photoshop, Illustrator, Lightroom, Figma, HTML, CSS, JavaScript, and Git to deliver top-notch projects.
+      </div>
+    </div>
+  </div>
+
 <div id="subtext-modal" class="modal">
   <div class="modal-content">
     <span class="close-btn">&times;</span>
@@ -3193,7 +3289,25 @@ window.addEventListener('scroll', () => {
   }
 </script>
 
+<script>
+    const faqItems = document.querySelectorAll('.faq-item');
 
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      const icon = item.querySelector('.faq-icon');
+
+      question.addEventListener('click', () => {
+        const isVisible = answer.classList.contains('show');
+        document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.remove('show'));
+        document.querySelectorAll('.faq-icon').forEach(icon => icon.classList.remove('rotate'));
+        if (!isVisible) {
+          answer.classList.add('show');
+          icon.classList.add('rotate');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
