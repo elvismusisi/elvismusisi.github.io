@@ -15,74 +15,7 @@
 </head>
     <title>Elvis Musisi</title>
     <style>
-    .faq-slider {
-      width: 80%;
-      max-width: 600px;
-      margin: 50px auto;
-      background-color: #ca9632;
-      border-radius: 10px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-      overflow: hidden;
-      position: relative;
-    }
 
-    .faq-slide {
-      display: none;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .faq-slide.active {
-      display: block;
-      animation: slideIn 0.5s ease-in-out;
-    }
-
-    .faq-question {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .faq-answer {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .faq-controls {
-      display: flex;
-      justify-content: space-between;
-      position: absolute;
-      bottom: 10px;
-      width: 100%;
-      padding: 0 10px;
-    }
-
-    .faq-button {
-      background-color: #270d00;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1rem;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-
-    .faq-button:hover {
-      background-color: white;
-      color: #270d00;
-    }
-
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
 #progress-container {
   position: fixed;
   top: 0;
@@ -2694,30 +2627,7 @@ svg {
             <img src="Files/Images/animated-section.jpg" alt="Animated Image" class="zoom-image">
         </div>
     <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"> 
-   <div class="faq-slider">
-    <div class="faq-slide active">
-      <div class="faq-question">What services do you offer?</div>
-      <div class="faq-answer">
-        I offer graphic design, web development, animation, and video editing services.
-      </div>
-    </div>
-    <div class="faq-slide">
-      <div class="faq-question">How can I contact you?</div>
-      <div class="faq-answer">
-        You can contact me via the "Connect with Me" section of my portfolio or through my Upwork profile link at the bottom of the page.
-      </div>
-    </div>
-    <div class="faq-slide">
-      <div class="faq-question">What tools do you use?</div>
-      <div class="faq-answer">
-        I use tools such as Adobe After Effects, Photoshop, Illustrator, Lightroom, Figma, HTML, CSS, JavaScript, and Git to deliver top-notch projects.
-      </div>
-    </div>
-    <div class="faq-controls">
-      <button class="faq-button" id="prev-btn">Previous</button>
-      <button class="faq-button" id="next-btn">Next</button>
-    </div>
-  </div>
+  
 
 <div id="subtext-modal" class="modal">
   <div class="modal-content">
@@ -3284,30 +3194,6 @@ window.addEventListener('scroll', () => {
   }
 </script>
 
-<script>
-    const slides = document.querySelectorAll('.faq-slide');
-    const prevButton = document.getElementById('prev-btn');
-    const nextButton = document.getElementById('next-btn');
-    let currentSlide = 0;
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-    }
-
-    nextButton.addEventListener('click', () => {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    });
-
-    prevButton.addEventListener('click', () => {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      showSlide(currentSlide);
-    });
-
-    // Initialize
-    showSlide(currentSlide);
-  </script>
 </body>
 </html>
