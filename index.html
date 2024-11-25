@@ -3285,7 +3285,17 @@ window.addEventListener('scroll', () => {
     }
   }
 </script>
+<script>
+    document.querySelectorAll("details").forEach(details => {
+  details.addEventListener("click", () => {
+    const openDetails = document.querySelector("details[open]");
+    if (openDetails && openDetails !== details) {
+      openDetails.removeAttribute("open");
+    }
+  });
+});
 
+</script>
 
 
 </body>
