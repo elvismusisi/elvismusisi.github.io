@@ -15,6 +15,102 @@
 </head>
     <title>Elvis Musisi</title>
     <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #270d00; 
+  color: #fff; 
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
+.faq-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+  align-items: start;
+  width: 100%;
+  max-width: 1200px; 
+}
+
+
+.faq-card {
+  background-color: #ca9632; 
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px; 
+  width: 100%; 
+  max-width: 350px; 
+  cursor: pointer; 
+}
+
+
+.faq-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+.faq-icon {
+  font-size: 36px;
+  color: white;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+
+.faq-question {
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 10px;
+  text-align: center; 
+}
+
+
+.faq-arrow {
+  font-size: 20px;
+  color: white;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.3s ease;
+}
+
+
+.faq-answer {
+  color: white;
+  font-size: 14px;
+  line-height: 1.6;
+  display: none; 
+  text-align: justify;
+  padding-top: 10px;
+}
+
+
+@media screen and (max-width: 600px) {
+  .faq-container {
+    grid-template-columns: 1fr; 
+  }
+}
+
 
 #progress-container {
   position: fixed;
@@ -2476,7 +2572,40 @@ svg {
     <div class="header header-right">Web Development</div>
     <div class="header header-bottom">Animation</div>
     <div class="header header-left">UI/UX Design</div>
-
+<div class="faq-container">
+        <div class="faq-card">
+          <div class="faq-icon">
+            <i class="fas fa-palette"></i>
+          </div>
+          <div class="faq-content">
+            <h3 class="faq-question">What is Graphic Design?</h3>
+            <i class="fas fa-chevron-down faq-arrow"></i>
+            <p class="faq-answer">Graphic design is a creative process that combines art and technology to communicate ideas through images, typography, and layouts.</p>
+          </div>
+        </div>
+      
+        <div class="faq-card">
+          <div class="faq-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <div class="faq-content">
+            <h3 class="faq-question">What is UI/UX Design?</h3>
+            <i class="fas fa-chevron-down faq-arrow"></i>
+            <p class="faq-answer">UI/UX Design is the practice of designing user interfaces and experiences to create intuitive, visually appealing, and functional digital products.</p>
+          </div>
+        </div>
+      
+        <div class="faq-card">
+          <div class="faq-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="faq-content">
+            <h3 class="faq-question">What is Front-End Development?</h3>
+            <i class="fas fa-chevron-down faq-arrow"></i>
+            <p class="faq-answer">Front-End Development is the part of web development that focuses on the visual elements of a website or web application, ensuring it's both functional and aesthetically pleasing.</p>
+          </div>
+        </div>
+      </div>
     <div class="center-image">
         <img src="Files/Images/elvismusisi-logo.png" alt="">
         <p class="image-text" style="color: white:">Creative</p>
@@ -3193,7 +3322,21 @@ window.addEventListener('scroll', () => {
     }
   }
 </script>
-
+<script>
+        document.querySelectorAll('.faq-card').forEach(card => {
+          card.addEventListener('click', () => {
+            const answer = card.querySelector('.faq-answer');
+            const arrow = card.querySelector('.faq-arrow');
+            const isVisible = answer.style.display === 'block';
+            
+            
+            answer.style.display = isVisible ? 'none' : 'block';
+            
+        
+            arrow.style.transform = isVisible ? 'rotate(0deg)' : 'rotate(180deg)';
+          });
+        });
+      </script>
 
 </body>
 </html>
