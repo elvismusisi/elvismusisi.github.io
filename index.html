@@ -60,6 +60,58 @@
         .button:focus {
             outline: none;
         }
+
+        @media (max-width: 768px) {
+            #warning-box {
+                padding: 20px;
+                max-width: 90%;
+                width: auto;
+            }
+            .button {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+            p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #warning-box {
+                padding: 15px;
+                max-width: 90%;
+                width: auto;
+            }
+            h2 {
+                font-size: 18px;
+            }
+            p {
+                font-size: 13px;
+            }
+            .button {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            #warning-box {
+                padding: 10px;
+                max-width: 90%;
+                width: auto;
+            }
+            h2 {
+                font-size: 16px;
+            }
+            p {
+                font-size: 12px;
+            }
+            .button {
+                padding: 6px 12px;
+                font-size: 10px;
+            }
+        }
+        
 .testimonial-section {
   text-align: center;
   margin-bottom: 50px;
