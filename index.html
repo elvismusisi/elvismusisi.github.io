@@ -24,14 +24,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
-  animation: fadeIn 1s forwards;
+  opacity: 0;
+  animation: fadeIn 1s forwards, slideIn 1s forwards;
+  animation-delay: 0.2s;
 }
 
 .section-icon {
   font-size: 40px;
   color: #f4d03f;
   margin-right: 15px;
+  opacity: 0;
+  animation: iconSlideIn 1s forwards;
+  animation-delay: 0.2s;
 }
 
 .section-title {
@@ -40,12 +44,15 @@
   color: #270d00;
   text-transform: uppercase;
   letter-spacing: 2px;
+  opacity: 0;
+  animation: titleFadeIn 1s forwards;
+  animation-delay: 0.4s;
 }
 
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-30px);
   }
   100% {
     opacity: 1;
@@ -53,13 +60,36 @@
   }
 }
 
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 24px;
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
   }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
-  .section-icon {
-    font-size: 30px;
+@keyframes iconSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes titleFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -3405,6 +3435,12 @@ showSlide(currentIndex);
 setInterval(goToNextSlide, 5000);
 
 </script>
+<script>
+    window.addEventListener('load', () => {
+  const sectionHeader = document.querySelector('.section-header');
+  sectionHeader.style.animationPlayState = 'running';
+});
 
+</script>
 </body>
 </html>
