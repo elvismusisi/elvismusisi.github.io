@@ -3328,6 +3328,8 @@ let currentIndex = 0;
 const slides = document.querySelectorAll('.testimonial-slide');
 const totalSlides = slides.length;
 
+const prevButton = document.querySelector('.prev');
+
 function showSlide(index) {
   slides.forEach((slide, i) => {
     slide.style.transform = `translateX(${(i - index) * 100}%)`;
@@ -3339,8 +3341,14 @@ function goToNextSlide() {
   showSlide(currentIndex);
 }
 
-showSlide(currentIndex);
+function goToPrevSlide() {
+  currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+  showSlide(currentIndex);
+}
 
+prevButton.addEventListener('click', goToPrevSlide);
+
+showSlide(currentIndex);
 
 setInterval(goToNextSlide, 5000);
 
