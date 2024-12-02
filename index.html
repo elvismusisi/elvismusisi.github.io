@@ -15,7 +15,7 @@
 </head>
     <title>Elvis Musisi</title>
     <style>
-     #warning-overlay {
+ #warning-overlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -2512,9 +2512,9 @@ svg {
     <div id="warning-box">
         <h2>Important Notice</h2>
         <p>Welcome to my portfolio website! Please be aware that some parts of the site may contain flashing images or animations that could be uncomfortable or trigger seizures for individuals with photosensitive epilepsy or other sensitivities.</p>
-        <p>If you wish to proceed, click "Continue". If you prefer not to view such content, click "Skip to Safe Version" to explore the site without animations.</p>
+        <p>If you wish to proceed, click "Continue". If you prefer not to view such content, click "Skip to GitHub" to explore my projects on GitHub.</p>
         <button class="button" id="continue-btn">Continue</button>
-        <button class="button" id="skip-btn">Skip to Safe Version</button>
+        <button class="button" id="skip-btn">Skip to GitHub</button>
     </div>
 </div>
 <div id="progress-container">
@@ -3496,7 +3496,7 @@ setInterval(goToNextSlide, 5000);
 
 </script>
 <script>
-    document.getElementById('continue-btn').addEventListener('click', function() {
+document.getElementById('continue-btn').addEventListener('click', function() {
         document.getElementById('warning-overlay').style.display = 'none';
         document.body.style.overflow = 'auto';
     });
@@ -3504,7 +3504,7 @@ setInterval(goToNextSlide, 5000);
     document.getElementById('skip-btn').addEventListener('click', function() {
         document.getElementById('warning-overlay').style.display = 'none';
         document.body.style.overflow = 'auto';
-        window.location.href = "/safe-version";
+        window.location.href = "https://github.com/elvismusisi/";
     });
 </script>
 </body>
