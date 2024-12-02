@@ -25,18 +25,38 @@
             color: white;
             display: flex;
             justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            text-align: center;
-            padding: 20px;
+            align-items: flex-start;
+            z-index: 1000;
+            padding-top: 20px;
         }
         #warning-box {
             background-color: #270d00;
             padding: 30px;
             border-radius: 8px;
             width: 100%;
+            max-width: 600px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
         }
+        @media (max-width: 600px) {
+    #warning-box {
+        width: 90%;
+        padding: 15px;
+    }
+
+    #warning-box h2 {
+        font-size: 20px;
+    }
+
+    #warning-box p {
+        font-size: 14px;
+    }
+
+    .button {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 18px;
+    }
+}
         h2 {
             margin-bottom: 15px;
         }
