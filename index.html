@@ -19,38 +19,49 @@
   position: relative;
   width: 80%;
   margin: 50px auto;
-  background-color: white;
-  border-radius: 10px;
+  background-color: #ca9632;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .testimonial-container {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 1s ease-in-out;
 }
 
 .testimonial-slide {
   flex: 0 0 100%;
-  padding: 30px;
+  padding: 40px;
   text-align: center;
-  background-color: #f9f9f9;
+  background: linear-gradient(135deg, #270d00, #4b3d20);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: white;
+  transform: translateX(0);
+  animation: slideIn 1s ease-out;
 }
 
 .testimonial-content p {
-  font-size: 18px;
-  color: #270d00;
+  font-size: 20px;
   font-style: italic;
-  margin-bottom: 20px;
+  color: #fff;
+  margin-bottom: 30px;
+  line-height: 1.5;
 }
 
 .testimonial-author {
-  font-size: 16px;
-  color: #ca9632;
+  font-size: 18px;
+  color: #f4d03f;
 }
 
 .author-name {
   font-weight: bold;
+  font-size: 20px;
 }
 
 .author-title {
@@ -68,19 +79,19 @@
   transform: translateY(-50%);
 }
 
-.prev, .next {
-  background-color: #ca9632;
+.prev {
+  background-color: #270d00;
   border: none;
   color: white;
-  padding: 15px;
+  padding: 20px;
   cursor: pointer;
   font-size: 24px;
   transition: background-color 0.3s ease;
   border-radius: 50%;
 }
 
-.prev:hover, .next:hover {
-  background-color: #270d00;
+.prev:hover {
+  background-color: #4b3d20;
 }
 
 @keyframes slideIn {
@@ -96,94 +107,15 @@
 
 @media (max-width: 768px) {
   .testimonial-slider {
-    width: 100%;
+    width: 90%;
   }
 
   .testimonial-content p {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .testimonial-author {
-    font-size: 14px;
-  }
-}
-
-        
-.faq-container {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
-  gap: 20px !important;
-  padding: 20px !important;
-  justify-items: center !important;
-  align-items: start !important;
-  width: 100% !important;
-  max-width: 1200px !important; 
-}
-
-
-.faq-card {
-  background-color: #ca9632 !important; 
-  border-radius: 10px !important;
-  padding: 20px !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  height: 300px !important; 
-  width: 100% !important; 
-  max-width: 350px !important; 
-  cursor: pointer !important; 
-}
-
-
-.faq-card:hover {
-  transform: translateY(-10px) !important;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2) !important;
-}
-
-
-.faq-icon {
-  font-size: 36px !important;
-  color: white !important;
-  margin-bottom: 15px !important;
-  text-align: center !important;
-}
-
-
-.faq-question {
-  font-weight: bold !important;
-  font-size: 18px !important;
-  color: white !important;
-  margin-bottom: 10px !important;
-  text-align: center !important; 
-}
-
-
-.faq-arrow {
-  font-size: 20px !important;
-  color: white !important;
-  margin-top: 10px !important;
-  display: block !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  transition: transform 0.3s ease !important;
-}
-
-
-.faq-answer {
-  color: white !important;
-  font-size: 14px !important;
-  line-height: 1.6 !important;
-  display: none !important; 
-  text-align: justify !important;
-  padding-top: 10px !important;
-}
-
-
-@media screen and (max-width: 600px) {
-  .faq-container {
-    grid-template-columns: 1fr; 
+    font-size: 16px;
   }
 }
 
@@ -3396,11 +3328,7 @@ let currentIndex = 0;
 const slides = document.querySelectorAll('.testimonial-slide');
 const totalSlides = slides.length;
 
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
-
 function showSlide(index) {
-  
   slides.forEach((slide, i) => {
     slide.style.transform = `translateX(${(i - index) * 100}%)`;
   });
@@ -3411,20 +3339,11 @@ function goToNextSlide() {
   showSlide(currentIndex);
 }
 
-function goToPrevSlide() {
-  currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-  showSlide(currentIndex);
-}
-
-
-nextButton.addEventListener('click', goToNextSlide);
-prevButton.addEventListener('click', goToPrevSlide);
-
-
 showSlide(currentIndex);
 
 
 setInterval(goToNextSlide, 5000);
+
 </script>
 
 </body>
