@@ -15,6 +15,55 @@
 </head>
     <title>Elvis Musisi</title>
     <style>
+.testimonial-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.section-icon {
+  font-size: 40px;
+  color: #f4d03f;
+  margin-right: 15px;
+}
+
+.section-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #270d00;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 24px;
+  }
+
+  .section-icon {
+    font-size: 30px;
+  }
+}
+
 .testimonial-slider {
   position: relative;
   width: 80%;
@@ -2731,29 +2780,36 @@ svg {
             <img src="Files/Images/animated-section.jpg" alt="Animated Image" class="zoom-image">
         </div>
     <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"> 
+  <div class="testimonial-section">
+  <div class="section-header">
+    <span class="section-icon">&#128214;</span>
+    <h2 class="section-title">What Clients Say</h2>
+  </div>
   <div class="testimonial-slider">
-  <div class="testimonial-container">
+    <div class="testimonial-container">
 
-    <div class="testimonial-slide">
-      <div class="testimonial-content">
-        <p>"I struck gold by selecting Elvis for my project! Elvis did a great job delivering upon his contracted job requirements to assist me in achieving my goals. He was responsive, dedicated, flexible, and receptive to feedback. I would be happy to recommend Elvis to others looking to complete tasks. I will be hitting again!"</p>
-        <div class="testimonial-author">
-          <span class="author-name">Jermaine</span>
-          <span class="author-title">Founder, Champions Mentoring Summer Camp</span>
-        </div>
       </div>
-    </div>
+      <div class="testimonial-slide">
+        <div class="testimonial-content">
+          <p>"I struck gold by selecting Elvis for my project! Elvis did a great job delivering upon his contracted job requirements to assist me in achieving my goals. He was responsive, dedicated, flexible, and receptive to feedback. I would be happy to recommend Elvis to others looking to complete tasks. I will be hitting again!"</p>
+          <div class="testimonial-author">
+            <span class="author-name">Jermaine Smith</span>
+            <span class="author-title">Founder, Champions Mentoring Summer Camp</span>
+          </div>
+        </div>
         <div class="testimonial-slide">
-      <div class="testimonial-content">
-        <p>"Elvis is a very gifted graphic artist. I highly recommend."</p>
-        <div class="testimonial-author">
-          <span class="author-name">Client</span>
-          <span class="author-title">Upwork</span>
+        <div class="testimonial-content">
+          <p>"Elvis is a very gifted graphic artist. I highly recommend."</p>
+          <div class="testimonial-author">
+            <span class="author-name">Client</span>
+            <span class="author-title">Upwork</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 
 <div id="subtext-modal" class="modal">
