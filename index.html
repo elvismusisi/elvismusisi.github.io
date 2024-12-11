@@ -31,16 +31,24 @@ header h1 {
     display: flex;
     overflow: hidden;
     position: relative;
+    width: 100%;
 }
 
 .slide {
     flex: 1;
     display: none;
     transition: opacity 0.5s ease-in-out;
+    position: relative;
 }
 
 .slide.active {
     display: block;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
 
 .caption {
@@ -52,6 +60,7 @@ header h1 {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 15px;
     border-radius: 5px;
+    max-width: 90%;
 }
 
 .caption h2 {
@@ -69,12 +78,6 @@ header h1 {
 
     .slider {
         flex-direction: column;
-    }
-
-    .slide img {
-        width: 100%;
-        height: auto;
-        border-radius: 5px;
     }
 
     .caption {
@@ -99,12 +102,6 @@ header h1 {
 
     .slider {
         flex-direction: column;
-    }
-
-    .slide img {
-        width: 100%;
-        height: auto;
-        border-radius: 5px;
     }
 
     .caption {
