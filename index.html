@@ -15,6 +15,113 @@
 </head>
     <title>Musisi Elvis</title>
     <style>
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.slider {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.slide {
+    flex: 1;
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+    display: block;
+}
+
+.caption {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.caption h2 {
+    font-size: 1.5rem;
+}
+
+.caption p {
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .slider {
+        flex-direction: column;
+    }
+
+    .slide img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    .caption {
+        left: 10%;
+        bottom: 5%;
+        padding: 10px;
+    }
+
+    .caption h2 {
+        font-size: 1.2rem;
+    }
+
+    .caption p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .slider {
+        flex-direction: column;
+    }
+
+    .slide img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    .caption {
+        left: 5%;
+        bottom: 5%;
+        padding: 8px;
+    }
+
+    .caption h2 {
+        font-size: 1.1rem;
+    }
+
+    .caption p {
+        font-size: 0.8rem;
+    }
+}
+
 #warning-overlay {
     position: fixed;
     top: 0;
@@ -3704,6 +3811,32 @@ document.getElementById('continue-btn').addEventListener('click', function() {
   }, { passive: false });
 </script>
 
+<script>
+  let slideIndex = 0;
+  const slides = document.querySelectorAll('.slide');
+  
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      if (i === index) {
+        slide.classList.add('active');
+      }
+    });
+  }
+
+  function nextSlide() {
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlide(slideIndex);
+  }
+
+  function prevSlide() {
+    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+    showSlide(slideIndex);
+  }
+
+  setInterval(nextSlide, 3000);
+  showSlide(slideIndex);
+</script>
 
 
 
