@@ -3633,13 +3633,22 @@ dislikeButton.addEventListener("click", () => {
 
 </script>
 <script>
-  document.addEventListener('touchmove', function (e) {
-    
-    if (e.scale !== 1) {
-      e.preventDefault();
+  let lastTouchEnd = 0;
+  document.addEventListener('touchstart', function (event) {
+    if (event.touches.length > 1) {
+      event.preventDefault();
     }
   }, { passive: false });
+
+  document.addEventListener('touchend', function (event) {
+    const currentTime = new Date().getTime();
+    if (currentTime - lastTouchEnd <= 300) {
+      event.preventDefault();
+    }
+    lastTouchEnd = currentTime;
+  }, { passive: false });
 </script>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
