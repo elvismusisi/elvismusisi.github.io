@@ -3634,7 +3634,7 @@ dislikeButton.addEventListener("click", () => {
 </script>
 <script>
   let lastTouchEnd = 0;
-  
+
   document.addEventListener('touchstart', function (event) {
     if (event.touches.length > 1) {
       event.preventDefault();
@@ -3651,11 +3651,15 @@ dislikeButton.addEventListener("click", () => {
 
   document.addEventListener('touchmove', function (event) {
     const touch = event.touches[0];
-    if (Math.abs(touch.pageX - touch.clientX) > Math.abs(touch.pageY - touch.clientY)) {
-      event.preventDefault();
+    const deltaX = Math.abs(touch.pageX - touch.clientX);
+    const deltaY = Math.abs(touch.pageY - touch.clientY);
+    
+    if (deltaX > deltaY) {
+      event.preventDefault(); 
     }
   }, { passive: false });
 </script>
+
 
 
 
