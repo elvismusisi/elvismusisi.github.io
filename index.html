@@ -15,6 +15,18 @@
 </head>
     <title>Musisi Elvis</title>
     <style>
+.countdown-prompt {
+  display: none; 
+  text-align: center;
+  background-color: #270d00;
+  color: white;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.countdown-text {
+  font-size: 1.5rem;
+}
 .container {
     margin: 0 auto;
     max-width: 1200px;
@@ -2816,7 +2828,10 @@ svg {
         <button class="button" id="skip-btn">Skip to GitHub</button>
     </div>
 </div>
-
+<div id="countdownPrompt" class="countdown-prompt">
+  <p id="countdownText" class="countdown-text">You will be redirected in <span id="countdown">10</span> seconds.</p>
+  <a href="landing.html" class="enter-button" id="enterBtn">Enter Now</a>
+</div>
     <footer class="animated-footer">
         <p style="color: #ca9632; padding-left: 200px;">&copy; 2024 Musisi Elvis</span> Portfolio Website. All Rights Reserved.</p>
     </footer>
@@ -3839,7 +3854,25 @@ document.getElementById('continue-btn').addEventListener('click', function() {
   setInterval(nextSlide, 3000);
   showSlide(slideIndex);
 </script>
+<script>
+    document.getElementById('rotatingContent').addEventListener('click', function() {
+  const countdownPrompt = document.getElementById('countdownPrompt');
+  countdownPrompt.style.display = 'block';
 
+  let countdownTime = 10;
+  const countdownElement = document.getElementById('countdown');
+  
+  const countdownInterval = setInterval(function() {
+    countdownElement.textContent = countdownTime;
+    countdownTime--;
+    if (countdownTime < 0) {
+      clearInterval(countdownInterval);
+      window.location.href = 'landing.html';
+    }
+  }, 1000);
+});
+
+</script>
 
 
 </body>
