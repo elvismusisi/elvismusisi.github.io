@@ -15,6 +15,18 @@
 </head>
     <title>Musisi Elvis</title>
     <style>
+#backToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;  
+  display: block;  
+}
+
+#backToTopBtn:hover {
+  background-color: #0056b3;
+}
 .countdown-prompt {
   display: none; 
   text-align: center;
@@ -3873,7 +3885,19 @@ document.getElementById('continue-btn').addEventListener('click', function() {
 });
 
 </script>
-
+<script>
+    window.onscroll = function() {
+  var button = document.getElementById("backToTopBtn");
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    button.style.display = "block";  
+  } else {
+    button.style.display = "none";  
+  }
+};
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
 
 </body>
 </html>
