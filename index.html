@@ -15,7 +15,39 @@
 </head>
     <title>Musisi Elvis</title>
     <style>
+.rotating-stars-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+}
 
+.rotating-star {
+  font-size: 2.5rem;
+  color: #ca9632;
+  animation: rotateStar 2s infinite linear, glow 1.5s infinite alternate;
+}
+
+
+@keyframes rotateStar {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px #ca9632, 0 0 20px #ca9632, 0 0 30px #ca9632;
+  }
+  100% {
+    text-shadow: 0 0 15px white, 0 0 25px white, 0 0 35px #ca9632;
+  }
+}
 .star-slider-container {
   display: flex;
   flex-direction: column;
@@ -3306,6 +3338,13 @@ svg {
   <input type="range" min="1" max="5" value="5" id="starRange" />
 </div>
 
+<div class="rotating-stars-container">
+  <span class="rotating-star">★</span>
+  <span class="rotating-star">★</span>
+  <span class="rotating-star">★</span>
+  <span class="rotating-star">★</span>
+  <span class="rotating-star">★</span>
+</div>
 
 <div id="subtext-modal" class="modal">
   <div class="modal-content">
