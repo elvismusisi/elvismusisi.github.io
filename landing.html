@@ -22,6 +22,79 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #270d00;
+  overflow-x: hidden;
+  transition: 0.3s;
+  z-index: 1000;
+  padding-top: 60px;
+  color: #ca9632;
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.sidebar-nav li a {
+  color: #ca9632;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.sidebar-nav li a:hover {
+  color: white;
+}
+
+.sidebar-header {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.open-sidebar-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 1.5rem;
+  background: #ca9632;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  z-index: 1001;
+}
+
+.close-btn {
+  font-size: 2rem;
+  background: none;
+  color: #ca9632;
+  border: none;
+  cursor: pointer;
+}
+
+
+.sidebar.active {
+  width: 250px;
+}
+
+@media (min-width: 768px) {
+  .open-sidebar-btn {
+    display: none;
+  }
+}
+
         
 .nav-link {
     position: relative;
@@ -2128,6 +2201,21 @@ button:hover {
             <span class="arrow" aria-hidden="true">&larr;</span>
         </a>
     </div>
+
+<div id="mobile-sidebar" class="sidebar">
+  <div class="sidebar-header">
+    <button id="close-sidebar" class="close-btn">&times;</button>
+  </div>
+  <ul class="sidebar-nav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+
+<button id="open-sidebar" class="open-sidebar-btn">☰</button>
+
 <div class="random-words-container">
         <span class="random-word" id="graphic-design">UI/UX Design <i class="icon-design"></i></span>
         <span class="random-word" id="graphic-design">Graphic Design <i class="icon-design"></i></span>
@@ -3649,7 +3737,20 @@ dislikeButton.addEventListener("click", () => {
   }, { passive: false });
 </script>
 
+<script>
+    const openSidebar = document.getElementById('open-sidebar');
+const closeSidebar = document.getElementById('close-sidebar');
+const sidebar = document.getElementById('mobile-sidebar');
 
+openSidebar.addEventListener('click', () => {
+  sidebar.classList.add('active');
+});
+
+closeSidebar.addEventListener('click', () => {
+  sidebar.classList.remove('active');
+});
+
+</script>
 
 
 
