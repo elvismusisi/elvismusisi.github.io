@@ -4123,16 +4123,19 @@ starRange.addEventListener("input", () => {
 
 </script>
     <script>
-        const rating = document.getElementById('rating');
-let count = 0;
+
+const rating = document.getElementById('rating');
+let count = 0.0;
+
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const interval = setInterval(() => {
-        if (count < 5) {
+        if (count < 5.0) {
           count += 0.1;
           rating.textContent = count.toFixed(1);
         } else {
+          rating.textContent = "5.0";
           clearInterval(interval);
         }
       }, 50);
