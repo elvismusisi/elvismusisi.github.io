@@ -23,115 +23,43 @@
     <link rel="stylesheet" href="styles.css">
       <style>
 
-.sidebar {
-  height: 100%;
-  width: 0;
+#floating-menu {
   position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #270d00;
-  overflow-x: hidden;
-  transition: 0.3s;
-  z-index: 1000;
-  padding-top: 60px;
-  color: #ca9632;
-}
-
-.sidebar-nav {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar-nav li {
-  margin: 20px 0;
-  text-align: center;
-}
-
-.sidebar-nav li a {
-  color: #ca9632;
-  text-decoration: none;
-  font-size: 1.5rem;
-}
-
-.sidebar-nav li a:hover {
-  color: white;
-}
-
-.sidebar-header {
-  position: absolute;
-  top: 10px;
+  bottom: 20px;
   right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
 }
 
-.open-sidebar-btn {
-  position: fixed;
-  top: 20px;
-  left: 20px;
+.menu-item {
+  background-color: #ca9632;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.menu-item a {
   font-size: 1.5rem;
-  background: #ca9632;
   color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 15px;
-  z-index: 1001;
+  text-decoration: none;
 }
 
-.close-btn {
-  font-size: 2rem;
-  background: none;
-  color: #ca9632;
-  border: none;
-  cursor: pointer;
-}
-
-
-.sidebar.active {
-  width: 250px;
+.menu-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 768px) {
-  .open-sidebar-btn {
+  #floating-menu {
     display: none;
   }
-}
-
-        
-.nav-link {
-    position: relative;
-    color: #270d00;
-    transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-    color: #ca9632;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    left: 0;
-    bottom: -4px;
-    background-color: #ca9632;
-    transition: width 0.3s ease-in-out;
-}
-
-.nav-link:hover::after, .nav-link.active::after {
-    width: 100%;
-}
-
-.nav-link.active {
-    color: #ca9632;
-}
-
-
-.navbar-nav .nav-item {
-    transition: all 0.4s ease;
-}
-
-.navbar-nav .nav-item:hover {
-    transform: translateY(-2px);
 }
 
           
@@ -2201,20 +2129,21 @@ button:hover {
             <span class="arrow" aria-hidden="true">&larr;</span>
         </a>
     </div>
-
-<div id="mobile-sidebar" class="sidebar">
-  <div class="sidebar-header">
-    <button id="close-sidebar" class="close-btn">&times;</button>
+    <div id="floating-menu">
+  <div class="menu-item">
+    <a href="index.html">&#127968;</a>
   </div>
-  <ul class="sidebar-nav">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <div class="menu-item">
+    <a href="#about">👤</a>
+  </div>
+  <div class="menu-item">
+    <a href="#portfolio">🎨</a>
+  </div>
+  <div class="menu-item">
+    <a href="#contact">📞</a>
+  </div>
 </div>
 
-<button id="open-sidebar" class="open-sidebar-btn">☰</button>
 
 <div class="random-words-container">
         <span class="random-word" id="graphic-design">UI/UX Design <i class="icon-design"></i></span>
