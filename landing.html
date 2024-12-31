@@ -35,12 +35,6 @@
   z-index: 1000;
   padding-top: 60px;
   color: #ca9632;
-  visibility: hidden;
-}
-
-.sidebar.active {
-  width: 250px;
-  visibility: visible;
 }
 
 .sidebar-nav {
@@ -80,8 +74,6 @@
   border-radius: 5px;
   padding: 10px 15px;
   z-index: 1001;
-  cursor: pointer;
-  display: none;
 }
 
 .close-btn {
@@ -93,20 +85,54 @@
 }
 
 
-@media (max-width: 768px) {
+.sidebar.active {
+  width: 250px;
+}
+
+@media (min-width: 768px) {
   .open-sidebar-btn {
-    display: block;
-  }
-
-  .sidebar {
-    display: block;
-  }
-
-  .navbar {
-    display: none; 
+    display: none;
   }
 }
 
+        
+.nav-link {
+    position: relative;
+    color: #270d00;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ca9632;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -4px;
+    background-color: #ca9632;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: #ca9632;
+}
+
+
+.navbar-nav .nav-item {
+    transition: all 0.4s ease;
+}
+
+.navbar-nav .nav-item:hover {
+    transform: translateY(-2px);
+}
 
           
 @media (max-width: 600px) {
@@ -2175,7 +2201,7 @@ button:hover {
             <span class="arrow" aria-hidden="true">&larr;</span>
         </a>
     </div>
-<!-- Sidebar Menu -->
+
 <div id="mobile-sidebar" class="sidebar">
   <div class="sidebar-header">
     <button id="close-sidebar" class="close-btn">&times;</button>
@@ -2188,10 +2214,7 @@ button:hover {
   </ul>
 </div>
 
-<!-- Sidebar Toggle Button -->
 <button id="open-sidebar" class="open-sidebar-btn">☰</button>
-
-
 
 <div class="random-words-container">
         <span class="random-word" id="graphic-design">UI/UX Design <i class="icon-design"></i></span>
@@ -3715,7 +3738,7 @@ dislikeButton.addEventListener("click", () => {
 </script>
 
 <script>
-const openSidebar = document.getElementById('open-sidebar');
+    const openSidebar = document.getElementById('open-sidebar');
 const closeSidebar = document.getElementById('close-sidebar');
 const sidebar = document.getElementById('mobile-sidebar');
 
@@ -3726,7 +3749,6 @@ openSidebar.addEventListener('click', () => {
 closeSidebar.addEventListener('click', () => {
   sidebar.classList.remove('active');
 });
-
 
 </script>
 
