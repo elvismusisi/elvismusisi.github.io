@@ -15,6 +15,101 @@
 </head>
     <title>Musisi Elvis</title>
     <style>
+.recommendation-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  background-color: #270d00;
+  color: white;
+}
+
+.recommendation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.molecule {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 20px auto;
+}
+
+.circle {
+  position: absolute;
+  background-color: #ca9632;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.circle:hover {
+  transform: scale(1.2);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.circle.main {
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.8rem;
+}
+
+.circle.sub {
+  width: 70px;
+  height: 70px;
+  font-size: 0.9rem;
+}
+
+.circle.one { top: 5%; left: 50%; transform: translate(-50%, 0); }
+.circle.two { top: 50%; left: 5%; transform: translate(0, -50%); }
+.circle.three { bottom: 5%; left: 50%; transform: translate(-50%, 0); }
+.circle.four { top: 50%; right: 5%; transform: translate(0, -50%); }
+
+.recommendation-content {
+  max-width: 500px;
+  line-height: 1.8;
+}
+
+.recommendation-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #ca9632;
+}
+
+.recommendation-content p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.download-button {
+  padding: 10px 20px;
+  background-color: #ca9632;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: white;
+  color: #ca9632;
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
 
 .infographic-card {
   display: flex;
@@ -3397,6 +3492,24 @@ svg {
   <span class="rotating-star">★</span>
   <span class="rotating-star">★</span>
 </div>
+<section class="recommendation-section">
+  <div class="recommendation-container">
+    <div class="molecule">
+      <div class="circle main">
+        <p class="rating">5.0</p>
+      </div>
+      <div class="circle sub one">Skill</div>
+      <div class="circle sub two">Dedication</div>
+      <div class="circle sub three">Creativity</div>
+      <div class="circle sub four">Teamwork</div>
+    </div>
+    <div class="recommendation-content">
+      <h2>Recommendation from Derrick Nginya</h2>
+      <p>Derrick Nginya, the Training Lead at Learning Lions, has provided a glowing recommendation. Download the PDF below to read the full details.</p>
+      <a href="Files/Recommendation_Derrick_Nginya.pdf" class="download-button" target="_blank">Download Recommendation</a>
+    </div>
+  </div>
+</section>
 
 <div id="subtext-modal" class="modal">
   <div class="modal-content">
