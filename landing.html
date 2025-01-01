@@ -23,36 +23,45 @@
     <link rel="stylesheet" href="styles.css">
       <style>
 
-.always-visible-menu {
+.floating-menu {
   position: fixed;
   bottom: 20px;
   right: 20px;
+  z-index: 9999;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  z-index: 9999;
+  gap: 10px;
+  align-items: center;
 }
 
-.menu-item {
+.menu-icon {
   width: 50px;
   height: 50px;
   background-color: #ca9632;
   border-radius: 50%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   font-size: 1.5rem;
   color: white;
   text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.menu-item:hover {
+.menu-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
   background-color: white;
   color: #ca9632;
-  transform: scale(1.1);
 }
+
+@media (min-width: 768px) {
+  .floating-menu {
+    display: none;
+  }
+}
+
 
           
 @media (max-width: 600px) {
@@ -2642,10 +2651,13 @@ button:hover {
   <p>Welcome to my creative space!</p>
 </div>
 <div class="always-visible-menu">
-  <a href="index.html" class="menu-item">🏠</a>
-  <a href="#about" class="menu-item">👤</a>
-  <a href="#portfolio" class="menu-item">🎨</a>
-  <a href="#contact" class="menu-item">📞</a>
+    <div class="floating-menu">
+  <a href="index.html" class="menu-icon">🏠</a>
+  <a href="#about" class="menu-icon">👤</a>
+  <a href="#portfolio" class="menu-icon">🎨</a>
+  <a href="#contact" class="menu-icon">📞</a>
+</div>
+
 </div>
 
 
@@ -3657,7 +3669,7 @@ document.querySelector('.floating-btn').addEventListener('click', function () {
   menuOptions.style.opacity = menuOptions.style.opacity === '1' ? '0' : '1';
   menuOptions.style.visibility = menuOptions.style.visibility === 'visible' ? 'hidden' : 'visible';
 });
-<script>
+</script>
 
 
 
