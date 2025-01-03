@@ -25,70 +25,7 @@
       width: 100%;
       height: 100%;
     }
-    .slider-molecule {
-      position: relative;
-      width: 80%;
-      max-width: 1200px;
-      height: 80vh;
-      overflow: hidden;
-      border: 2px solid #ca9632;
-      border-radius: 10px;
-    }
-    .slider {
-      display: flex;
-      transition: transform 0.8s ease-in-out;
-    }
-    .slide {
-      min-width: 100%;
-      height: 80vh;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      filter: brightness(0.7);
-    }
-    .slide:hover {
-      filter: brightness(1);
-      transform: scale(1.05);
-      transition: 0.6s ease;
-    }
-    .pagination {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-    }
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: #ca9632;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-    .dot.active {
-      transform: scale(1.5);
-      background-color: #fff;
-    }
-    .nav-buttons button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.6);
-      color: #ca9632;
-      border: none;
-      padding: 15px;
-      cursor: pointer;
-      z-index: 10;
-    }
-    .nav-buttons button:hover {
-      background: #ca9632;
-      color: #270d00;
-    }
-    .prev { left: 10px; }
-    .next { right: 10px; }
-
+    
 
 .pdf-button {
       position: relative;
@@ -3617,22 +3554,7 @@ svg {
   </div>
 </section>
   <div class="container">
-    <div class="slider-molecule">
-      <div class="nav-buttons">
-        <button class="prev" onclick="prevSlide()">❮</button>
-        <button class="next" onclick="nextSlide()">❯</button>
-      </div>
-      <div class="slider" id="slider">
-        <div class="slide"><img src="Files/Images/Slider_01.jpg" alt="Slide 1"></div>
-        <div class="slide"><img src="Files/Images/Slider_02.jpg" alt="Slide 2"></div>
-        <div class="slide"><img src="Files/Images/Slider_03.jpg" alt="Slide 3"></div>
-      </div>
-      <div class="pagination" id="pagination">
-        <div class="dot active"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-      </div>
-    </div>
+   <img src="Files/Images/Slider_01.jpg" alt="Slide 1"></div>
   </div>
 
 <div id="subtext-modal" class="modal">
@@ -3654,40 +3576,8 @@ svg {
     </div>
   </div>
  <button id="backToTopBtn" onclick="scrollToTop()">Top</button>
-<script>
-    const slider = document.getElementById('slider');
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    let index = 0;
 
-    function updatePagination() {
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
-    }
-
-    function goToSlide(i) {
-      index = i;
-      slider.style.transform = `translateX(-${i * 100}%)`;
-      updatePagination();
-    }
-
-    function nextSlide() {
-      index = (index + 1) % slides.length;
-      goToSlide(index);
-    }
-
-    function prevSlide() {
-      index = (index - 1 + slides.length) % slides.length;
-      goToSlide(index);
-    }
-
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => goToSlide(i));
-    });
-
-    setInterval(nextSlide, 5000);
-  </script>
+  
 <script>
    
 const modal = document.getElementById('subtext-modal');
