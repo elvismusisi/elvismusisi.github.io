@@ -16,6 +16,67 @@
 </head>
     <title>Musisi Elvis</title>
     <style>
+.slider-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .slider {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+    }
+    .slide {
+      min-width: 100%;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      filter: brightness(0.7);
+    }
+    .slide:hover {
+      filter: brightness(1);
+      transform: scale(1.05);
+      transition: 0.6s ease;
+    }
+    .pagination {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #ca9632;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .dot.active {
+      transform: scale(1.5);
+      background-color: #fff;
+    }
+    .nav-buttons button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: #ca9632;
+      border: none;
+      padding: 15px;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .nav-buttons button:hover {
+      background: #ca9632;
+      color: #270d00;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+        
  .pdf-button {
   display: inline-flex;
   justify-content: center;
@@ -3552,6 +3613,18 @@ svg {
     </div>
   </div>
 </section>
+ <div class="slider-container">
+    <div class="slider" id="slider">
+      <div class="slide" style="background-image: url('Files/Images/Slider_01.jpg');"></div>
+      <div class="slide" style="background-image: url('Files/Images/Slider_02.jpg');"></div>
+      <div class="slide" style="background-image: url('Files/Images/Slider_03.jpg');"></div>
+    </div>
+    <div class="nav-buttons">
+      <button class="prev" onclick="prevSlide()">❮</button>
+      <button class="next" onclick="nextSlide()">❯</button>
+    </div>
+    <div class="pagination" id="pagination"></div>
+  </div>
 
 <div id="subtext-modal" class="modal">
   <div class="modal-content">
@@ -3572,6 +3645,44 @@ svg {
     </div>
   </div>
  <button id="backToTopBtn" onclick="scrollToTop()">Top</button>
+<script>
+    const slider = document.getElementById('slider');
+    const slides = document.querySelectorAll('.slide');
+    const pagination = document.getElementById('pagination');
+    let index = 0;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      pagination.appendChild(dot);
+    });
+
+    function updatePagination() {
+      document.querySelectorAll('.dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    function goToSlide(i) {
+      index = i;
+      slider.style.transform = `translateX(-${i * 100}%)`;
+      updatePagination();
+    }
+
+    function nextSlide() {
+      index = (index + 1) % slides.length;
+      goToSlide(index);
+    }
+
+    function prevSlide() {
+      index = (index - 1 + slides.length) % slides.length;
+      goToSlide(index);
+    }
+
+    setInterval(nextSlide, 5000);
+  </script>
 <script>
    
 const modal = document.getElementById('subtext-modal');
