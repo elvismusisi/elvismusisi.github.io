@@ -16,6 +16,18 @@
 </head>
     <title>Musisi Elvis</title>
     <style>
+.organism-container { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; position: relative; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 20px; }
+    .card { background: white; color: #270d00; padding: 20px; border-radius: 10px; text-align: center; position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); cursor: pointer; }
+    .card h2 { margin: 0 0 10px; font-size: 1.5em; }
+    .card .icon { font-size: 3em; margin-bottom: 10px; }
+    .card:hover { transform: scale(1.05); transition: transform 0.3s ease-in-out; }
+    .card::before { content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: #ca9632; z-index: 0; transition: left 0.5s ease; }
+    .card:hover::before { left: 0; }
+    .card-content { position: relative; z-index: 1; }
+    .dynamic-bg { position: absolute; width: 300px; height: 300px; background: radial-gradient(circle, #ca9632, transparent); border-radius: 50%; animation: moveBg 10s infinite alternate; pointer-events: none; }
+    @keyframes moveBg { 0% { top: 10%; left: 10%; } 50% { top: 70%; left: 70%; } 100% { top: 20%; left: 40%; } }
+        
  .pdf-button {
   display: inline-flex;
   justify-content: center;
@@ -3552,11 +3564,39 @@ svg {
     </div>
   </div>
 </section>
-<div class="container">
-    <div style="position: relative; width: 100%; height: 500px; overflow: hidden; border: 2px solid #ca9632; border-radius: 10px;">
-    <img src="Files/Images/Slider_01.jpg" alt="Slide 1" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease-in-out; filter: brightness(0.7);" id="slider-image" onmouseover="this.style.filter='brightness(1)'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='brightness(0.7)'; this.style.transform='scale(1)';">
+<div class="organism-container">
+    <div class="dynamic-bg"></div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-content">
+          <div class="icon"><i class="fas fa-palette"></i></div>
+          <h2>Graphic Design</h2>
+          <p>Figma, Photoshop, Illustrator</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <div class="icon"><i class="fas fa-pencil-ruler"></i></div>
+          <h2>UI/UX Design</h2>
+          <p>Figma</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <div class="icon"><i class="fas fa-code"></i></div>
+          <h2>Web Development</h2>
+          <p>HTML, CSS, Bootstrap</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <div class="icon"><i class="fas fa-film"></i></div>
+          <h2>Animation</h2>
+          <p>Figma, After Effects</p>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 <div id="subtext-modal" class="modal">
   <div class="modal-content">
     <span class="close-btn">&times;</span>
