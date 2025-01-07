@@ -3367,17 +3367,30 @@ svg {
 </div>
 
 
- <button id="backToTopBtn" onclick="scrollToTop()">Top</button>
-         
-    <footer class="animated-footer" 
-        style="width: 100%; background-color: #270d00; padding: 20px 10px; box-sizing: border-box; text-align: center;">
+ <footer class="animated-footer" 
+        style="width: 100%; background-color: #270d00; padding: 20px 10px; box-sizing: border-box; text-align: center; position: relative;">
     <p style="color: #ca9632; font-size: 1rem; margin: 0; line-height: 1.6;">
         &copy; 2025 Musisi Elvis | Portfolio Website
     </p>
     <p style="color: #ca9632; font-size: 0.9rem; margin: 5px 0 0;">
         All Rights Reserved.
     </p>
+
+    
+    <button id="backToTopBtn" onclick="scrollToTop()" 
+            style="position: absolute; bottom: 10px; left: 10px; padding: 10px 15px; background-color: #ca9632; 
+                   color: #270d00; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9rem;">
+        Top
+    </button>
 </footer>
+
+
+<script>
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
 
 <script>
    
