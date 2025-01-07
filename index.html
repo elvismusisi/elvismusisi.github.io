@@ -3142,16 +3142,32 @@ svg {
 <div id="center-popup" class="popup hidden">
   You’re halfway through! Keep exploring.
 </div>
-
-<div id="warning-overlay">
-    <div id="warning-box">
-        <h2>Important Notice</h2>
-        <p>Welcome to my portfolio website! Please be aware that some parts of the site may contain flashing images or animations that could be uncomfortable or trigger seizures for individuals with photosensitive epilepsy or other sensitivities.</p>
-        <p>If you wish to proceed, click "Continue". If you prefer not to view such content, click "Skip to GitHub" to explore my projects on GitHub.</p>
-        <button class="button" id="continue-btn">Continue</button>
-        <button class="button" id="skip-btn">Skip to GitHub</button>
+<div id="warning-overlay" 
+     style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); 
+            display: flex; align-items: center; justify-content: center; z-index: 9999; padding: 10px; box-sizing: border-box;">
+    <div id="warning-box" 
+         style="background-color: #270d00; color: #ca9632; padding: 20px; border-radius: 8px; max-width: 600px; width: 100%; 
+                text-align: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+        <h2 style="font-size: 1.5rem; margin-bottom: 15px;">Important Notice</h2>
+        <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 15px;">
+            Welcome to my portfolio website! Please be aware that some parts of the site may contain flashing images or animations that could be uncomfortable or trigger seizures for individuals with photosensitive epilepsy or other sensitivities.
+        </p>
+        <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 20px;">
+            If you wish to proceed, click "Continue". If you prefer not to view such content, click "Skip to GitHub" to explore my projects on GitHub.
+        </p>
+        <button id="continue-btn" class="button" 
+                style="padding: 10px 20px; font-size: 1rem; margin-right: 10px; border: none; cursor: pointer; 
+                       background-color: #ca9632; color: #270d00; border-radius: 5px;">
+            Continue
+        </button>
+        <button id="skip-btn" class="button" 
+                style="padding: 10px 20px; font-size: 1rem; border: none; cursor: pointer; 
+                       background-color: #ca9632; color: #270d00; border-radius: 5px;">
+            Skip to GitHub
+        </button>
     </div>
 </div>
+
 <div id="countdownPrompt" class="countdown-prompt">
   <p id="countdownText" class="countdown-text">You will be redirected in <span id="countdown">10</span> seconds.</p>
   <a href="landing.html" class="enter-button" id="enterBtn">Enter Now</a>
