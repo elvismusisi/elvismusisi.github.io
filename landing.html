@@ -23,6 +23,78 @@
     <link rel="stylesheet" href="styles.css">
       <style>
 
+.work-experience {
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  position: relative;
+}
+
+.event {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #ca9632;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 20px #ca9632;
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+}
+
+.event:hover {
+  transform: scale(1);
+  box-shadow: 0 0 40px #ca9632;
+}
+
+.event-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #ca9632;
+}
+
+.event-content p {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.event-content span {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.work-experience::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(202, 150, 50, 0.3), transparent 70%);
+  filter: blur(150px);
+  animation: glow 6s infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    transform: translateX(-20%);
+  }
+  50% {
+    transform: translateX(20%);
+  }
+}
+
 .floating-menu {
   position: fixed;
   bottom: 20px;
@@ -2379,6 +2451,25 @@ button:hover {
         <span class="random-word" id="web-development">Web Development <i class="icon-web"></i></span>
         <span class="random-word" id="animation">Animation <i class="icon-animation"></i></span>
     </div>
+<section id="work-experience" class="work-experience">
+  <div class="timeline">
+    <div class="event">
+      <div class="event-content">
+        <h2>Designer</h2>
+        <p>Digital Lions, Lodwar</p>
+        <span>2019 - 2020</span>
+      </div>
+    </div>
+    <div class="event">
+      <div class="event-content">
+        <h2>Graphic Designer</h2>
+        <p>Tier Data Limited</p>
+        <span>August 2024 - 5 months</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="key-accomplishments" data-aos="fade-up" data-aos-duration="1500">
   <div class="container">
     <div class="row">
@@ -2628,7 +2719,19 @@ button:hover {
   <a href="#contact" class="menu-icon">📞</a>
 </div>
 
+<script>
+    const events = document.querySelectorAll(".event");
+events.forEach((event, index) => {
+  event.style.animation = `fade-in 1s ease ${index * 0.5}s forwards`;
+});
 
+document.body.addEventListener("mousemove", (e) => {
+  const x = e.clientX / window.innerWidth - 0.5;
+  const y = e.clientY / window.innerHeight - 0.5;
+  document.querySelector("#work-experience").style.transform = `rotateX(${y * 5}deg) rotateY(${x * 5}deg)`;
+});
+
+</script>
 
 <script>
     <script>
