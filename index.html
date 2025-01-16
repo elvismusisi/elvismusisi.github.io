@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap">
     <link rel="icon" type="image/png" href="Files/Images/elvismusisi-logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -16,6 +17,18 @@
 </head>
     <title>Musisi Elvis</title>
     <style>
+       #backToTopBtn i {
+        animation: moveUpDown 1.5s infinite;
+    }
+
+    @keyframes moveUpDown {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-5px);
+        }
+    }
     .organism-container { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; position: relative; }
     .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 20px; }
     .card { background: white; color: #270d00; padding: 20px; border-radius: 10px; text-align: center; position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); cursor: pointer; }
@@ -3323,9 +3336,7 @@ svg {
         <div class="face bottom"><img src="Files/Images/elvismusisi-logo.png" alt="Image of Elvis Musisi Logo"></div>
     </div>
 </div>
-
-
- <footer class="animated-footer" 
+<footer class="animated-footer" 
         style="width: 100%; background-color: #270d00; padding: 20px 10px; box-sizing: border-box; text-align: center; position: relative;">
     <p style="color: #ca9632; font-size: 1rem; margin: 0; line-height: 1.6;">
         &copy; 2025 Musisi Elvis | Portfolio Website
@@ -3334,13 +3345,24 @@ svg {
         All Rights Reserved.
     </p>
 
-    
     <button id="backToTopBtn" onclick="scrollToTop()" 
             style="position: absolute; bottom: 10px; left: 10px; padding: 10px 15px; background-color: #ca9632; 
-                   color: #270d00; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9rem;">
-        Top
+                   color: #270d00; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9rem; display: flex; 
+                   align-items: center; justify-content: center;">
+        <i class="fa fa-chevron-up" id="chevronIcon" style="font-size: 1rem;"></i>
     </button>
 </footer>
+
+
+<script>
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+</script>
+
 
 
 <script>
