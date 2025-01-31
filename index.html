@@ -3160,7 +3160,31 @@ svg {
 .hidden {
   display: none;
 }
+ @keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0); }
+  }
 
+  .animate-glitch {
+    animation: glitch 0.5s infinite alternate;
+  }
+
+  @media (max-width: 1024px) {
+    .intro-section { height: auto; padding: 10vh 5vw; }
+    .intro-content { max-width: 90%; }
+    .text-5xl { font-size: 2.5rem; }
+    .text-xl { font-size: 1.25rem; }
+  }
+
+  @media (max-width: 768px) {
+    .text-5xl { font-size: 2rem; }
+    .text-xl { font-size: 1.125rem; }
+    .intro-section { padding: 8vh 4vw; }
+  }
 
     </style>
 </head>
@@ -3195,16 +3219,16 @@ svg {
     </div>
 
       <div class="content">
-<div class="intro-section h-screen flex flex-col items-center justify-center bg-gradient-to-r from-[#270d00] to-[#ca9632] text-white">
-  <div class="intro-content text-center max-w-3xl">
-    <img src="Files/Images/elvismusisi-logo.png" style="width: 40%; height: auto;" class="glitch-image mb-6" id="lightning-logo" alt="Elvis Musisi Logo">
-    <h1 class="text-5xl font-extrabold mb-4 animate-pulse">Creative Designer Transforming Ideas into Visual Masterpieces</h1>
-    <p class="lead text-xl leading-relaxed mb-6">
+<div class="intro-section h-screen flex flex-col items-center justify-center bg-gradient-to-r from-[#270d00] to-[#ca9632] text-white overflow-hidden relative">
+  <div class="intro-content text-center max-w-3xl px-6">
+    <img src="Files/Images/elvismusisi-logo.png" class="glitch-image mb-6 w-2/5 max-w-xs md:w-1/4 animate-glitch" id="lightning-logo" alt="Elvis Musisi Logo">
+    <h1 class="text-5xl font-extrabold mb-4 animate-pulse md:text-6xl sm:text-4xl">Creative Designer Transforming Ideas into Visual Masterpieces</h1>
+    <p class="text-xl leading-relaxed mb-6 opacity-80 transition-opacity duration-500 hover:opacity-100 sm:text-lg md:text-xl">
       👋 I’m a passionate Graphic Designer and self-taught Front-End Web Developer based in Kenya, dedicated to creating visually stunning and user-friendly digital experiences. With a keen eye for detail and a love for problem-solving, I specialize in turning ideas into impactful designs and functional websites. Let’s collaborate to bring your vision to life!
     </p>
   </div>
 </div>
-</div>
+ 
 
     
      <div class="container mt-5 text-center">
