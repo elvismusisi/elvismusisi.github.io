@@ -3185,6 +3185,31 @@ svg {
     .text-xl { font-size: 1.125rem; }
     .intro-section { padding: 8vh 4vw; }
   }
+    .upwork-title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    animation: glow 1.5s infinite alternate ease-in-out;
+}
+
+.upwork-title i {
+    color: #ca9632;
+    font-size: 1.8rem;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ca9632;
+    }
+    100% {
+        text-shadow: 0 0 15px #ca9632, 0 0 30px #270d00;
+    }
+}
+
 
     </style>
 </head>
@@ -3250,9 +3275,10 @@ svg {
         </div>
  <section id="upwork-snippet" style="width: 100%; box-sizing: border-box;">
   <div class="container" style="padding: 20px; max-width: 1200px; margin: 0 auto;">
-    <h2 class="upwork-title" data-aos="fade-up" style="font-size: 1.8rem; text-align: center; margin-bottom: 20px;">
-      Let's Create Something Amazing Together
-    </h2>
+ <h2 class="upwork-title" data-aos="fade-up">
+  <i class="fas fa-lightbulb"></i> Let's Create Something Amazing Together
+</h2>
+
     <img src="Files/Images/homepagestrip.jpg" alt="Image decoration" 
          style="width: 100%; height: auto; display: block; margin-bottom: 20px;"> 
     <p class="upwork-description" style="font-size: 1rem; line-height: 1.6; text-align: center; padding: 0 10px;">
