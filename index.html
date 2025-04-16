@@ -17,6 +17,61 @@
 </head>
     <title>Musisi Elvis</title>
     <style>
+        /* Custom Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes skillHover {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+
+  .animate-float { animation: float 4s ease-in-out infinite; }
+
+  .text-gradient {
+    background: linear-gradient(45deg, #fff, #ca9632);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .skills-grid {
+    perspective: 1000px;
+  }
+
+  .skill-card {
+    transition: transform 0.3s ease;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-5px) rotateX(15deg);
+    animation: skillHover 0.6s ease;
+  }
+
+  .skill-icon {
+    width: 60px;
+    height: 60px;
+    fill: none;
+    stroke: #ca9632;
+    stroke-width: 1.5;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button {
+    background: transparent;
+    border: 2px solid #ca9632;
+    padding: 12px 32px;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: #ca9632;
+    letter-spacing: 2px;
+  }
+
         .background {
     width: 100%;
     max-width: 1200px;
@@ -3244,13 +3299,48 @@ svg {
     </div>
     
       <div class="content">
-<div class="intro-section h-screen flex flex-col items-center justify-center bg-gradient-to-r from-[#270d00] to-[#ca9632] text-white overflow-hidden relative">
-  <div class="intro-content text-center max-w-3xl px-6">
-    <img src="Files/Images/elvismusisi-logo.png" style="width: 40%; height: auto;" class="glitch-image mb-6 animate-glitch" id="lightning-logo" alt="Elvis Musisi Logo">
-    <h1 class="text-5xl font-extrabold mb-4 animate-pulse md:text-6xl sm:text-4xl">Creative Designer Transforming Ideas into Visual Masterpieces</h1>
-    <p class="text-xl leading-relaxed mb-6 opacity-80 transition-opacity duration-500 hover:opacity-100 sm:text-lg md:text-xl">
-      👋 I’m a passionate UI/UX Designer, Graphic Designer and self-taught Front-End Web Developer based in Kenya, dedicated to creating visually stunning and user-friendly digital experiences. With a keen eye for detail and a love for problem-solving, I specialize in turning ideas into impactful designs and functional websites. Let’s collaborate to bring your vision to life!
+<div class="intro-section h-screen flex flex-col items-center justify-center bg-gradient-to-b from-[#0f0a03] via-[#1a1206] to-[#ca9632] text-white overflow-hidden relative">
+  <!-- Animated background elements -->
+  <div class="geometric-pattern absolute inset-0 opacity-10"></div>
+  
+  <div class="intro-content text-center max-w-3xl px-6 relative z-10">
+    <!-- Enhanced Logo with occasional lightning effect -->
+    <div class="logo-container relative inline-block mb-8">
+      <img src="Files/Images/elvismusisi-logo.png" 
+           class="glitch-image w-48 h-48 object-contain animate-float"
+           alt="Elvis Musisi Logo">
+      <div class="lightning-bolt absolute inset-0 opacity-0 animate-lightning"></div>
+    </div>
+
+    <!-- Dynamic Headline -->
+    <h1 class="text-gradient text-5xl font-bold mb-4 md:text-6xl sm:text-4xl">
+      Crafting Digital<br>
+      <span class="rotating-words">
+        <span class="text-[#ca9632]">Experiences</span>
+        <span class="text-[#ca9632]">Solutions</span>
+        <span class="text-[#ca9632]">Innovation</span>
+      </span>
+    </h1>
+
+    <!-- Skill Icons Grid -->
+    <div class="skills-grid grid grid-cols-4 gap-6 my-12 md:grid-cols-2 sm:grid-cols-1">
+      <div class="skill-card" data-skill="ui-ux">
+        <svg class="skill-icon">...</svg>
+        <span class="skill-label">UI/UX Design</span>
+      </div>
+      <!-- Repeat for other skills -->
+    </div>
+
+    <!-- Refined Bio -->
+    <p class="text-xl mb-8 max-w-2xl mx-auto sm:text-lg md:text-xl">
+      <span class="highlight-text">Multidisciplinary creator</span> merging aesthetics with functionality.<br>
+      Specializing in intuitive interfaces, brand storytelling, and robust web solutions.
     </p>
+    
+    <button class="cta-button animate-bounce">
+      Let's Create Magic
+      <svg class="arrow-icon">...</svg>
+    </button>
   </div>
 </div>
  
@@ -4197,5 +4287,35 @@ const observer = new IntersectionObserver(entries => {
 observer.observe(document.querySelector('.infographic-card'));
 
     </script>
+        <script>
+  // Animate skills on scroll
+  const skillCards = document.querySelectorAll('.skill-card');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-slide-up');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  skillCards.forEach(card => observer.observe(card));
+
+  // Random lightning effect
+  function triggerLightning() {
+    const lightning = document.querySelector('.lightning-bolt');
+    lightning.style.animation = 'none';
+    void lightning.offsetWidth;
+    lightning.style.animation = 'lightning 0.8s linear';
+  }
+
+  // Random lightning occurrences
+  setInterval(() => {
+    if (Math.random() < 0.3) triggerLightning();
+  }, 5000);
+
+  // Logo interaction
+  document.querySelector('.logo-container').addEventListener('mouseover', triggerLightning);
+</script>
 </body>
 </html>
