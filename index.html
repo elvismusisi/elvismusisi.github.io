@@ -24,6 +24,59 @@
 </head>
     <title>Musisi Elvis</title>
     <style>
+
+/* Quantum Cursor */
+.quantum-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ca9632;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transition: 
+    transform 0.15s,
+    width 0.3s,
+    height 0.3s,
+    background 0.3s;
+  z-index: 9999;
+}
+
+.quantum-cursor.hover {
+  width: 40px;
+  height: 40px;
+  background: rgba(202, 150, 50, 0.1);
+}
+
+/* Additional Animations */
+@keyframes blink {
+  0%, 100% { opacity: 1 }
+  50% { opacity: 0 }
+}
+
+.skill-node {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-node.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Particle Canvas Fix */
+#quantumCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Hologram Interaction */
+.hologram-image {
+  transition: transform 0.3s linear;
+}
+
         /* Custom Animations */
   @keyframes float {
     0%, 100% { transform: translateY(0); }
@@ -3275,6 +3328,135 @@ svg {
 
     </style>
 </head>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+/* 1. Quantum Particle System */
+document.addEventListener('DOMContentLoaded', () => {
+  particlesJS('quantumCanvas', {
+    particles: {
+      number: { value: 150, density: { enable: true, value_area: 800 } },
+      color: { value: "#ca9632" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5, random: true },
+      size: { value: 2, random: true },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#ca9632",
+        opacity: 0.2,
+        width: 1
+      },
+      move: {
+        enable: true,
+        speed: 3,
+        direction: "none",
+        random: true,
+        straight: false,
+        out_mode: "out",
+        bounce: false
+      }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "repulse" },
+        onclick: { enable: false },
+        resize: true
+      }
+    },
+    retina_detect: true
+  });
+});
+
+/* 2. Mouse Position Tracking */
+const heroSection = document.querySelector('.hero-portal');
+heroSection.addEventListener('mousemove', (e) => {
+  const rect = heroSection.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  
+  document.documentElement.style.setProperty('--x', `${x}px`);
+  document.documentElement.style.setProperty('--y', `${y}px`);
+  
+  // Hologram rotation
+  const centerX = rect.width/2;
+  const centerY = rect.height/2;
+  const rotateY = (x - centerX)/30;
+  const rotateX = (y - centerY)/-30;
+  document.querySelector('.hologram-image').style.transform = 
+    `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+});
+
+/* 3. Intersection Observers */
+const observerOptions = {
+  threshold: 0.5,
+  rootMargin: "0px"
+};
+
+const wordObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      startWordRotation();
+    }
+  });
+}, observerOptions);
+wordObserver.observe(document.querySelector('.quantum-words'));
+
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersectionRatio > 0) {
+      entry.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.25 });
+document.querySelectorAll('.skill-node').forEach(skill => {
+  skillObserver.observe(skill);
+});
+
+/* 4. Custom Cursor */
+const cursor = document.createElement('div');
+cursor.className = 'quantum-cursor';
+document.body.appendChild(cursor);
+
+document.addEventListener('mousemove', (e) => {
+  requestAnimationFrame(() => {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  });
+});
+
+document.querySelectorAll('button, .skill-node').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+});
+
+/* 5. Sound Effects */
+const hoverSound = new Audio('https://assets.mixkit.co/active_preview/sounds/235/235-hover.mp3');
+const clickSound = new Audio('https://assets.mixkit.co/active_preview/sounds/236/236-select.mp3');
+
+document.querySelector('.plasma-button').addEventListener('mouseenter', () => {
+  hoverSound.currentTime = 0;
+  hoverSound.play();
+});
+
+document.querySelector('.plasma-button').addEventListener('click', () => {
+  clickSound.currentTime = 0;
+  clickSound.play();
+});
+
+/* 6. Quantum Word Rotation */
+let currentWord = 0;
+const words = document.querySelectorAll('.quantum-word');
+
+function rotateWords() {
+  words[currentWord].classList.remove('active');
+  currentWord = (currentWord + 1) % words.length;
+  words[currentWord].classList.add('active');
+}
+
+function startWordRotation() {
+  setInterval(rotateWords, 3000);
+}
+</script>
 <body>
 
 
