@@ -24,7 +24,36 @@
 </head>
     <title>Musisi Elvis</title>
     <style>
+/* Base styles */
+.hero-portal {
+  touch-action: manipulation; /* Prevent scroll jank */
+}
 
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .quantum-text {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  
+  .skill-matrix {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .hologram-container {
+    width: 32vw;
+    height: 32vw;
+  }
+}
+
+/* Performance tweaks */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
 /* Quantum Cursor */
 .quantum-cursor {
   position: fixed;
@@ -4534,5 +4563,42 @@ observer.observe(document.querySelector('.infographic-card'));
   // Logo interaction
   document.querySelector('.logo-container').addEventListener('mouseover', triggerLightning);
 </script>
+<script>
+    // Quantum Particles
+function initParticles() {
+  particlesJS('quantumCanvas', {
+    // Keep existing config, but reduce number for mobile:
+    particles: { number: { value: 80 } }
+  });
+}
+
+// Mobile-friendly interactions
+let isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
+if (!isMobile) {
+  // Enable hologram rotation
+  heroSection.addEventListener('mousemove', hologramHandler);
+  
+  // Initialize custom cursor
+  initCursor();
+} else {
+  // Mobile fallbacks
+  document.querySelector('.hologram-image').style.transform = 'none';
+  document.querySelector('.quantum-canvas').style.opacity = '0.3';
+}
+
+// Self-hosted sound effects
+const hoverSound = new Audio('assets/audio/hover.mp3');
+const clickSound = new Audio('assets/audio/click.mp3');
+
+// Web-optimized images
+function preloadAssets() {
+  const img = new Image();
+  img.src = 'assets/images/elvismusisi-logo.png';
+}
+document.addEventListener('DOMContentLoaded', preloadAssets);
+</script>
+ <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="scripts/app.js"></script>
 </body>
 </html>
