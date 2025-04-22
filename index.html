@@ -24,6 +24,90 @@
 </head>
     <title>Musisi Elvis</title>
     <style>
+/* Add to your CSS */
+/* Quantum Logo Animation */
+.quantum-logo {
+  animation: quantum-float 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(202, 150, 50, 0.5));
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.quantum-aura {
+  background: radial-gradient(circle at 50% 50%, 
+    #ca9632 0%, 
+    rgba(202, 150, 50, 0) 70%);
+  animation: aura-pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes quantum-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-20px) rotate(3deg) scale(1.05); }
+  75% { transform: translateY(10px) rotate(-3deg) scale(0.95); }
+}
+
+@keyframes aura-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.4); opacity: 0.1; }
+}
+
+/* Cyber Text Animation */
+.cyber-text {
+  perspective: 1000px;
+}
+
+.glitch-layers {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+  mix-blend-mode: screen;
+}
+
+.glitch-red { color: #ff3366; transform: translate(2px, -1px); }
+.glitch-blue { color: #33ccff; transform: translate(-2px, 1px); }
+
+.glitch-main {
+  position: relative;
+  background: linear-gradient(
+    45deg,
+    #ca9632 25%,
+    #ffd700 50%,
+    #ca9632 75%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 400% 400%;
+  animation: gradient-flow 8s ease infinite;
+}
+
+.hologram-word {
+  display: inline-block;
+  position: relative;
+  transform: translateZ(0);
+}
+
+.hologram-word::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #33ccff;
+  z-index: -1;
+  filter: blur(15px);
+  opacity: 0.7;
+}
+
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 /* Base styles */
 .hero-portal {
   touch-action: manipulation; /* Prevent scroll jank */
@@ -3538,15 +3622,23 @@ function startWordRotation() {
     </div>
 
     <!-- Quantum Typography -->
-    <h1 class="quantum-text text-6xl font-bold mb-8 leading-tight [text-shadow:0_0_15px_rgba(202,150,50,0.5)]">
-      <span class="text-outline">Crafting</span>
-      <div class="quantum-words inline-grid overflow-hidden h-[1.2em]">
-        <span class="quantum-word active text-[#ca9632] [text-shadow:0_0_30px_#ca9632]">Experiences</span>
-        <span class="quantum-word">Solutions</span>
-        <span class="quantum-word">Innovations</span>
-      </div>
-    </h1>
+    <div class="quantum-logo-container relative inline-block mb-12 cursor-pointer">
+    <img src="assets/images/elvismusisi-logo.png" 
+         class="quantum-logo w-48 h-48 object-contain"
+         alt="Elvis Musisi Logo">
+    <div class="quantum-aura absolute inset-0 rounded-full opacity-30"></div>
+  </div>
 
+  <!-- Animated Main Text -->
+  <h1 class="cyber-text text-6xl font-bold mb-8 leading-tight">
+    <span class="glitch-layers" data-text="Crafting">
+      <span class="glitch-layer glitch-red">Crafting</span>
+      <span class="glitch-layer glitch-blue">Crafting</span>
+      <span class="glitch-main">Crafting</span>
+    </span>
+    <span class="hologram-word">Experiences</span>
+  </h1>
+</div>
     <!-- Nanotech Skill Matrix -->
     <div class="skill-matrix grid grid-cols-4 gap-8 my-12 md:grid-cols-2 sm:grid-cols-1">
       <div class="skill-node relative p-4 rounded-xl bg-[rgba(202,150,50,0.05)] hover:bg-[rgba(202,150,50,0.1)] transition-all duration-300
@@ -4597,6 +4689,92 @@ function preloadAssets() {
   img.src = 'assets/images/elvismusisi-logo.png';
 }
 document.addEventListener('DOMContentLoaded', preloadAssets);
+</script>
+<script>
+    // Add to your app.js
+// Quantum Logo Interaction
+const quantumLogo = document.querySelector('.quantum-logo');
+const quantumAura = document.querySelector('.quantum-aura');
+
+function createParticle(x, y) {
+  const particle = document.createElement('div');
+  particle.className = 'quantum-particle';
+  particle.style.left = `${x}px`;
+  particle.style.top = `${y}px`;
+  document.body.appendChild(particle);
+  
+  particle.animate([
+    { transform: 'scale(1)', opacity: 1 },
+    { transform: 'scale(0.5)', opacity: 0 }
+  ], {
+    duration: 1000 + Math.random() * 500,
+    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+  }).onfinish = () => particle.remove();
+}
+
+// Logo particle effect
+let lastEmit = 0;
+quantumLogo.addEventListener('mousemove', (e) => {
+  const now = Date.now();
+  if (now - lastEmit > 50) {
+    const rect = quantumLogo.getBoundingClientRect();
+    const x = e.clientX - rect.left + rect.width/2;
+    const y = e.clientY - rect.top + rect.height/2;
+    createParticle(x + rect.left, y + rect.top);
+    lastEmit = now;
+  }
+});
+
+// Text Glitch Effect
+let glitchTimeout;
+function triggerGlitch() {
+  const layers = document.querySelectorAll('.glitch-layer');
+  layers.forEach(layer => {
+    layer.animate([
+      { transform: 'translate(0, 0)', opacity: 0 },
+      { transform: `translate(${Math.random() * 6 - 3}px, ${Math.random() * 4 - 2}px)`, opacity: 0.7 },
+      { transform: 'translate(0, 0)', opacity: 0 }
+    ], {
+      duration: 300,
+      easing: 'ease-out'
+    });
+  });
+  
+  glitchTimeout = setTimeout(triggerGlitch, 2000 + Math.random() * 3000);
+}
+
+// Initialize effects
+document.addEventListener('DOMContentLoaded', () => {
+  triggerGlitch();
+  
+  // Logo continuous subtle animation
+  quantumLogo.animate([
+    { transform: 'rotate(0deg) scale(1)' },
+    { transform: 'rotate(1deg) scale(1.02)' },
+    { transform: 'rotate(-1deg) scale(0.98)' },
+    { transform: 'rotate(0deg) scale(1)' }
+  ], {
+    duration: 8000,
+    iterations: Infinity
+  });
+});
+
+// Quantum Particle CSS
+const style = document.createElement('style');
+style.textContent = `
+.quantum-particle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(#ca9632, #ffd700);
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter: blur(1px);
+  transform: translate(-50%, -50%);
+}
+`;
+document.head.appendChild(style);
 </script>
  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="scripts/app.js"></script>
