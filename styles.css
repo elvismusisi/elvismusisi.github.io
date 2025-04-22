@@ -1,3 +1,85 @@
+/* Quantum Particle Animation */
+.quantum-canvas {
+  pointer-events: none;
+}
+
+/* Holographic Avatar Effects */
+@keyframes holo-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(3deg); }
+  75% { transform: translateY(5px) rotate(-3deg); }
+}
+
+.hologram-image {
+  animation: holo-float 8s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(202, 150, 50, 0.3));
+}
+
+.hologram-glare {
+  background: radial-gradient(circle at 70% 30%, 
+    rgba(255,255,255,0.8) 0%,
+    transparent 50%);
+}
+
+/* Quantum Text Animation */
+.quantum-words {
+  position: relative;
+  vertical-align: bottom;
+}
+
+.quantum-word {
+  grid-area: 1/1;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.quantum-word.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-outline {
+  -webkit-text-stroke: 2px #ca9632;
+  color: transparent;
+}
+
+/* Plasma Button Interaction */
+.plasma-button::before {
+  background: radial-gradient(circle at var(--x) var(--y), 
+    #ca9632 0%, transparent 70%);
+}
+
+.plasma-button:hover::before {
+  opacity: 0.3;
+}
+
+/* Skill Orb Hover */
+.skill-orb:hover {
+  transform: scale(1.1);
+  box-shadow: inset 0 0 20px #ca9632, 
+    0 0 40px #ca9632/50;
+}
+
+/* Typewriter Bio Effect */
+@keyframes typewriter {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.typewriter-border::after {
+  content: "";
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  height: 1.2em;
+  width: 3px;
+  background: #ca9632;
+  animation: blink 1s infinite;
+}
+
+/* Add quantum particle JS and complex animations */
+
 
 
 .background {
