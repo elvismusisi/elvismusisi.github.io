@@ -23,99 +23,84 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
     <title>Musisi Elvis</title>
-    <style>
 
-/* DESKTOP PERFORMANCE OPTIMIZATION (min-width: 769px) */
+</style>
+    /* DESKTOP-ONLY STYLES (min-width: 769px) */
 @media (min-width: 769px) {
   .container {
     display: flex !important;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     min-height: 100vh;
-    perspective: none;
-    overflow: visible;
+    padding: 5vmin 0;
   }
 
   .hologram-image {
-    width: 40vmin !important;
-    height: 40vmin !important;
-    margin: 5vmin 0;
-    animation: quantum-pulse 4s ease-in-out infinite;
-    filter: drop-shadow(0 0 30px #ca963266);
+    width: min(40vmin, 400px) !important;
+    height: min(40vmin, 400px) !important;
+    margin: 2rem 0;
+    animation: logo-float 4s ease-in-out infinite;
   }
 
   .icon-container {
-    position: relative !important;
-    width: 100% !important;
-    height: auto !important;
-    display: grid;
+    display: grid !important;
     grid-template-columns: repeat(4, 1fr);
     gap: 4vmin;
-    padding: 0 10vmin;
+    width: 90% !important;
+    max-width: 1200px;
+    padding: 0 5%;
     animation: none !important;
-    transform: none !important;
   }
 
   .icon {
     position: relative !important;
     width: 100% !important;
-    height: 20vmin !important;
+    height: 200px !important;
     transform: none !important;
     opacity: 0;
-    animation: quantum-appear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    background: linear-gradient(45deg, #270d00 0%, #1a0a00 100%);
-    border-radius: 1vmin;
-    box-shadow: 0 0 30px #ca963233;
-    transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+    animation: icon-appear 0.5s ease-out forwards;
+    background: rgba(39, 13, 0, 0.9);
+    border: 1px solid #ca963255;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .icon:nth-child(1) { animation-delay: 0.2s; }
-  .icon:nth-child(2) { animation-delay: 0.4s; }
-  .icon:nth-child(3) { animation-delay: 0.6s; }
-  .icon:nth-child(4) { animation-delay: 0.8s; }
+  .icon:nth-child(1) { animation-delay: 0.1s; }
+  .icon:nth-child(2) { animation-delay: 0.3s; }
+  .icon:nth-child(3) { animation-delay: 0.5s; }
+  .icon:nth-child(4) { animation-delay: 0.7s; }
 
-  @keyframes quantum-appear {
-    from { transform: translateY(50px) scale(0.8); opacity: 0; }
-    to { transform: translateY(0) scale(1); opacity: 1; }
+  @keyframes logo-float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.05); }
+  }
+
+  @keyframes icon-appear {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
   }
 
   .icon i {
-    font-size: 6vmin;
+    font-size: clamp(2rem, 5vmin, 3.5rem);
     color: #ca9632;
     transition: all 0.3s ease;
   }
 
   .icon p {
-    position: relative;
-    bottom: auto;
-    font-size: 2.5vmin;
+    position: absolute;
+    bottom: 1.5rem;
+    width: 100%;
+    font-size: clamp(1rem, 2vmin, 1.2rem);
+    text-align: center;
     opacity: 1 !important;
-    transform: translateY(2vmin);
-    transition: transform 0.3s ease;
+    transform: translateY(0);
   }
 
   .icon:hover {
-    transform: translateY(-1vmin) scale(1.05);
-    background: linear-gradient(45deg, #ca963210 0%, #270d00 100%);
-  }
-
-  .icon:hover i {
-    transform: scale(1.2);
-    filter: drop-shadow(0 0 15px #ca9632);
-  }
-
-  .icon:hover p {
-    transform: translateY(0);
-    text-shadow: 0 0 15px #ca9632;
-  }
-
-  @keyframes quantum-pulse {
-    0%, 100% { transform: scale(1) rotate(0deg); }
-    50% { transform: scale(1.05) rotate(2deg); }
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(202, 150, 50, 0.2);
   }
 }
-</style>
 /* Quantum Positioning */
 #icon1 { transform: rotate(0deg) translate(45vmin) rotate(0deg); }
 #icon2 { transform: rotate(90deg) translate(45vmin) rotate(-90deg); }
