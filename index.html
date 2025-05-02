@@ -25,165 +25,97 @@
     <title>Musisi Elvis</title>
     <style>
 
-/* DESKTOP-EXCLUSIVE QUANTUM FIELD (min-width: 769px) */
+/* DESKTOP PERFORMANCE OPTIMIZATION (min-width: 769px) */
 @media (min-width: 769px) {
   .container {
-    perspective: 2000px;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    perspective: none;
     overflow: visible;
   }
 
   .hologram-image {
-    width: 35vmin;
-    height: 35vmin;
-    animation: quantum-resonance 6s infinite alternate;
-    filter: url(#hologram-distortion);
+    width: 40vmin !important;
+    height: 40vmin !important;
+    margin: 5vmin 0;
+    animation: quantum-pulse 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 30px #ca963266);
   }
 
   .icon-container {
-    width: 150vmin !important;
-    height: 150vmin !important;
-    animation: neural-oscillation 30s linear infinite !important;
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4vmin;
+    padding: 0 10vmin;
+    animation: none !important;
+    transform: none !important;
   }
 
   .icon {
-    width: 15vmin !important;
-    height: 15vmin !important;
-    backdrop-filter: blur(5px);
-    background: rgba(39, 13, 0, 0.6);
-    border-radius: 50%;
-    transform-style: preserve-3d;
+    position: relative !important;
+    width: 100% !important;
+    height: 20vmin !important;
+    transform: none !important;
+    opacity: 0;
+    animation: quantum-appear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    background: linear-gradient(45deg, #270d00 0%, #1a0a00 100%);
+    border-radius: 1vmin;
+    box-shadow: 0 0 30px #ca963233;
+    transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  .icon:nth-child(1) { animation-delay: 0.2s; }
+  .icon:nth-child(2) { animation-delay: 0.4s; }
+  .icon:nth-child(3) { animation-delay: 0.6s; }
+  .icon:nth-child(4) { animation-delay: 0.8s; }
+
+  @keyframes quantum-appear {
+    from { transform: translateY(50px) scale(0.8); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
   }
 
   .icon i {
-    font-size: 4vmin;
+    font-size: 6vmin;
     color: #ca9632;
-    filter: drop-shadow(0 0 15px #ca9632);
+    transition: all 0.3s ease;
   }
 
   .icon p {
-    font-size: 2vmin;
-    bottom: -4vmin;
-    transform: translateZ(50px);
+    position: relative;
+    bottom: auto;
+    font-size: 2.5vmin;
+    opacity: 1 !important;
+    transform: translateY(2vmin);
+    transition: transform 0.3s ease;
   }
 
-  /* Neural Connection Lines */
-  .icon::after {
-    content: '';
-    position: absolute;
-    width: 150%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #ca9632, transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  .icon:hover {
+    transform: translateY(-1vmin) scale(1.05);
+    background: linear-gradient(45deg, #ca963210 0%, #270d00 100%);
   }
 
-  .icon:hover::after {
-    opacity: 0.6;
+  .icon:hover i {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 15px #ca9632);
   }
 
-  /* Dynamic Particle Field */
-  .container::before {
-    content: '';
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background-image: 
-      radial-gradient(circle at center, #ca963210 0%, transparent 70%),
-      linear-gradient(45deg, transparent 49%, #ca963210 50%, transparent 51%),
-      linear-gradient(-45deg, transparent 49%, #ca963210 50%, transparent 51%);
-    animation: particle-field 20s linear infinite;
-    pointer-events: none;
-    z-index: -1;
+  .icon:hover p {
+    transform: translateY(0);
+    text-shadow: 0 0 15px #ca9632;
   }
 
-  @keyframes quantum-resonance {
-    0% { transform: rotateZ(0deg) scale(1); }
-    50% { transform: rotateZ(5deg) scale(1.05); }
-    100% { transform: rotateZ(-5deg) scale(0.95); }
-  }
-
-  @keyframes neural-oscillation {
-    0% { transform: rotate(0deg) scale(1); }
-    25% { transform: rotate(90deg) scale(1.05); }
-    50% { transform: rotate(180deg) scale(1.1); }
-    75% { transform: rotate(270deg) scale(1.05); }
-    100% { transform: rotate(360deg) scale(1); }
-  }
-
-  @keyframes particle-field {
-    from { transform: translate(0,0) rotate(0deg); }
-    to { transform: translate(-50%,-50%) rotate(360deg); }
-  }
-
-  /* Holographic Distortion Effect */
-  svg {
-    position: absolute;
-    width: 0;
-    height: 0;
+  @keyframes quantum-pulse {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.05) rotate(2deg); }
   }
 }
-/* Quantum Orbital Container */
-.container {
-  position: relative;
-  display: grid;
-  place-items: center;
-  min-height: 100vh;
-  overflow: visible;
-  perspective: 1000px;
-}
-
-/* Holographic Core */
-.hologram-image {
-  position: relative;
-  z-index: 2;
-  width: 25vmin;
-  height: 25vmin;
-  filter: drop-shadow(0 0 15px #ca9632aa);
-  animation: quantum-levitate 4s ease-in-out infinite;
-}
-
-@keyframes quantum-levitate {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(3deg); }
-}
-
-/* Orbital System */
-.icon-container {
-  position: absolute;
-  width: 100vmin;
-  height: 100vmin;
-  animation: orbital-rotation 40s linear infinite;
-}
-
-.icon {
-  position: absolute;
-  width: 20vmin;
-  height: 20vmin;
-  display: grid;
-  place-items: center;
-  transform-style: preserve-3d;
-  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.icon i {
-  font-size: 6vmin;
-  color: #ca9632;
-  filter: drop-shadow(0 0 5px #ca9632);
-  transition: all 0.3s ease;
-}
-
-.icon p {
-  position: absolute;
-  bottom: -5vmin;
-  color: white;
-  font-size: 2.5vmin;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  white-space: nowrap;
-}
-
+</style>
 /* Quantum Positioning */
 #icon1 { transform: rotate(0deg) translate(45vmin) rotate(0deg); }
 #icon2 { transform: rotate(90deg) translate(45vmin) rotate(-90deg); }
@@ -5355,38 +5287,52 @@ window.addEventListener('resize', adjustOrbit);
 adjustOrbit();
 </script>
 <script>
-// Desktop-Exclusive Neural Interaction
+// OPTIMIZED DESKTOP INTERACTIONS
 if(window.innerWidth >= 769) {
-  const container = document.querySelector('.container');
-  const icons = document.querySelectorAll('.icon');
-  let mouseX = 0, mouseY = 0;
+  // Clean previous desktop scripts
+  const newScript = document.createElement('script');
+  newScript.innerHTML = `
+    document.addEventListener('DOMContentLoaded', () => {
+      const logo = document.querySelector('.hologram-image');
+      const icons = document.querySelectorAll('.icon');
 
-  // Neural Network Connection System
-  container.addEventListener('mousemove', (e) => {
-    mouseX = (e.clientX / window.innerWidth - 0.5) * 50;
-    mouseY = (e.clientY / window.innerHeight - 0.5) * 30;
-    
-    icons.forEach((icon, index) => {
-      const delay = index * 0.1;
-      icon.style.transform = `
-        rotate(${mouseX * 2}deg)
-        translate(${Math.sin(Date.now()/1000 + delay) * 10}px, 
-                  ${Math.cos(Date.now()/1000 + delay) * 10}px)
-      `;
-    });
-  });
+      // Magnetic hover effect
+      icons.forEach(icon => {
+        icon.addEventListener('mousemove', (e) => {
+          const rect = icon.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          icon.style.transform = \`
+            translateY(-1vmin)
+            scale(1.05)
+            rotateX(\${y * 8}deg)
+            rotateY(\${x * 8}deg)
+          \`;
+        });
 
-  // Quantum Entanglement Effect
-  icons.forEach(icon => {
-    icon.addEventListener('mouseenter', () => {
-      icon.style.transition = 'all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55)';
-      icon.style.transform += ' scale(1.8) translateZ(100px)';
+        icon.addEventListener('mouseleave', () => {
+          icon.style.transform = 'translateY(-1vmin) scale(1.05)';
+        });
+      });
+
+      // Logo interaction
+      logo.addEventListener('mousemove', (e) => {
+        const rect = logo.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        logo.style.transform = \`
+          scale(1.05)
+          rotateX(\${y * 4}deg)
+          rotateY(\${x * 4}deg)
+        \`;
+      });
+
+      logo.addEventListener('mouseleave', () => {
+        logo.style.transform = 'scale(1.05)';
+      });
     });
-    
-    icon.addEventListener('mouseleave', () => {
-      icon.style.transition = 'all 0.4s ease-out';
-    });
-  });
+  `;
+  document.body.appendChild(newScript);
 }
 </script>
  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
