@@ -24,7 +24,138 @@
 </head>
     <title>Musisi Elvis</title>
     <style>
+/* Core Scroll Containment */
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  touch-action: pan-y;
+  position: relative;
+  width: 100%;
+}
 
+body {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  background: linear-gradient(45deg, #270d00 0%, #1a0a00 50%, #270d00 100%);
+  color: white;
+}
+
+/* Quantum Scroll Lock (Prevents Horizontal Drag) */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  pointer-events: none;
+  box-shadow: inset 0 0 15px rgba(202, 150, 50, 0.3);
+}
+
+/* Holographic Interface Elements */
+.holographic-border {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  border: 2px solid rgba(202, 150, 50, 0.4);
+  box-shadow: 0 0 15px #ca9632,
+    inset 0 0 15px #ca9632;
+  animation: hologram-pulse 2.5s infinite;
+}
+
+@keyframes hologram-pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 0.3; }
+}
+
+/* Dynamic Orientation Sensor Grid */
+@media (max-width: 768px) {
+  body {
+    background-image: 
+      linear-gradient(rgba(202, 150, 50, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(202, 150, 50, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+/* Neural Feedback Scroll Assistant */
+.scroll-feedback {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ca963266;
+  backdrop-filter: blur(5px);
+  display: none;
+  place-items: center;
+  transition: transform 0.3s ease;
+}
+
+.scroll-feedback.active {
+  display: grid;
+  animation: neural-pulse 1s infinite;
+}
+
+@keyframes neural-pulse {
+  0% { box-shadow: 0 0 0 0 #ca963233; }
+  70% { box-shadow: 0 0 0 15px #ca963200; }
+  100% { box-shadow: 0 0 0 0 #ca963200; }
+}
+
+/* Quantum Accessibility Overlay */
+.accessibility-portal {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  padding: 12px;
+  background: #270d00dd;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  border: 1px solid #ca9632;
+}
+
+/* Responsive DNA Helix Loader (Shown during transitions) */
+.dna-loader {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 50px;
+  width: 40px;
+}
+
+.dna-strand {
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  background: #ca9632;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dna-node {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #270d00;
+  border: 2px solid #ca9632;
+  border-radius: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: dna-float 3s infinite;
+}
+
+@keyframes dna-float {
+  0%, 100% { top: 0; }
+  50% { top: 100%; }
+}
 .logo-container {
     margin-left: auto !important;
     margin-right: auto !important;
@@ -3701,7 +3832,18 @@ function startWordRotation() {
 <body>
 
 
-    
+    <div class="holographic-border" id="topBorder"></div>
+<div class="holographic-border" id="bottomBorder"></div>
+<div class="scroll-feedback" id="scrollFeedback">↑</div>
+
+<div class="accessibility-portal">
+  <button onclick="toggleMotion()" aria-label="Toggle Motion Effects">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="#ca9632">
+      <path d="M12 1..."/>
+    </svg>
+  </button>
+</div>
+
     
     <div class="background"></div>
     <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"> 
@@ -4898,6 +5040,69 @@ style.textContent = `
 }
 `;
 document.head.appendChild(style);
+</script>
+<script>
+// Quantum Scroll Lock System
+let lastScrollX = 0;
+window.addEventListener('scroll', () => {
+  if(window.scrollX !== 0) {
+    window.scrollTo(0, window.scrollY);
+  }
+  
+  // Scroll Feedback Animation
+  const feedback = document.getElementById('scrollFeedback');
+  const scrollDelta = window.scrollY - lastScrollX;
+  if(Math.abs(scrollDelta) > 50) {
+    feedback.classList.add('active');
+    feedback.style.transform = scrollDelta > 0 ? 'translateY(-20px)' : 'translateY(20px)';
+    setTimeout(() => feedback.classList.remove('active'), 1000);
+  }
+  lastScrollX = window.scrollY;
+});
+
+// Holographic Border Dynamics
+function updateBorders() {
+  const topBorder = document.getElementById('topBorder');
+  const bottomBorder = document.getElementById('bottomBorder');
+  const scrollPos = window.scrollY;
+  
+  topBorder.style.clipPath = `inset(0 0 ${100 - (scrollPos * 0.1)}% 0)`;
+  bottomBorder.style.clipPath = `inset(${100 - (scrollPos * 0.1)}% 0 0 0)`;
+}
+window.addEventListener('scroll', updateBorders);
+
+// Motion Reduction System
+function toggleMotion() {
+  document.body.classList.toggle('reduced-motion');
+  const dnaLoader = document.querySelector('.dna-loader');
+  dnaLoader.style.display = 'block';
+  setTimeout(() => dnaLoader.style.display = 'none', 1000);
+}
+
+// Quantum Sensor Integration
+if ('LinearAccelerationSensor' in window) {
+  const sensor = new LinearAccelerationSensor({frequency: 30});
+  sensor.addEventListener('reading', () => {
+    document.body.style.backgroundPosition = 
+      `${sensor.x * 10}px ${sensor.y * 10}px`;
+  });
+  sensor.start();
+}
+
+// DNA Loader Initialization
+function createDnaLoader() {
+  const loader = document.createElement('div');
+  loader.className = 'dna-loader';
+  for(let i = 0; i < 5; i++) {
+    const node = document.createElement('div');
+    node.className = 'dna-node';
+    node.style.top = `${i * 20}%`;
+    node.style.animationDelay = `${i * 0.2}s`;
+    loader.appendChild(node);
+  }
+  document.body.appendChild(loader);
+}
+createDnaLoader();
 </script>
  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="scripts/app.js"></script>
