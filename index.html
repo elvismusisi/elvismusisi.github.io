@@ -24,6 +24,106 @@
 </head>
     <title>Musisi Elvis</title>
     <style>
+
+/* DESKTOP-EXCLUSIVE QUANTUM FIELD (min-width: 769px) */
+@media (min-width: 769px) {
+  .container {
+    perspective: 2000px;
+    overflow: visible;
+  }
+
+  .hologram-image {
+    width: 35vmin;
+    height: 35vmin;
+    animation: quantum-resonance 6s infinite alternate;
+    filter: url(#hologram-distortion);
+  }
+
+  .icon-container {
+    width: 150vmin !important;
+    height: 150vmin !important;
+    animation: neural-oscillation 30s linear infinite !important;
+  }
+
+  .icon {
+    width: 15vmin !important;
+    height: 15vmin !important;
+    backdrop-filter: blur(5px);
+    background: rgba(39, 13, 0, 0.6);
+    border-radius: 50%;
+    transform-style: preserve-3d;
+  }
+
+  .icon i {
+    font-size: 4vmin;
+    color: #ca9632;
+    filter: drop-shadow(0 0 15px #ca9632);
+  }
+
+  .icon p {
+    font-size: 2vmin;
+    bottom: -4vmin;
+    transform: translateZ(50px);
+  }
+
+  /* Neural Connection Lines */
+  .icon::after {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ca9632, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .icon:hover::after {
+    opacity: 0.6;
+  }
+
+  /* Dynamic Particle Field */
+  .container::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: 
+      radial-gradient(circle at center, #ca963210 0%, transparent 70%),
+      linear-gradient(45deg, transparent 49%, #ca963210 50%, transparent 51%),
+      linear-gradient(-45deg, transparent 49%, #ca963210 50%, transparent 51%);
+    animation: particle-field 20s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  @keyframes quantum-resonance {
+    0% { transform: rotateZ(0deg) scale(1); }
+    50% { transform: rotateZ(5deg) scale(1.05); }
+    100% { transform: rotateZ(-5deg) scale(0.95); }
+  }
+
+  @keyframes neural-oscillation {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(90deg) scale(1.05); }
+    50% { transform: rotate(180deg) scale(1.1); }
+    75% { transform: rotate(270deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+
+  @keyframes particle-field {
+    from { transform: translate(0,0) rotate(0deg); }
+    to { transform: translate(-50%,-50%) rotate(360deg); }
+  }
+
+  /* Holographic Distortion Effect */
+  svg {
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+}
 /* Quantum Orbital Container */
 .container {
   position: relative;
@@ -3943,6 +4043,13 @@ function startWordRotation() {
   setInterval(rotateWords, 3000);
 }
 </script>
+    <svg aria-hidden="true">
+  <filter id="hologram-distortion">
+    <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" result="turbulence"/>
+    <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="15" xChannelSelector="R" yChannelSelector="G"/>
+    <feGaussianBlur stdDeviation="1.5"/>
+  </filter>
+</svg>
 <body>
 
 
@@ -5246,6 +5353,41 @@ function adjustOrbit() {
 
 window.addEventListener('resize', adjustOrbit);
 adjustOrbit();
+</script>
+<script>
+// Desktop-Exclusive Neural Interaction
+if(window.innerWidth >= 769) {
+  const container = document.querySelector('.container');
+  const icons = document.querySelectorAll('.icon');
+  let mouseX = 0, mouseY = 0;
+
+  // Neural Network Connection System
+  container.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / window.innerWidth - 0.5) * 50;
+    mouseY = (e.clientY / window.innerHeight - 0.5) * 30;
+    
+    icons.forEach((icon, index) => {
+      const delay = index * 0.1;
+      icon.style.transform = `
+        rotate(${mouseX * 2}deg)
+        translate(${Math.sin(Date.now()/1000 + delay) * 10}px, 
+                  ${Math.cos(Date.now()/1000 + delay) * 10}px)
+      `;
+    });
+  });
+
+  // Quantum Entanglement Effect
+  icons.forEach(icon => {
+    icon.addEventListener('mouseenter', () => {
+      icon.style.transition = 'all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55)';
+      icon.style.transform += ' scale(1.8) translateZ(100px)';
+    });
+    
+    icon.addEventListener('mouseleave', () => {
+      icon.style.transition = 'all 0.4s ease-out';
+    });
+  });
+}
 </script>
  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="scripts/app.js"></script>
