@@ -24,6 +24,121 @@
 </head>
     <title>Musisi Elvis</title>
     <style>
+/* Quantum Orbital Container */
+.container {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  overflow: visible;
+  perspective: 1000px;
+}
+
+/* Holographic Core */
+.hologram-image {
+  position: relative;
+  z-index: 2;
+  width: 25vmin;
+  height: 25vmin;
+  filter: drop-shadow(0 0 15px #ca9632aa);
+  animation: quantum-levitate 4s ease-in-out infinite;
+}
+
+@keyframes quantum-levitate {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(3deg); }
+}
+
+/* Orbital System */
+.icon-container {
+  position: absolute;
+  width: 100vmin;
+  height: 100vmin;
+  animation: orbital-rotation 40s linear infinite;
+}
+
+.icon {
+  position: absolute;
+  width: 20vmin;
+  height: 20vmin;
+  display: grid;
+  place-items: center;
+  transform-style: preserve-3d;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.icon i {
+  font-size: 6vmin;
+  color: #ca9632;
+  filter: drop-shadow(0 0 5px #ca9632);
+  transition: all 0.3s ease;
+}
+
+.icon p {
+  position: absolute;
+  bottom: -5vmin;
+  color: white;
+  font-size: 2.5vmin;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Quantum Positioning */
+#icon1 { transform: rotate(0deg) translate(45vmin) rotate(0deg); }
+#icon2 { transform: rotate(90deg) translate(45vmin) rotate(-90deg); }
+#icon3 { transform: rotate(180deg) translate(45vmin) rotate(-180deg); }
+#icon4 { transform: rotate(270deg) translate(45vmin) rotate(-270deg); }
+
+@keyframes orbital-rotation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive Quantum Collapse */
+@media (max-width: 768px) {
+  .icon-container {
+    width: 80vmin;
+    height: 80vmin;
+    animation-duration: 30s;
+  }
+  
+  #icon1 { transform: rotate(0deg) translate(35vmin) rotate(0deg); }
+  #icon2 { transform: rotate(90deg) translate(35vmin) rotate(-90deg); }
+  #icon3 { transform: rotate(180deg) translate(35vmin) rotate(-180deg); }
+  #icon4 { transform: rotate(270deg) translate(35vmin) rotate(-270deg); }
+  
+  .icon p {
+    font-size: 3vmin;
+    bottom: -6vmin;
+  }
+}
+
+/* Holographic Interaction */
+.icon:hover {
+  transform: scale(1.2) rotateY(180deg);
+  z-index: 3;
+}
+
+.icon:hover i {
+  color: white;
+  filter: drop-shadow(0 0 10px #ca9632);
+}
+
+.icon:hover p {
+  opacity: 1;
+  animation: text-glow 1.5s infinite;
+}
+
+@keyframes text-glow {
+  0%, 100% { text-shadow: 0 0 10px #ca9632; }
+  50% { text-shadow: 0 0 20px #ca9632; }
+}
+
+/* Quantum Entanglement Effect */
+.container:hover .icon-container {
+  animation-duration: 20s;
+}
 /* Core Scroll Containment */
 html {
   overflow-x: hidden;
@@ -3848,26 +3963,7 @@ function startWordRotation() {
     <img src="Files/Images/homepagestrip.jpg" alt="Image decoration"> 
      <div class="divider"></div>
 
-    <div class="container">
-        <div class="icon-container">
-        <div class="icon" id="icon1">
-            <i class="fas fa-laptop-code"></i>
-            <p>Web Design</p>
-        </div>
-        <div class="icon" id="icon2">
-            <i class="fas fa-paint-brush"></i>
-            <p>Graphic Design</p>
-        </div>
-        <div class="icon" id="icon3">
-            <i class="fas fa-film"></i>
-            <p>Animation</p>
-        </div>
-        <div class="icon" id="icon4">
-            <i class="fas fa-mobile-alt"></i>
-            <p>UI/UX Design</p>
-        </div>
-    </div>
-    </div>
+    
     
       <div class="content">
 <div class="hero-portal h-screen flex flex-col items-center justify-center bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#270d00] via-[#1a0a00] to-[#0f0400] text-white overflow-hidden relative isolate">
@@ -3883,10 +3979,30 @@ function startWordRotation() {
     <!-- Holographic Avatar -->
     <div class="hologram-container relative inline-block w-48 h-48 mb-12 cursor-grab active:cursor-grabbing">
       <div class="hologram-border absolute inset-0 rounded-full border-2 border-[#ca9632] opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
-      <img src="Files/Images/elvismusisi-logo.png" 
-           class="hologram-image w-full h-full object-contain rounded-full animate-holo-float
-                  [transform-style:preserve-3d] [perspective:1000px] hover:[transform:rotateY(15deg)_rotateX(10deg)] transition-transform duration-500"
-           alt="Elvis Musisi Logo">
+      <div class="container">
+  <img src="Files/Images/elvismusisi-logo.png" 
+       class="hologram-image"
+       alt="Elvis Musisi Logo">
+  <div class="icon-container">
+    <div class="icon" id="icon1">
+      <i class="fas fa-laptop-code"></i>
+      <p>Web Design</p>
+    </div>
+    <div class="icon" id="icon2">
+      <i class="fas fa-paint-brush"></i>
+      <p>Graphic Design</p>
+    </div>
+    <div class="icon" id="icon3">
+      <i class="fas fa-film"></i>
+      <p>Animation</p>
+    </div>
+    <div class="icon" id="icon4">
+      <i class="fas fa-mobile-alt"></i>
+      <p>UI/UX Design</p>
+    </div>
+  </div>
+</div>
+
       <div class="hologram-glare absolute inset-0 rounded-full opacity-30 mix-blend-screen"></div>
     </div>
 
@@ -5102,6 +5218,34 @@ function createDnaLoader() {
   document.body.appendChild(loader);
 }
 createDnaLoader();
+</script>
+<script>
+// Quantum Interaction System
+document.querySelectorAll('.icon').forEach(icon => {
+  icon.addEventListener('touchstart', () => {
+    icon.classList.add('hover');
+  });
+  
+  icon.addEventListener('touchend', () => {
+    setTimeout(() => icon.classList.remove('hover'), 500);
+  });
+});
+
+// Adaptive Orbital System
+function adjustOrbit() {
+  const container = document.querySelector('.container');
+  const icons = document.querySelectorAll('.icon');
+  const baseSize = Math.min(window.innerWidth, window.innerHeight) * 0.8;
+  
+  container.style.height = `${baseSize}px`;
+  icons.forEach(icon => {
+    icon.style.width = `${baseSize * 0.2}px`;
+    icon.style.height = `${baseSize * 0.2}px`;
+  });
+}
+
+window.addEventListener('resize', adjustOrbit);
+adjustOrbit();
 </script>
  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="scripts/app.js"></script>
