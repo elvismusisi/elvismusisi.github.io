@@ -22,6 +22,91 @@
 
     <link rel="stylesheet" href="styles.css">
       <style>
+/* Quantum Containment System */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  touch-action: pan-y;
+  scroll-behavior: smooth;
+}
+
+/* Adaptive Viewport Lock */
+body {
+  position: relative;
+  overflow: hidden;
+  background: #270d00;
+}
+
+/* Photonic Grid Alignment */
+.portfolio-grid {
+  display: grid;
+  gap: 2vmin;
+  padding: 2vmin;
+  position: relative;
+  z-index: 1;
+}
+
+/* Dynamic Focus Field */
+.focus-field {
+  position: fixed;
+  width: 150vw;
+  height: 150vh;
+  background: radial-gradient(circle at center, 
+    rgba(202, 150, 50, 0.1) 0%,
+    rgba(39, 13, 0, 0) 60%);
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+/* Neural Scroll Progress */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #ca9632;
+  z-index: 10000;
+  box-shadow: 0 0 10px #ca9632;
+  transform-origin: left;
+}
+
+/* Image Enhancement System */
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  transform: translateZ(0);
+}
+
+.portfolio-item img {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.03);
+}
+
+/* Quantum Responsive Touch */
+@media (pointer: coarse) {
+  .portfolio-item img {
+    transform: scale(1.02);
+  }
+  
+  .portfolio-item:active img {
+    transform: scale(0.98);
+  }
+}
+
+/* Photonic Interaction Feedback */
+@media (hover: hover) {
+  body:hover .focus-field {
+    opacity: 1;
+  }
+}
 .header-container {
   text-align: center;
   margin-bottom: 40px;
@@ -3761,7 +3846,68 @@ dislikeButton.addEventListener("click", () => {
   }, { passive: false });
 </script>
 
+<script>
+// Photonic Focus Tracker
+document.addEventListener('DOMContentLoaded', () => {
+  const focusField = document.createElement('div');
+  focusField.className = 'focus-field';
+  document.body.prepend(focusField);
+  
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress';
+  document.body.prepend(progressBar);
 
+  // Dynamic Focus Movement
+  document.addEventListener('mousemove', (e) => {
+    focusField.style.transform = `
+      translate(
+        ${e.clientX - 75}vw,
+        ${e.clientY - 75}vh
+      )
+    `;
+  });
+
+  // Quantum Scroll Lock
+  let lastTouchX = 0;
+  document.addEventListener('touchstart', (e) => {
+    lastTouchX = e.touches[0].clientX;
+  }, {passive: true});
+
+  document.addEventListener('touchmove', (e) => {
+    const deltaX = e.touches[0].clientX - lastTouchX;
+    if (Math.abs(deltaX) > 10) e.preventDefault();
+  }, {passive: false});
+
+  // Neural Scroll Progress
+  window.addEventListener('scroll', () => {
+    const progress = window.scrollY / 
+      (document.documentElement.scrollHeight - window.innerHeight);
+    progressBar.style.transform = `scaleX(${progress})`;
+    
+    // Horizontal Scroll Correction
+    if(window.scrollX !== 0) window.scrollTo(0, window.scrollY);
+  });
+
+  // Photonic Image Stabilizer
+  const images = document.querySelectorAll('.portfolio-item img');
+  images.forEach(img => {
+    img.addEventListener('load', () => {
+      img.style.transform = 'none';
+    });
+  });
+});
+
+// Quantum Zoom Interface
+let lastTap = 0;
+document.addEventListener('touchend', (e) => {
+  const now = Date.now();
+  if (now - lastTap < 300) {
+    const img = e.target.closest('.portfolio-item');
+    if(img) img.classList.toggle('quantum-zoom');
+  }
+  lastTap = now;
+});
+</script>
 
 
 
