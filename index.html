@@ -25,6 +25,21 @@
     <title>Musisi Elvis</title>
     <style>
 
+.container::before,
+.container::after {
+  pointer-events: auto; 
+  content: none; 
+}
+
+
+@media screen and (min-width: 1025px) {
+  .container::before,
+  .container::after {
+    pointer-events: none; 
+    content: ""; 
+    
+  }
+}
 @media screen and (min-width: 1024px) {
   .hologram-container {
     min-height: 100vh;
