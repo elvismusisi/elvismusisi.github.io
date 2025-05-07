@@ -24,14 +24,11 @@
 </head>
     <title>Musisi Elvis</title>
     <style>
-#enterBtn,
-#backToTopBtn {
-    pointer-events: auto;
-    position: relative;
-    z-index: 9999;
-    opacity: 1;
-    visibility: visible;
-}
+@media screen and (min-width: 1024px) {
+  .container::before,
+  .container::after {
+    pointer-events: none;
+  }
 @media screen and (min-width: 1024px) {
   .hologram-container {
     min-height: 100vh;
