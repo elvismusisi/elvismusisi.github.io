@@ -135,11 +135,39 @@
     bottom: -2.5rem;
   }
 
-  /* Minimalist Animations */
-  @keyframes hologramFloat {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(2deg); }
+@keyframes hologramGrid {
+  0%, 100% {
+    transform: 
+      translate(calc(var(--x) * 1px), calc(var(--y) * 1px))
+      scale(1);
+    opacity: 0.9;
   }
+  25% {
+    transform: 
+      translate(calc(var(--x) * -0.5px), calc(var(--y) * 1.5px))
+      scale(1.1);
+    opacity: 1;
+  }
+  50% {
+    transform: 
+      translate(calc(var(--x) * -1px), calc(var(--y) * -0.5px))
+      scale(0.9);
+    opacity: 0.8;
+  }
+  75% {
+    transform: 
+      translate(calc(var(--x) * 1.5px), calc(var(--y) * -1px))
+      scale(1.05);
+    opacity: 0.95;
+  }
+}
+
+.icon {
+  animation: hologramGrid 8s infinite ease-in-out;
+  --x: 0;
+  --y: 0;
+  will-change: transform, opacity;
+}
 
   @keyframes hologramPulse {
     0%, 100% { opacity: 0.6; transform: scale(1); }
