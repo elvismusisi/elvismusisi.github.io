@@ -3925,7 +3925,77 @@ document.addEventListener('touchend', (e) => {
 });
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const portfolioSection = document.getElementById('portfolio');
+    const carousel = document.getElementById('imageSlider');
+    const lockSwitch = document.getElementById('lockSwitch');
+    
+    if (!portfolioSection || !carousel) return;
 
+    let cycleCompleted = false;
+    let wasCycling = false;
+    let autoInterval;
+    let manualCycleInterval;
+
+    // Store original lock state functionality
+    const originalLockHandler = lockSwitch.onchange;
+    
+    // Setup Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !cycleCompleted) {
+                startAutoCycle();
+            }
+        });
+    }, { threshold: 0.7 }); // Trigger when 70% visible
+
+    observer.observe(portfolioSection);
+
+    function startAutoCycle() {
+        cycleCompleted = true;
+        wasCycling = !lockSwitch.checked;
+        
+        // Pause existing animations
+        $(carousel).carousel('pause');
+        lockSwitch.checked = true;
+        
+        // Disable manual lock switching during auto-cycle
+        lockSwitch.onchange = null;
+        lockSwitch.disabled = true;
+        
+        const items = carousel.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+        let currentIndex = Array.from(items).findIndex(item => item.classList.contains('active'));
+        let stepsRemaining = totalItems - 1; 
+        
+        
+        manualCycleInterval = setInterval(() => {
+            if (stepsRemaining <= 0) {
+                finishAutoCycle();
+                return;
+            }
+            
+            $(carousel).carousel('next');
+            stepsRemaining--;
+        }, 800);
+    }
+
+    function finishAutoCycle() {
+        clearInterval(manualCycleInterval);
+        
+        // Restore original lock state
+        lockSwitch.disabled = false;
+        lockSwitch.checked = !wasCycling;
+        lockSwitch.onchange = originalLockHandler;
+        
+        // Restart animations if originally unlocked
+        if (wasCycling) {
+            $(carousel).carousel('cycle');
+        }
+    }
+});
+</script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
